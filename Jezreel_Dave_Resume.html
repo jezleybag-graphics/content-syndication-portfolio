@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jezreel Dave Leybag - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f4f5;
+            margin: 0;
+            padding: 40px 20px;
+            color: #1f2937;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            background: white;
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 15mm 15mm;
+            box-sizing: border-box;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .header-left h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827;
+            letter-spacing: 0.5px;
+        }
+
+        .header-left h2 {
+            margin: 8px 0 12px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            font-size: 13.5px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .contact-info span {
+            margin-right: 15px;
+            display: inline-block;
+        }
+
+        .header-right {
+            margin-left: 20px;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        /* SECTIONS */
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111827;
+            text-transform: uppercase;
+            border-bottom: 1px solid #d1d5db;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        /* SUMMARY */
+        .summary {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #374151;
+            text-align: justify;
+        }
+
+        /* COMPETENCIES */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .skill-item {
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: #374151;
+        }
+
+        .skill-item strong {
+            color: #111827;
+        }
+
+        /* EXPERIENCE */
+        .job {
+            margin-bottom: 18px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .job-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .job-date {
+            font-size: 13px;
+            font-style: italic;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .job-company {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 8px;
+        }
+
+        .job-bullets {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 13.5px;
+            line-height: 1.55;
+            color: #374151;
+        }
+
+        .job-bullets li {
+            margin-bottom: 5px;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+                padding: 10mm;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <h1>JEZREEL DAVE LEYBAG</h1>
+                <h2>Marketing Coordinator & AI Content Specialist</h2>
+                <div class="contact-info">
+                    <span>📧 jezreelleybag.graphics@gmail.com</span>
+                    <span>📱 +63 939-399-1289 (WhatsApp)</span><br>
+                    <span>📍 Philippines (Available for US EST Overlap)</span>
+                    <span>🔗 morphocafeandstudio.com</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <img src="./2X2_LEYBAG_JEZREEL DAVE.jpg" alt="Jezreel Dave Leybag" class="profile-img">
+            </div>
+        </div>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <div class="section">
+            <div class="section-title">Professional Summary</div>
+            <div class="summary">
+                Highly organized digital marketer, content creator, and F&B business owner with a deep understanding of hospitality marketing. Expert in turning raw footage and events into polished, authentic short-form videos (CapCut) and graphics (Canva). A Google-Certified AI Specialist who leverages ChatGPT/Claude to streamline content repurposing, email marketing, and SEO. Proven ability to take ownership of marketing calendars, meet strict deadlines, and drive local community engagement.
+            </div>
+        </div>
+
+        <!-- CORE COMPETENCIES -->
+        <div class="section">
+            <div class="section-title">Core Competencies</div>
+            <div class="skills-grid">
+                <div class="skill-item"><strong>Content & Social Media:</strong> Short-form Video Editing (CapCut/Reels), Graphic Design (Canva), Brand Asset Management, Copywriting, Content Repurposing.</div>
+                <div class="skill-item"><strong>Digital Marketing & AI:</strong> Email Campaigns (Klaviyo), SEO & Google Business Profile, Local Community Outreach, AI Workflow Integration (ChatGPT, Claude).</div>
+                <div class="skill-item"><strong>Systems & Analytics:</strong> Project Management (Asana), Content Scheduling (Zoho Social), KPI Tracking, Marketing Calendar Management.</div>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="section">
+            <div class="section-title">Experience & Key Projects</div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Co-Owner & Local Marketing Lead</div>
+                    <div class="job-date">2024 – Present</div>
+                </div>
+                <div class="job-company">Morpho Cafe and Studio (F&B / Hospitality)</div>
+                <ul class="job-bullets">
+                    <li><strong>Content & Social Media:</strong> Manage the end-to-end marketing calendar, producing authentic photos, videos, and Canva graphics to build a highly engaged local community.</li>
+                    <li><strong>Community & Local SEO:</strong> Drive neighborhood outreach, manage local partnerships, and optimize the Google Business Profile, resulting in a 30% increase in digital footprint and delivery volume.</li>
+                    <li><strong>Marketing Automation:</strong> Utilize AI tools (ChatGPT/Claude) to brainstorm campaigns, write engaging captions, and streamline marketing workflows while maintaining brand voice.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Freelance Video Editor & Content Creator</div>
+                    <div class="job-date">2023 – Present</div>
+                </div>
+                <div class="job-company">Independent Clients (Canada, UAE, Italy)</div>
+                <ul class="job-bullets">
+                    <li><strong>Short-form Video Editing:</strong> Edited dynamic Reels and event recaps using CapCut, removing filler words, adding branded captions, B-roll, and music to maintain natural, engaging pacing.</li>
+                    <li><strong>Graphic Design:</strong> Created high-converting, branded graphics and product composites in Canva for international brands including AHA Sparkling Water and Ruffles.</li>
+                    <li><strong>Project Management:</strong> Operated independently via Asana/Google Drive to meet strict production deadlines, coordinate assets, and communicate proactively across different time zones.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">AI Implementation Specialist (Content & SEO)</div>
+                    <div class="job-date">2023 – 2024</div>
+                </div>
+                <div class="job-company">Independent Digital Projects</div>
+                <ul class="job-bullets">
+                    <li><strong>Content Repurposing:</strong> Turned strategic priorities into execution, repurposing core topics across blogs, social media, and email channels using advanced prompt engineering.</li>
+                    <li><strong>Performance Tracking:</strong> Maintained KPI dashboards to document campaign results, analyzing audience engagement to test new messaging formats.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <div class="section">
+            <div class="section-title">Certifications</div>
+            <ul class="job-bullets" style="padding-left: 15px; margin-bottom: 0;">
+                <li><strong>Gemini Certification for University Students</strong> – Google (86% Assessment Score)</li>
+                <li><strong>Generative AI for Educators</strong> – Google Edu</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

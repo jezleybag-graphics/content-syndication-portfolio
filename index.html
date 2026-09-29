@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Funnel Content Syndication & Distribution Engine — Jezreel Dave Leybag</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --primary-light: #e0f2fe;
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-600: #475569;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            --emerald-600: #059669;
+            --emerald-50: #ecfdf5;
+            --amber-600: #d97706;
+            --amber-50: #fffbeb;
+            --purple-600: #7c3aed;
+            --purple-50: #f5f3ff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--slate-50);
+            color: var(--slate-800);
+            line-height: 1.6;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* HEADER & HERO */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 40px 0;
+            margin-bottom: 36px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 11.5px;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: 800;
+            color: var(--slate-900);
+            line-height: 1.22;
+            margin-bottom: 14px;
+            letter-spacing: -0.6px;
+        }
+
+        .subtitle {
+            font-size: 17px;
+            color: var(--slate-600);
+            max-width: 860px;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .meta-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px 24px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+            font-size: 13.5px;
+            color: var(--slate-600);
+        }
+
+        .meta-strip strong {
+            color: var(--slate-900);
+        }
+
+        /* SECTION HEADINGS */
+        .section-header {
+            margin: 44px 0 20px;
+        }
+
+        .section-header h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--slate-900);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .section-header p {
+            font-size: 14.5px;
+            color: var(--slate-600);
+            margin-top: 4px;
+        }
+
+        /* CARDS */
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 22px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .card-title {
+            font-size: 16.5px;
+            font-weight: 700;
+            color: var(--slate-900);
+        }
+
+        .card-tag {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: 3px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        /* WORKFLOW DIAGRAM */
+        .workflow-diagram {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .workflow-step {
+            background: var(--slate-50);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            position: relative;
+        }
+
+        .workflow-step.core {
+            border: 2px solid var(--primary);
+            background: #f0f9ff;
+        }
+
+        .workflow-step.seo {
+            border: 2px solid var(--emerald-600);
+            background: #ecfdf5;
+        }
+
+        .step-num {
+            font-size: 10.5px;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .step-name {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            font-size: 11.5px;
+            color: var(--slate-600);
+            line-height: 1.45;
+        }
+
+        /* PROTOCOL BOXES */
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .protocol-box {
+            background: var(--slate-50);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 12.5px;
+        }
+
+        .protocol-step-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        /* LIVE SPECIMEN TABS */
+        .asset-box {
+            background: var(--slate-50);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+
+        .asset-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .post-preview {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--slate-800);
+            white-space: pre-line;
+        }
+
+        .post-preview .hook {
+            font-weight: 700;
+            color: var(--slate-900);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* CAROUSEL SLIDES PREVIEW */
+        .carousel-track {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+        }
+
+        .carousel-slide {
+            flex: 0 0 160px;
+            height: 200px;
+            background: var(--slate-900);
+            color: white;
+            border-radius: 8px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 11px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .slide-num {
+            font-size: 10px;
+            font-weight: 700;
+            color: #38bdf8;
+        }
+
+        .slide-headline {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .slide-body {
+            font-size: 10px;
+            color: #cbd5e1;
+            line-height: 1.35;
+        }
+
+        /* INTERACTIVE SIMULATOR CARD */
+        .sim-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 880px) {
+            .sim-grid {
+                grid-template-columns: 5fr 6fr;
+            }
+        }
+
+        .sim-slider-group {
+            margin-bottom: 16px;
+        }
+
+        .sim-slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .sim-slider-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--slate-700);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .sim-slider-val {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        input[type=range] {
+            width: 100%;
+            height: 6px;
+            background: var(--slate-200);
+            border-radius: 4px;
+            outline: none;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .kpi-card {
+            background: var(--slate-50);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px;
+            text-align: left;
+        }
+
+        .kpi-num {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--slate-900);
+            line-height: 1.1;
+            margin-top: 4px;
+        }
+
+        .kpi-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--slate-600);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .kpi-sub {
+            font-size: 10.5px;
+            color: var(--slate-500);
+            margin-top: 4px;
+        }
+
+        /* CHECKLIST */
+        .qc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+        }
+
+        .qc-item {
+            background: var(--slate-50);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 11px 14px;
+            font-size: 12.5px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.45;
+        }
+
+        .qc-check {
+            color: var(--emerald-600);
+            font-weight: 800;
+            font-size: 14px;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+
+        /* MASTER CALENDAR TABLE */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: var(--slate-100);
+            color: var(--slate-700);
+            font-weight: 700;
+            padding: 10px 12px;
+            border-bottom: 2px solid var(--border);
+            font-size: 11.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--slate-700);
+        }
+
+        .badge-status {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10.5px;
+            font-weight: 700;
+        }
+
+        .status-scheduled {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-qc {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-published {
+            background: var(--emerald-50);
+            color: var(--emerald-600);
+        }
+
+        /* FOOTER CTA */
+        .footer-cta {
+            background: var(--slate-900);
+            color: white;
+            border-radius: 12px;
+            padding: 36px 24px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .footer-cta h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.4px;
+        }
+
+        .footer-cta p {
+            color: #94a3b8;
+            font-size: 14.5px;
+            max-width: 680px;
+            margin: 0 auto 22px;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 11px 26px;
+            border-radius: 6px;
+            font-size: 13.5px;
+            transition: background 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* PRINT OPTIMIZATIONS FOR IMMACULATE PDF */
+        @media print {
+            @page {
+                margin: 12mm 14mm;
+                size: letter portrait;
+            }
+            body {
+                background: white !important;
+                color: #0f172a !important;
+                font-size: 11px !important;
+                line-height: 1.5 !important;
+            }
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            header {
+                padding: 10px 0 16px !important;
+                margin-bottom: 16px !important;
+                border-bottom: 2px solid var(--primary-light) !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            h1 {
+                font-size: 26px !important;
+                margin-bottom: 8px !important;
+            }
+            .subtitle {
+                font-size: 13.5px !important;
+                margin-bottom: 14px !important;
+                max-width: 100% !important;
+            }
+            .meta-strip {
+                padding-top: 12px !important;
+                font-size: 11.5px !important;
+                gap: 12px 18px !important;
+            }
+            .section-header {
+                margin: 24px 0 10px !important;
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+            .section-header h2 {
+                font-size: 18px !important;
+            }
+            .section-header p {
+                font-size: 12px !important;
+            }
+            .card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                margin-bottom: 14px !important;
+                padding: 16px !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            .workflow-diagram {
+                grid-template-columns: repeat(5, 1fr) !important;
+                gap: 8px !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            .workflow-step {
+                padding: 10px 8px !important;
+            }
+            .step-name {
+                font-size: 11.5px !important;
+            }
+            .step-desc {
+                font-size: 10px !important;
+            }
+            .protocol-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 8px !important;
+            }
+            .protocol-box {
+                padding: 12px 10px !important;
+                font-size: 11px !important;
+            }
+            /* Wrap carousel slides into a neat 7-slide grid instead of cut scrollbar */
+            .carousel-track {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 8px !important;
+                overflow: visible !important;
+                padding-bottom: 0 !important;
+            }
+            .carousel-slide {
+                flex: none !important;
+                height: 140px !important;
+                padding: 10px !important;
+            }
+            .slide-headline {
+                font-size: 11px !important;
+            }
+            .slide-body {
+                font-size: 9.5px !important;
+            }
+            .kpi-num {
+                font-size: 20px !important;
+            }
+            .qc-list {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+            }
+            .qc-item {
+                padding: 8px 10px !important;
+                font-size: 11px !important;
+            }
+            table {
+                font-size: 10.5px !important;
+            }
+            th, td {
+                padding: 7px 9px !important;
+            }
+            .footer-cta {
+                padding: 20px !important;
+                margin-top: 18px !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            .footer-cta h3 {
+                font-size: 18px !important;
+            }
+            .footer-cta p {
+                font-size: 12px !important;
+                margin-bottom: 14px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="padding-top: 0; padding-bottom: 0;">
+            <div class="hero-badge">HubSpot-Grounded • Full-Funnel Content Syndication</div>
+            <h1>Full-Funnel Content Syndication & High-Velocity Distribution Engine</h1>
+            <p class="subtitle">
+                A live demonstration of turning core authority pillars (founder keynotes, pillar research & YouTube videos) into 200+ monthly multi-channel publishing assets. Grounded in HubSpot Content Syndication principles: 100% technical canonical integrity (<code style="font-family: 'JetBrains Mono'; font-size: 14px; color: var(--primary-dark);">rel="canonical"</code>), embeddable visual syndication, zero creative friction, and closed-loop MQL attribution.
+            </p>
+            <div class="meta-strip">
+                <div><strong>Operator:</strong> Jezreel Dave Leybag</div>
+                <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jezreel-dave-leybag-a01528152/" target="_blank" style="color: var(--primary); font-weight: 700; text-decoration: none;">linkedin.com/in/jezreel-dave-leybag</a></div>
+                <div><strong>Focus:</strong> B2B & Personal Growth Thought Leadership Syndication</div>
+                <div><strong>Core Stack:</strong> Notion • Asana • Metricool • Buffer • Canva • Premiere • CapCut • HubSpot CRM / UTM</div>
+                <div><strong>Availability:</strong> Full-Time (US EST / CST / SAST Ready)</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="padding-top: 0;">
+
+        <!-- PHILOSOPHY: PROCESS OVER PERSONALITY -->
+        <div class="card" style="border-left: 4px solid var(--primary);">
+            <div class="card-header" style="border-bottom: none; padding-bottom: 0; margin-bottom: 6px;">
+                <div class="card-title">The Philosophy: Process Over Personality</div>
+                <div class="card-tag">Distribution Machine</div>
+            </div>
+            <p style="font-size: 13.5px; color: var(--slate-700); line-height: 1.6;">
+                "Great creative content is useless if the distribution engine breaks. I am not an aspiring influencer or creator looking for personal fame. My role is to operate as the quiet, disciplined execution engine behind the founder and Marketing Leadership—ensuring every script, podcast, and article is safely syndicated across web publications, repurposed into high-dwell social derivatives, and tracked to closed-won revenue without missing a single beat."
+            </p>
+        </div>
+
+        <!-- SECTION 1: THE 3-TIER SYNDICATION ECOSYSTEM -->
+        <div class="section-header">
+            <h2>1. The 3-Tier Content Syndication Ecosystem (HubSpot Framework)</h2>
+            <p>How core content is scaled across high-authority web publications, embeddable visual assets, and social channels.</p>
+        </div>
+
+        <div class="workflow-diagram">
+            <div class="workflow-step core">
+                <div class="step-num">Core Pillar</div>
+                <div class="step-name">Original Anchor Asset</div>
+                <div class="step-desc">8-12 min video, keynote or pillar blog post on host domain</div>
+            </div>
+            <div class="workflow-step seo">
+                <div class="step-num">Tier 1: Web Syndicate</div>
+                <div class="step-name">Canonical Web Republishing</div>
+                <div class="step-desc">Medium, LinkedIn Pulse, Substack, Business2Community with <code style="font-size:10px;">rel="canonical"</code></div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-num">Tier 2: Visual Syndicate</div>
+                <div class="step-name">Embeddable Visual Kits</div>
+                <div class="step-desc">7-slide Canva carousels & infographics for partner backlink embeds</div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-num">Tier 3: Social Velocity</div>
+                <div class="step-name">High-Dwell Social Cuts</div>
+                <div class="step-desc">LinkedIn long-form, 9:16 vertical shorts, and viral X/Twitter threads</div>
+            </div>
+            <div class="workflow-step">
+                <div class="step-num">Tier 4: Automated Feeds</div>
+                <div class="step-name">RSS & Feed Aggregation</div>
+                <div class="step-desc">Automated sitemap syndication to Flipboard, Google News & aggregators</div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: TECHNICAL SEO & CANONICAL PROTECTION PROTOCOL -->
+        <div class="section-header">
+            <h2>2. Technical SEO & Canonical Protection Protocol</h2>
+            <p>The 4-stage engineering safeguard to ensure syndication drives high domain authority without duplicate content penalties.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Google-Compliant Syndication Workflow</div>
+                <div class="card-tag" style="background: var(--emerald-50); color: var(--emerald-600);">SEO Protected</div>
+            </div>
+
+            <div class="protocol-grid">
+                <div class="protocol-box">
+                    <span class="protocol-step-badge" style="background: #e0f2fe; color: #0369a1;">PHASE 01: ORIGIN LOCK</span>
+                    <strong style="display: block; color: var(--slate-900); margin-bottom: 4px;">Host Domain Publishing</strong>
+                    Article is published first on the client's root domain with full Schema markup (<code style="font-size: 10px;">Article</code>, <code style="font-size: 10px;">author</code>, <code style="font-size: 10px;">datePublished</code>).
+                </div>
+                <div class="protocol-box">
+                    <span class="protocol-step-badge" style="background: #fef3c7; color: #92400e;">PHASE 02: QUARANTINE</span>
+                    <strong style="display: block; color: var(--slate-900); margin-bottom: 4px;">14-Day Indexation Hold</strong>
+                    Syndication is strictly held for 14-21 days until Google Search Console confirms Googlebot has indexed and attributed original authority to the client URL.
+                </div>
+                <div class="protocol-box">
+                    <span class="protocol-step-badge" style="background: #ecfdf5; color: #059669;">PHASE 03: CANONICAL TAG</span>
+                    <strong style="display: block; color: var(--slate-900); margin-bottom: 4px;">Cross-Domain Canonical</strong>
+                    Republished copies on Medium, partner blogs, or Substack inject the client URL into the <code style="font-size: 10px;">rel="canonical"</code> tag, directing all PageRank to root.
+                </div>
+                <div class="protocol-box">
+                    <span class="protocol-step-badge" style="background: #f3e8ff; color: #7e22ce;">PHASE 04: ATTRIBUTION</span>
+                    <strong style="display: block; color: var(--slate-900); margin-bottom: 4px;">Editorial Attribution</strong>
+                    Clear editorial statement at top/bottom: <em>"This article was originally published on [Brand]. Republished with permission."</em> with a direct do-follow backlink.
+                </div>
+            </div>
+
+            <div style="background: var(--slate-900); color: #e2e8f0; border-radius: 8px; padding: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; line-height: 1.5;">
+                <span style="color: #94a3b8;">// Canonical tag injected on Medium, LinkedIn Articles, and syndication partners:</span><br>
+                &lt;<span style="color: #38bdf8;">link</span> <span style="color: #fbbf24;">rel</span>=<span style="color: #34d399;">"canonical"</span> <span style="color: #fbbf24;">href</span>=<span style="color: #34d399;">"https://clientdomain.com/insights/the-frictionless-operator"</span> /&gt;<br>
+                <span style="color: #94a3b8;">// Fallback for partner CMS lacking cross-domain canonical support:</span><br>
+                &lt;<span style="color: #38bdf8;">meta</span> <span style="color: #fbbf24;">name</span>=<span style="color: #34d399;">"robots"</span> <span style="color: #fbbf24;">content</span>=<span style="color: #34d399;">"noindex, follow"</span> /&gt;
+            </div>
+
+            <div style="margin-top: 14px; background: var(--emerald-50); border: 1px solid #a7f3d0; border-radius: 8px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                <div>
+                    <div style="font-size: 11px; font-weight: 800; color: var(--emerald-600); text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;">
+                        <span style="display: inline-block; width: 8px; height: 8px; background: #10b981; border-radius: 999px;"></span>
+                        Live SEO Verification Specimen
+                    </div>
+                    <div style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-top: 2px;">
+                        Published Canonical Syndication on Medium
+                    </div>
+                    <div style="font-size: 12px; color: var(--slate-600); margin-top: 2px;">
+                        Inspect Page Source (<code style="font-family: 'JetBrains Mono'; font-size: 11px; color: var(--slate-800);">Ctrl + U</code>) to verify the active <code style="font-family: 'JetBrains Mono'; font-size: 11px; color: var(--primary-dark);">rel="canonical"</code> tag pointing to root.
+                    </div>
+                </div>
+                <a href="https://medium.com/@jezreelleybag.graphics/the-frictionless-operator-how-high-performers-eliminate-decision-fatigue-2feada7f7678" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #059669; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+                    Inspect Live Medium Story ↗
+                </a>
+            </div>
+        </div>
+
+        <!-- SECTION 3: INTERACTIVE SYNDICATION ROI & REACH CALCULATOR -->
+        <div class="section-header">
+            <h2>3. Interactive Syndication Reach & ROI Simulator</h2>
+            <p>Adjust the parameters below to project monthly asset velocity, audience impressions, backlink equity, and inbound MQL pipeline.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Live Pipeline Projection Model (HubSpot Metrics Grounding)</div>
+                <div class="card-tag">Interactive Simulation</div>
+            </div>
+
+            <div class="sim-grid">
+                <!-- CONTROLS -->
+                <div>
+                    <div class="sim-slider-group">
+                        <div class="sim-slider-header">
+                            <span class="sim-slider-label">Monthly Core Anchor Assets</span>
+                            <span id="pCoreVal" class="sim-slider-val">4 Assets</span>
+                        </div>
+                        <input type="range" id="pCore" min="1" max="10" step="1" value="4" oninput="runSim()">
+                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 2px;">
+                            <span>1 Pillar</span><span>4 (Recommended)</span><span>10 Pillars</span>
+                        </div>
+                    </div>
+
+                    <div class="sim-slider-group">
+                        <div class="sim-slider-header">
+                            <span class="sim-slider-label">Derivative Velocity per Anchor</span>
+                            <span id="pRepurVal" class="sim-slider-val">12 Derivatives</span>
+                        </div>
+                        <input type="range" id="pRepur" min="5" max="25" step="1" value="12" oninput="runSim()">
+                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 2px;">
+                            <span>5x (Basic)</span><span>12x (High Velocity)</span><span>25x (Omnichannel)</span>
+                        </div>
+                    </div>
+
+                    <div class="sim-slider-group">
+                        <div class="sim-slider-header">
+                            <span class="sim-slider-label">Lead Magnet Conversion Rate</span>
+                            <span id="pConvVal" class="sim-slider-val">1.8%</span>
+                        </div>
+                        <input type="range" id="pConv" min="0.5" max="4.0" step="0.1" value="1.8" oninput="runSim()">
+                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 2px;">
+                            <span>0.5% (Conservative)</span><span>1.8% (Benchmark)</span><span>4.0% (High-Intent)</span>
+                        </div>
+                    </div>
+
+                    <div class="sim-slider-group" style="margin-bottom: 0;">
+                        <div class="sim-slider-header">
+                            <span class="sim-slider-label">Target Value per Inbound Lead</span>
+                            <span id="pMqlVal" class="sim-slider-val">$150</span>
+                        </div>
+                        <input type="range" id="pMql" min="25" max="800" step="25" value="150" oninput="runSim()">
+                    </div>
+                </div>
+
+                <!-- KPI OUTPUTS -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-label">Monthly Published Assets</div>
+                        <div class="kpi-num" id="kpiAssets" style="color: var(--primary);">204</div>
+                        <div class="kpi-sub">Across 5+ platforms & tiers</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-label">Est. Monthly Reach</div>
+                        <div class="kpi-num" id="kpiReach">156,000</div>
+                        <div class="kpi-sub">Cross-channel dwell impressions</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-label">SEO Backlinks Gained</div>
+                        <div class="kpi-num" id="kpiBacklinks" style="color: var(--purple-600);">26 / mo</div>
+                        <div class="kpi-sub">Canonical safe & dofollow embeds</div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-label">Projected Inbound MQLs</div>
+                        <div class="kpi-num" id="kpiMqls" style="color: var(--emerald-600);">78 Leads</div>
+                        <div class="kpi-sub">Captured via Notion SOP hooks</div>
+                    </div>
+
+                    <div class="kpi-card" style="grid-column: span 2;">
+                        <div class="kpi-label">Projected Pipeline / Content Value</div>
+                        <div class="kpi-num" id="kpiPipeline" style="color: var(--emerald-600); font-size: 26px;">$11,700 / mo</div>
+                        <div class="kpi-sub">Replaces ~$4,200/mo in paid native ad syndication (Taboola/Outbrain CPC equiv.)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: LIVE CASE SPECIMEN -->
+        <div class="section-header">
+            <h2>4. Live Case Specimen: Personal Growth & High-Performance</h2>
+            <p>Subject: <em>"The Frictionless Operator: How High Performers Eliminate Decision Fatigue"</em></p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Live Case Specimen: Personal Growth & High-Performance</div>
+                    <div style="font-size: 12px; color: var(--slate-600); margin-top: 2px;">Subject: <em>"The Frictionless Operator: How High Performers Eliminate Decision Fatigue"</em></div>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <a href="https://lnkd.in/p/esS5HJg" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #0284c7; color: white; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 11.5px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+                        🟢 View Live on LinkedIn ↗
+                    </a>
+                    <a href="https://medium.com/@jezreelleybag.graphics/the-frictionless-operator-how-high-performers-eliminate-decision-fatigue-2feada7f7678" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #059669; color: white; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 11.5px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+                        🟢 View Live on Medium ↗
+                    </a>
+                </div>
+            </div>
+            <div class="asset-box" style="margin-top: 0; font-style: italic; font-size: 13px;">
+                "Most people think burnout comes from working too hard. It doesn't. Burnout comes from cognitive drag—holding 40 micro-decisions in your head before 10 AM. If you want to scale your output without collapsing, you don't need more time. You need standard operating procedures for your life: pre-deciding your morning, batching communication, and eliminating open mental loops..."
+            </div>
+
+            <!-- DERIVATIVE 1: LINKEDIN ARTICLE -->
+            <div style="margin-top: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+                    <div class="asset-label" style="margin-bottom: 0;">Derivative #1: LinkedIn Long-Form Post (Engineered for Dwell-Time & Above-The-Fold Hook)</div>
+                    <a href="https://lnkd.in/p/esS5HJg" target="_blank" style="font-size: 11.5px; font-weight: 700; color: var(--primary); text-decoration: none;">
+                        Open Live Post on LinkedIn ↗
+                    </a>
+                </div>
+                <div class="post-preview">
+<span class="hook">Burnout isn't caused by working 12 hours a day.
+
+It's caused by making 40 micro-decisions before 10 AM.</span>
+Here is what elite performers do differently to eliminate cognitive drag:
+
+Most founders obsess over time management. But time is flat—you get 24 hours whether you are exhausted or energized. What you actually need to manage is cognitive load.
+
+Here is the 3-step Frictionless Operator Framework:
+
+1. Pre-Decide the First 90 Minutes
+Never start your workday asking "What should I work on today?" That decision should have been made at 5 PM yesterday. The first 90 minutes are for deep execution only.
+
+2. Eliminate Open Mental Loops
+An uncompleted task or an unread email doesn't just sit in your inbox; it rents space in your working memory. If a task takes under 2 minutes, kill it. If it takes longer, schedule it into a calendar block.
+
+3. Standard Operating Procedures (SOPs) for Everyday Tasks
+Don't reinvent the wheel every Monday. When a repeatable task is documented, your brain operates on autopilot, preserving creative energy for high-leverage strategic decisions.
+
+Which of these 3 bottlenecks is currently eating your productive energy? Let me know in the comments below.
+
+(P.S. I put together a 1-page Notion checklist to audit your daily friction points. Grab the template link in the first comment.)
+                </div>
+            </div>
+
+            <!-- DERIVATIVE 2: CANVA CAROUSEL DECK PREVIEW -->
+            <div style="margin-top: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+                    <div class="asset-label" style="margin-bottom: 0;">Derivative #2: 7-Slide Canva Carousel Deck (1080x1350 4:5 Aspect Ratio — Embeddable Visual Kit)</div>
+                    <a href="https://lnkd.in/p/esS5HJg" target="_blank" style="font-size: 11.5px; font-weight: 700; color: var(--primary); text-decoration: none;">
+                        Swipe Live Carousel on LinkedIn ↗
+                    </a>
+                </div>
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <div class="slide-num">SLIDE 01 / HOOK</div>
+                        <div class="slide-headline">The 3 Friction Traps Killing Your Output</div>
+                        <div class="slide-body">How elite operators eliminate cognitive drag in 15 minutes. ➔</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-num">SLIDE 02 / PROBLEM</div>
+                        <div class="slide-headline">Trap 1: Morning Decision Spiral</div>
+                        <div class="slide-body">Asking "What next?" drains 30% of executive focus before noon.</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-num">SLIDE 03 / SOLUTION</div>
+                        <div class="slide-headline">The 5 PM Shutdown Ritual</div>
+                        <div class="slide-body">Pre-commit your top 3 needle-moving priorities the evening before.</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-num">SLIDE 04 / PROBLEM</div>
+                        <div class="slide-headline">Trap 2: Open Mental Tabs</div>
+                        <div class="slide-body">Leaving tasks partially finished causes constant subconscious leaks.</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-num">SLIDE 05 / SOLUTION</div>
+                        <div class="slide-headline">The 2-Min Rule + Calendar Vault</div>
+                        <div class="slide-body">Kill it immediately or calendar block it. Never let a task sit in limbo.</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-num">SLIDE 06 / FRAMEWORK</div>
+                        <div class="slide-headline">Trap 3: Reinventing Routines</div>
+                        <div class="slide-body">Turn repeatable tasks into 3-step checklists. Preserve executive fuel.</div>
+                    </div>
+                    <div class="carousel-slide" style="background: var(--primary-dark);">
+                        <div class="slide-num" style="color: white;">SLIDE 07 / RECAP</div>
+                        <div class="slide-headline">Eliminate Friction Today</div>
+                        <div class="slide-body">Save this post. Grab the Notion Audit Checklist in the comments.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DERIVATIVE 3: SHORT-FORM VIDEO SCRIPT & STORYBOARD -->
+            <div style="margin-top: 24px;">
+                <div class="asset-label">Derivative #3: 45-Second Reel / YouTube Short Script (Aspect Ratio: 9:16 Vertical)</div>
+                <div class="post-preview" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; background: var(--slate-900); color: #e2e8f0;">
+[0:00 - 0:03] HOOK (Visual: Fast cut to founder facing camera. Text on screen: "STOP MANAGING TIME.")
+AUDIO: "If you're exhausted by 2 PM, you don't have a time management problem. You have a cognitive leak."
+
+[0:03 - 0:12] PACING CUT (Visual: B-roll of open browser with 50 tabs + pop-up notification graphic)
+AUDIO: "Every unanswered Slack, every unfiled document, and every task you haven't scheduled rents free space in your brain."
+
+[0:12 - 0:26] THE SOLUTION (Visual: Clean split-screen demonstrating the 5 PM shutdown checklist)
+AUDIO: "Here's the fix: before you close your laptop today, pre-decide tomorrow's first 90 minutes. When you sit down in the morning, do not open email. Execute that single task first."
+
+[0:26 - 0:38] THE RESULT (Visual: Green checkmark animation + high-contrast text: "PRESERVE DECISION POWER")
+AUDIO: "Preserve your decision-making battery for what actually grows the business. The rest is just noise."
+
+[0:38 - 0:45] CTA (Visual: Pointing to comment box graphic + follow button animation)
+AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily Friction Audit."
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: PARTNER DISCOVERY & CLOSED-LOOP ATTRIBUTION -->
+        <div class="section-header">
+            <h2>5. Partner Prospecting, UTM Attribution & CRM Routing</h2>
+            <p>How syndication partners are sourced and every click is attributed to pipeline revenue in HubSpot.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Footprint Prospecting & Closed-Loop Tracking</div>
+                <div class="card-tag">Lead Engine</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                <div>
+                    <h4 style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 8px;">
+                        🔍 Advanced Partner Prospecting Operators:
+                    </h4>
+                    <p style="font-size: 12.5px; color: var(--slate-600); margin-bottom: 8px;">
+                        Used to locate authoritative publications that naturally accept syndicated articles:
+                    </p>
+                    <ul style="list-style: none; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--primary-dark); space-y: 6px;">
+                        <li style="background: var(--slate-50); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--border); margin-bottom: 4px;">
+                            "personal growth" + inurl:blog + "originally published on"
+                        </li>
+                        <li style="background: var(--slate-50); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--border); margin-bottom: 4px;">
+                            "high performance" + "republished with permission"
+                        </li>
+                        <li style="background: var(--slate-50); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--border);">
+                            inurl:category/guest-post + "founder"
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 8px;">
+                        🏷️ Standardized UTM Tracking Matrix:
+                    </h4>
+                    <p style="font-size: 12.5px; color: var(--slate-600); margin-bottom: 8px;">
+                        Applied to all CTAs for closed-loop attribution into Google Analytics 4 & HubSpot CRM:
+                    </p>
+                    <div style="background: var(--slate-900); color: #e2e8f0; padding: 10px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; line-height: 1.5; word-break: break-all;">
+                        https://client.com/friction-audit?<br>
+                        <span style="color: #38bdf8;">utm_source</span>=medium_syndication&<br>
+                        <span style="color: #fbbf24;">utm_medium</span>=editorial_canonical&<br>
+                        <span style="color: #34d399;">utm_campaign</span>=burnout_q4&<br>
+                        <span style="color: #f472b6;">utm_content</span>=notion_audit_cta
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: DISTRIBUTION OPERATIONS & MASTER CALENDAR -->
+        <div class="section-header">
+            <h2>6. Distribution Operations & Master Content Calendar</h2>
+            <p>How 200+ monthly assets across web publications and social channels are tracked, scheduled, and verified.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Live Pipeline Matrix (Notion / Asana Architecture)</div>
+                <div class="card-tag">Operational Control</div>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date / Slot</th>
+                            <th>Core Asset</th>
+                            <th>Destination</th>
+                            <th>Format & Specs</th>
+                            <th>Status</th>
+                            <th>QC & Canonical</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mon, Oct 5 • 8:00 AM EST</td>
+                            <td>Episode #42: Burnout Myths</td>
+                            <td>LinkedIn Feed</td>
+                            <td><a href="https://lnkd.in/p/esS5HJg" target="_blank" style="color: var(--primary); font-weight: 700; text-decoration: none;">Structured Long-Form + Carousel ↗</a></td>
+                            <td><span class="badge-status status-published">Published (Live)</span></td>
+                            <td><a href="https://lnkd.in/p/esS5HJg" target="_blank" style="color: var(--emerald-600); font-weight: 700; text-decoration: none;">✓ View Live Post ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>Mon, Oct 5 • 11:30 AM EST</td>
+                            <td>Episode #42: 3 Traps</td>
+                            <td>Instagram / TikTok</td>
+                            <td>9:16 Video Reel (42s, burned-in captions)</td>
+                            <td><span class="badge-status status-published">Published</span></td>
+                            <td>✓ Passed (100%)</td>
+                        </tr>
+                        <tr>
+                            <td>Tue, Oct 6 • 9:00 AM EST</td>
+                            <td>Framework: The Friction Audit</td>
+                            <td>LinkedIn / IG</td>
+                            <td><a href="https://lnkd.in/p/esS5HJg" target="_blank" style="color: var(--primary); font-weight: 700; text-decoration: none;">7-Slide Document Carousel (PDF) ↗</a></td>
+                            <td><span class="badge-status status-published">Published (Live)</span></td>
+                            <td><a href="https://lnkd.in/p/esS5HJg" target="_blank" style="color: var(--emerald-600); font-weight: 700; text-decoration: none;">✓ Swipe Live Carousel ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>Tue, Oct 6 • 2:00 PM EST</td>
+                            <td>Key Takeaways Thread</td>
+                            <td>X (Twitter)</td>
+                            <td>6-Post Thread + YouTube Backlink CTA</td>
+                            <td><span class="badge-status status-scheduled">Scheduled (Metricool)</span></td>
+                            <td>✓ Passed (100%)</td>
+                        </tr>
+                        <tr>
+                            <td>Wed, Oct 7 • 10:00 AM EST</td>
+                            <td>Episode #42: Full Article</td>
+                            <td>Medium / Publication</td>
+                            <td><a href="https://medium.com/@jezreelleybag.graphics/the-frictionless-operator-how-high-performers-eliminate-decision-fatigue-2feada7f7678" target="_blank" style="color: var(--slate-700); font-weight: 600; text-decoration: none;">Canonical Web Syndicate + Attribution ↗</a></td>
+                            <td><span class="badge-status status-published">Published (Live)</span></td>
+                            <td><a href="https://medium.com/@jezreelleybag.graphics/the-frictionless-operator-how-high-performers-eliminate-decision-fatigue-2feada7f7678" target="_blank" style="color: var(--emerald-600); font-weight: 700; text-decoration: none;">✓ Canonical Verified (Live) ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>Thu, Oct 8 • 11:00 AM EST</td>
+                            <td>Episode #43: High-Leverage Habits</td>
+                            <td>YouTube / Shorts</td>
+                            <td>16:9 Long-Form + 3x 9:16 Shorts</td>
+                            <td><span class="badge-status status-qc">In Final QC</span></td>
+                            <td>Pending Aspect Check</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 7: THE 16-POINT TECHNICAL & SYNDICATION QC PROTOCOL -->
+        <div class="section-header">
+            <h2>7. The 16-Point Technical & Syndication Quality Control (QC) Protocol</h2>
+            <p>The operational and SEO checklist applied to every single piece of content before it goes public.</p>
+        </div>
+
+        <div class="card">
+            <ul class="qc-list">
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>Aspect Ratio Rigor:</strong> 9:16 for Reels/Shorts/TikTok; 4:5 or 1:1 for LinkedIn/IG feeds; 16:9 for YouTube.</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>UI Safe Margins:</strong> 9:16 text kept away from bottom captions and right-side interactive icons (likes/shares).</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>Above-The-Fold Hook Check:</strong> First 2-3 lines formatted to hook reader before the "...see more" truncation click.</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>External Link Hygiene:</strong> LinkedIn external links placed in first comment or featured section to protect algorithm reach.</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>Brand Typography & Colors:</strong> Strict adherence to brand kit hex codes, font weights, and spacing in Canva.</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>Audio Sync & Caption Timing:</strong> 100% accurate subtitle timing without text clipping or overlapping words.</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>Tagging & Mention Accuracy:</strong> Verified spelling of all featured collaborator handles across respective platforms.</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>Hashtag Taxonomy:</strong> 3-5 curated, high-relevance hashtags rather than generic or algorithmic spam blocks.</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>Carousel Pagination:</strong> Numbered slides (e.g. 01/07) with directional arrows guiding continuous swipes.</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>CTA Alignment:</strong> Clear single call-to-action per post (Comment, Save, Share, or Click) avoiding message confusion.</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>Asset Tagging & Archival:</strong> All final exported files renamed using standard syntax and archived in Notion/Drive.</div>
+                </li>
+                <li class="qc-item">
+                    <span class="qc-check">✓</span>
+                    <div><strong>Time-Zone Sync:</strong> Scheduled to target audience peak activity windows (US Eastern & Central business hours).</div>
+                </li>
+                <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
+                    <span class="qc-check" style="color: #0284c7;">✓</span>
+                    <div><strong>Canonical URL Verification:</strong> External syndication URLs verify active <code style="font-size: 11px;">rel="canonical"</code> pointing to root origin.</div>
+                </li>
+                <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
+                    <span class="qc-check" style="color: #0284c7;">✓</span>
+                    <div><strong>14-Day Indexation Clearance:</strong> Confirmed original post is indexed in Google Cache before external syndication release.</div>
+                </li>
+                <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
+                    <span class="qc-check" style="color: #0284c7;">✓</span>
+                    <div><strong>Editorial Attribution Signature:</strong> Standardized disclaimer and do-follow link placed in republished article body.</div>
+                </li>
+                <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
+                    <span class="qc-check" style="color: #0284c7;">✓</span>
+                    <div><strong>UTM Parameter Audit:</strong> Verified source, medium, and campaign tokens test successfully in Google Analytics 4.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- FOOTER CTA -->
+        <div class="footer-cta">
+            <h3>Ready to Power Your Content Distribution Engine</h3>
+            <p>100% dedicated to operational excellence, zero creative friction, and the relentless discipline required to syndicate high-volume personal growth and B2B thought leadership content.</p>
+            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                <a href="mailto:jezreelleybag.graphics@gmail.com" class="cta-btn">Email: jezreelleybag.graphics@gmail.com</a>
+                <a href="https://www.linkedin.com/in/jezreel-dave-leybag-a01528152/" target="_blank" class="cta-btn" style="background: #0369a1;">LinkedIn Profile ↗</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVE CALCULATOR -->
+    <script>
+        function runSim() {
+            var core = parseInt(document.getElementById('pCore').value);
+            var repur = parseInt(document.getElementById('pRepur').value);
+            var conv = parseFloat(document.getElementById('pConv').value) / 100;
+            var mqlVal = parseFloat(document.getElementById('pMql').value);
+
+            document.getElementById('pCoreVal').innerText = core + (core === 1 ? ' Asset' : ' Assets');
+            document.getElementById('pRepurVal').innerText = repur + ' Derivatives';
+            document.getElementById('pConvVal').innerText = (conv * 100).toFixed(1) + '%';
+            document.getElementById('pMqlVal').innerText = '$' + mqlVal;
+
+            var totalAssets = Math.round(core * (repur + 4.25));
+            document.getElementById('kpiAssets').innerText = totalAssets;
+
+            var reach = Math.round((core * repur * 820) + (core * 4 * 2600));
+            document.getElementById('kpiReach').innerText = reach.toLocaleString();
+
+            var backlinks = Math.round(core * 6.5);
+            document.getElementById('kpiBacklinks').innerText = backlinks + ' / mo';
+
+            var qualifiedClicks = reach * 0.028;
+            var mqls = Math.max(1, Math.round(qualifiedClicks * conv));
+            document.getElementById('kpiMqls').innerText = mqls + ' Leads';
+
+            var pipeline = Math.round(mqls * mqlVal);
+            document.getElementById('kpiPipeline').innerText = '$' + pipeline.toLocaleString() + ' / mo';
+        }
+
+        window.onload = function() {
+            runSim();
+        };
+    </script>
+
+</body>
+</html>

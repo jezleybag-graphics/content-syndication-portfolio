@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Frictionless Operator — LinkedIn Carousel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        @page {
+            size: 1080px 1350px;
+            margin: 0;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background: #0f172a;
+            color: #ffffff;
+            -webkit-print-color-adjust: exact;
+        }
+        .slide {
+            width: 1080px;
+            height: 1350px;
+            padding: 90px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            page-break-after: always;
+            break-after: page;
+            background: #0f172a;
+        }
+        .slide-light {
+            background: #f8fafc;
+            color: #0f172a;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .slide-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            text-transform: uppercase;
+        }
+        .author-tag {
+            font-size: 19px;
+            font-weight: 700;
+            color: #94a3b8;
+        }
+        .center-content {
+            margin: auto 0;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            font-size: 22px;
+            font-weight: 800;
+            padding: 8px 24px;
+            border-radius: 999px;
+            margin-bottom: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .main-headline {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+        .sub-text {
+            font-size: 30px;
+            color: #cbd5e1;
+            line-height: 1.45;
+            max-width: 880px;
+        }
+        .box-highlight {
+            background: #1e293b;
+            border: 2px solid #334155;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 32px;
+        }
+        .box-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+        .box-desc {
+            font-size: 26px;
+            color: #e2e8f0;
+            line-height: 1.45;
+        }
+        .bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid #334155;
+            padding-top: 36px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #64748b;
+        }
+        .swipe-prompt {
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1: HOOK -->
+    <div class="slide">
+        <div class="top-bar">
+            <span class="slide-tag">SYSTEMS • HIGH PERFORMANCE</span>
+            <span class="author-tag">JEZREEL DAVE LEYBAG</span>
+        </div>
+        <div class="center-content">
+            <span class="badge">DECISION FATIGUE BLUEPRINT</span>
+            <h1 class="main-headline">The 3 Friction Traps Killing Your Daily Output</h1>
+            <p class="sub-text">
+                Burnout isn't caused by working 12 hours a day.<br>
+                It's caused by making 40 micro-decisions before 10 AM.
+            </p>
+            <div class="box-highlight" style="border-left: 8px solid #38bdf8;">
+                <div class="box-title">The Frictionless Operator Framework</div>
+                <div class="box-desc">How elite founders and operators eliminate cognitive drag in 15 minutes.</div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <span>SLIDE 01 / 07</span>
+            <span class="swipe-prompt">SWIPE NEXT ➔</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: TRAP 1 -->
+    <div class="slide">
+        <div class="top-bar">
+            <span class="slide-tag" style="color: #f87171;">BOTTLENECK 01</span>
+            <span class="author-tag">JEZREEL DAVE LEYBAG</span>
+        </div>
+        <div class="center-content">
+            <span class="badge" style="background: rgba(248, 113, 113, 0.15); color: #f87171;">THE PROBLEM</span>
+            <h2 class="main-headline">The Morning Decision Spiral</h2>
+            <p class="sub-text">
+                Sitting at your desk at 9 AM asking: <em>"What should I work on today?"</em> drains up to <strong>30% of your executive focus</strong> before noon.
+            </p>
+            <div class="box-highlight">
+                <div class="box-title" style="color: #f87171;">Why it destroys focus:</div>
+                <div class="box-desc">Your willpower battery is full in the morning. Burning it on prioritizing your task list leaves zero creative stamina for actual execution.</div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <span>SLIDE 02 / 07</span>
+            <span class="swipe-prompt">SWIPE NEXT ➔</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: SOLUTION 1 -->
+    <div class="slide">
+        <div class="top-bar">
+            <span class="slide-tag" style="color: #34d399;">THE PROTOCOL</span>
+            <span class="author-tag">JEZREEL DAVE LEYBAG</span>
+        </div>
+        <div class="center-content">
+            <span class="badge" style="background: rgba(52, 211, 153, 0.15); color: #34d399;">THE FIX</span>
+            <h2 class="main-headline">The 5 PM Shutdown Ritual</h2>
+            <p class="sub-text">
+                Tomorrow's first 90 minutes must be pre-decided at 5 PM yesterday.
+            </p>
+            <div class="box-highlight" style="border-left: 8px solid #34d399;">
+                <div class="box-title" style="color: #34d399;">The 3-Step Shutdown Checklist:</div>
+                <div class="box-desc">
+                    1. Commit to your #1 needle-moving priority.<br>
+                    2. Clear tabs to zero.<br>
+                    3. Close laptop. Morning starts directly with execution.
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <span>SLIDE 03 / 07</span>
+            <span class="swipe-prompt">SWIPE NEXT ➔</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: TRAP 2 -->
+    <div class="slide">
+        <div class="top-bar">
+            <span class="slide-tag" style="color: #f87171;">BOTTLENECK 02</span>
+            <span class="author-tag">JEZREEL DAVE LEYBAG</span>
+        </div>
+        <div class="center-content">
+            <span class="badge" style="background: rgba(248, 113, 113, 0.15); color: #f87171;">THE PROBLEM</span>
+            <h2 class="main-headline">Open Mental Loops</h2>
+            <p class="sub-text">
+                An unread email, unfiled Slack, or half-finished task doesn't just sit in your inbox.
+            </p>
+            <div class="box-highlight">
+                <div class="box-title" style="color: #f87171;">The Cognitive Leaks:</div>
+                <div class="box-desc">Unresolved loops rent permanent background space in your working memory, creating constant subconscious mental drag throughout your day.</div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <span>SLIDE 04 / 07</span>
+            <span class="swipe-prompt">SWIPE NEXT ➔</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: SOLUTION 2 -->
+    <div class="slide">
+        <div class="top-bar">
+            <span class="slide-tag" style="color: #34d399;">THE PROTOCOL</span>
+            <span class="author-tag">JEZREEL DAVE LEYBAG</span>
+        </div>
+        <div class="center-content">
+            <span class="badge" style="background: rgba(52, 211, 153, 0.15); color: #34d399;">THE FIX</span>
+            <h2 class="main-headline">The 2-Minute Rule + Calendar Vault</h2>
+            <p class="sub-text">
+                Never allow a task to linger in mental limbo.
+            </p>
+            <div class="box-highlight" style="border-left: 8px solid #34d399;">
+                <div class="box-title" style="color: #34d399;">The Elimination Rule:</div>
+                <div class="box-desc">
+                    • <strong>Takes under 2 minutes?</strong> Execute and kill it immediately.<br><br>
+                    • <strong>Takes longer than 2 minutes?</strong> Lock it into a specific calendar block tomorrow.
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <span>SLIDE 05 / 07</span>
+            <span class="swipe-prompt">SWIPE NEXT ➔</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: TRAP 3 & FRAMEWORK -->
+    <div class="slide">
+        <div class="top-bar">
+            <span class="slide-tag" style="color: #38bdf8;">BOTTLENECK 03</span>
+            <span class="author-tag">JEZREEL DAVE LEYBAG</span>
+        </div>
+        <div class="center-content">
+            <span class="badge">SYSTEMIZATION</span>
+            <h2 class="main-headline">Reinventing Routine Tasks</h2>
+            <p class="sub-text">
+                Don't reinvent the wheel every Monday. When a repeatable task is documented into an SOP, your brain operates on autopilot.
+            </p>
+            <div class="box-highlight">
+                <div class="box-title">Preserve Creative Power</div>
+                <div class="box-desc">Document every weekly task into a 3-step checklist. Save your creative energy for strategic breakthroughs that drive real revenue.</div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <span>SLIDE 06 / 07</span>
+            <span class="swipe-prompt">SWIPE NEXT ➔</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: RECAP & CTA -->
+    <div class="slide" style="background: #0284c7;">
+        <div class="top-bar">
+            <span class="slide-tag" style="color: #ffffff;">SUMMARY & DOWNLOAD</span>
+            <span class="author-tag" style="color: #e0f2fe;">JEZREEL DAVE LEYBAG</span>
+        </div>
+        <div class="center-content">
+            <span class="badge" style="background: rgba(255, 255, 255, 0.2); color: #ffffff;">OPERATOR CHECKLIST</span>
+            <h2 class="main-headline" style="color: #ffffff;">Eliminate Friction in Your Workday</h2>
+            <p class="sub-text" style="color: #f0f9ff;">
+                I turned this entire framework into a 1-page Notion Audit Checklist that you can duplicate for free.
+            </p>
+            <div class="box-highlight" style="background: rgba(15, 23, 42, 0.4); border: 2px solid rgba(255,255,255,0.2);">
+                <div class="box-title" style="color: #38bdf8;">Grab the Template:</div>
+                <div class="box-desc" style="color: #ffffff;">
+                    👉 Check the <strong>first comment</strong> below to access the free Notion SOP.<br>
+                    📌 <strong>Save this post</strong> for your weekly planning review.
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar" style="border-top-color: rgba(255,255,255,0.3); color: #e0f2fe;">
+            <span>SLIDE 07 / 07</span>
+            <span style="color: #ffffff;">JEZREEL DAVE LEYBAG • OPERATIONS</span>
+        </div>
+    </div>
+
+</body>
+</html>
