@@ -182,6 +182,29 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .nav-inner {
+                padding: 10px 14px;
+            }
+            .nav-brand span {
+                font-size: 13.5px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 135px;
+            }
+            .nav-cta {
+                padding: 6px 12px;
+                font-size: 11.5px;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            .hero-actions .btn-primary, .hero-actions .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         .nav-links a {
             text-decoration: none;
             color: var(--slate-600);
@@ -492,9 +515,19 @@
         .transform-list li {
             display: flex;
             align-items: flex-start;
-            gap: 8px;
-            margin-bottom: 8px;
-            line-height: 1.45;
+            gap: 10px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .transform-icon {
+            flex-shrink: 0;
+            margin-top: 1px;
+            font-size: 13px;
+        }
+
+        .transform-text {
+            flex: 1;
         }
 
         .transform-box.before .transform-list li {
@@ -1083,10 +1116,10 @@
                         Without Syndication Engine (Ad-Hoc Reposting)
                     </div>
                     <ul class="transform-list">
-                        <li><span>❌</span> <strong>SEO Cannibalization:</strong> Duplicate content indexed by Google, outranking root domain.</li>
-                        <li><span>❌</span> <strong>Founder Burnout:</strong> 15+ hours spent manually formatting social posts and video snippets.</li>
-                        <li><span>❌</span> <strong>Paid Ad Drain:</strong> ~$4,200/mo spent on native PPC (Taboola/Outbrain) with zero organic backlink equity.</li>
-                        <li><span>❌</span> <strong>Vanity Metrics:</strong> Zero UTM tracking or CRM attribution; unknown pipeline impact.</li>
+                        <li><span class="transform-icon">❌</span> <div class="transform-text"><strong>SEO Cannibalization:</strong> Duplicate content indexed by Google, outranking root domain.</div></li>
+                        <li><span class="transform-icon">❌</span> <div class="transform-text"><strong>Founder Burnout:</strong> 15+ hours spent manually formatting social posts and video snippets.</div></li>
+                        <li><span class="transform-icon">❌</span> <div class="transform-text"><strong>Paid Ad Drain:</strong> ~$4,200/mo spent on native PPC (Taboola/Outbrain) with zero organic backlink equity.</div></li>
+                        <li><span class="transform-icon">❌</span> <div class="transform-text"><strong>Vanity Metrics:</strong> Zero UTM tracking or CRM attribution; unknown pipeline impact.</div></li>
                     </ul>
                 </div>
                 <div class="transform-box after">
@@ -1095,10 +1128,10 @@
                         With Jezreel's Syndication Engine (Automated Machine)
                     </div>
                     <ul class="transform-list">
-                        <li><span>✓</span> <strong>100% SEO Safety:</strong> Strict 14-day indexing quarantine and verified <code style="font-family:'JetBrains Mono'; font-size:11px;">rel="canonical"</code> tags.</li>
-                        <li><span>✓</span> <strong>Zero Founder Friction:</strong> 1 single 8-min anchor generates 200+ multi-platform publishing assets.</li>
-                        <li><span>✓</span> <strong>Compounded Backlink Equity:</strong> 26+ monthly high-authority backlinks gained via embeddable visual kits.</li>
-                        <li><span>✓</span> <strong>Closed-Loop MQLs:</strong> Direct lead magnet handoffs tracked into HubSpot CRM via UTM tokens.</li>
+                        <li><span class="transform-icon">✓</span> <div class="transform-text"><strong>100% SEO Safety:</strong> Strict 14–21&nbsp;day indexing quarantine and verified <code style="font-family:'JetBrains Mono'; font-size:11px;">rel="canonical"</code> tags.</div></li>
+                        <li><span class="transform-icon">✓</span> <div class="transform-text"><strong>Zero Founder Friction:</strong> 1 single 8-min anchor generates 200+ multi-platform publishing assets.</div></li>
+                        <li><span class="transform-icon">✓</span> <div class="transform-text"><strong>Compounded Backlink Equity:</strong> 26+ monthly high-authority backlinks gained via embeddable visual kits.</div></li>
+                        <li><span class="transform-icon">✓</span> <div class="transform-text"><strong>Closed-Loop MQLs:</strong> Direct lead magnet handoffs tracked into HubSpot CRM via UTM tokens.</div></li>
                     </ul>
                 </div>
             </div>
@@ -1114,7 +1147,7 @@
                 </div>
             </div>
             <p style="font-size: 14px; color: var(--slate-700); line-height: 1.65;">
-                "Great creative content is useless if the distribution engine breaks. I am not an aspiring influencer or creator looking for personal fame. My role is to operate as the quiet, disciplined execution engine behind the founder and Marketing Leadership—ensuring every script, podcast, and article is safely syndicated across web publications, repurposed into high-dwell social derivatives, and tracked to closed-won revenue without missing a single beat."
+                “Great creative content is useless if the distribution engine breaks. I am not an aspiring influencer or creator looking for personal fame. My role is to operate as the quiet, disciplined execution engine behind the founder and Marketing Leadership—ensuring every script, podcast, and article is safely syndicated across web publications, repurposed into high-dwell social derivatives, and tracked to closed-won revenue without missing a single beat.”
             </p>
         </div>
 
@@ -1644,7 +1677,7 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
                 </li>
                 <li class="qc-item">
                     <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                    <div><strong>Above-The-Fold Hook Check:</strong> First 2-3 lines formatted to hook reader before the “…see more” truncation click.</div>
+                    <div><strong>Above-The-Fold Hook Check:</strong> First 2–3&nbsp;lines formatted to hook reader before the “…see more” truncation click.</div>
                 </li>
                 <li class="qc-item">
                     <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
