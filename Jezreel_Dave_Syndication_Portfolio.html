@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jezreel Dave Leybag — Content Syndication & High-Velocity Distribution Engine</title>
-    <meta name="description" content="Operations-first Content Syndication Portfolio. Transforming core authority pillars into 200+ monthly multi-channel assets with 100% technical canonical integrity (rel='canonical') and closed-loop MQL attribution.">
+    <meta name="description" content="Operations-first Content Syndication Portfolio. Transforming core authority pillars into 200+&nbsp;monthly multi-channel assets with 100% technical canonical integrity (rel='canonical') and closed-loop MQL attribution.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -54,8 +54,66 @@
             overflow-x: hidden;
         }
 
-        /* ACCESSIBILITY & FOCUS STYLES (UI/UX PRO MAX SPEC) */
+        /* ACCESSIBILITY & FOCUS STYLES (VERCEL WEB INTERFACE GUIDELINES) */
         :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -999px;
+            left: 16px;
+            z-index: 1000;
+            background: var(--slate-900);
+            color: #ffffff;
+            padding: 10px 18px;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            box-shadow: var(--shadow-elevated);
+            transition: top 0.15s ease;
+        }
+
+        .skip-link:focus, .skip-link:focus-visible {
+            top: 16px;
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* ANCHOR SCROLL PADDING (PREVENTS STICKY HEADER OVERLAP) */
+        section[id], .section-header, [id] {
+            scroll-margin-top: 84px;
+        }
+
+        /* TYPOGRAPHY REFINEMENTS (PREVENTS WIDOWS & NUMBER JITTER) */
+        h1, h2, h3, h4, .section-header h2, .card-title {
+            text-wrap: balance;
+        }
+
+        .kpi-num, .sim-slider-val, table td, table th, .meta-strip, .stat-badge, .step-num, .slide-num {
+            font-variant-numeric: tabular-nums;
+        }
+
+        input[type=range]:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
+        }
+
+        .tab-btn:focus-visible, .copy-btn:focus-visible, .btn-primary:focus-visible, .btn-secondary:focus-visible, .nav-cta:focus-visible, .nav-links a:focus-visible {
             outline: 2px solid var(--primary);
             outline-offset: 2px;
         }
@@ -73,7 +131,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .nav-inner {
@@ -148,7 +206,7 @@
             font-size: 12.5px;
             font-weight: 700;
             text-decoration: none;
-            transition: background 0.15s ease, transform 0.15s ease;
+            transition: background-color 0.15s ease, transform 0.15s ease;
             box-shadow: 0 2px 4px var(--primary-glow);
         }
 
@@ -261,7 +319,7 @@
             padding: 12px 24px;
             border-radius: var(--radius-sm);
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
             box-shadow: 0 4px 12px var(--primary-glow);
         }
 
@@ -283,7 +341,7 @@
             border-radius: var(--radius-sm);
             text-decoration: none;
             border: 1px solid var(--border);
-            transition: all 0.2s ease;
+            transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
         }
 
         .btn-secondary:hover {
@@ -516,7 +574,7 @@
             border-radius: var(--radius-sm);
             padding: 18px;
             font-size: 12.5px;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
         .protocol-box:hover {
@@ -600,7 +658,7 @@
             text-align: left;
             position: relative;
             overflow: hidden;
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .kpi-card:hover {
@@ -654,7 +712,7 @@
             color: var(--slate-600);
             border-radius: var(--radius-sm) var(--radius-sm) 0 0;
             position: relative;
-            transition: all 0.15s ease;
+            transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
             white-space: nowrap;
         }
 
@@ -756,7 +814,7 @@
             padding: 4px 10px;
             font-size: 11px;
             font-weight: 600;
-            transition: all 0.15s ease;
+            transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
         }
 
         .copy-btn:hover {
@@ -782,7 +840,7 @@
             align-items: flex-start;
             gap: 12px;
             line-height: 1.45;
-            transition: all 0.15s ease;
+            transition: background-color 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
         }
 
         .qc-item:hover {
@@ -937,16 +995,26 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            * {
+            *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
                 scroll-behavior: auto !important;
             }
+            .pulsing-dot::after {
+                animation: none !important;
+                display: none !important;
+            }
+            .tab-pane {
+                animation: none !important;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- SKIP LINK (A11Y - VERCEL WEB INTERFACE GUIDELINES) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- STICKY NAVIGATION BAR (UI/UX PRO MAX SPEC) -->
     <nav class="top-nav" aria-label="Main Navigation">
@@ -964,7 +1032,7 @@
                 <li><a href="#qc-protocol">QC Checklist</a></li>
             </ul>
             <a href="mailto:jezreelleybag.graphics@gmail.com" class="nav-cta">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 Hire Operator
             </a>
         </div>
@@ -979,16 +1047,16 @@
             </div>
             <h1>Full-Funnel Content Syndication & High-Velocity Distribution Engine</h1>
             <p class="subtitle">
-                Turning core authority pillars (founder keynotes, pillar research & YouTube videos) into 200+ monthly multi-channel publishing assets. Grounded in HubSpot Content Syndication principles: 100% technical canonical integrity (<code style="font-family: 'JetBrains Mono'; font-size: 14px; color: var(--primary-dark);">rel="canonical"</code>), embeddable visual syndication, zero creative friction, and closed-loop MQL attribution.
+                Turning core authority pillars (founder keynotes, pillar research & YouTube videos) into 200+&nbsp;monthly multi-channel publishing assets. Grounded in HubSpot Content Syndication principles: 100% technical canonical integrity (<code style="font-family: 'JetBrains Mono'; font-size: 14px; color: var(--primary-dark);">rel="canonical"</code>), embeddable visual syndication, zero creative friction, and closed-loop MQL attribution.
             </p>
 
             <div class="hero-actions">
                 <a href="#live-specimen" class="btn-primary">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                     Explore Live Specimen ➔
                 </a>
                 <a href="#simulator" class="btn-secondary">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                    <svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
                     Interactive ROI Simulator
                 </a>
             </div>
@@ -1003,15 +1071,15 @@
         </div>
     </header>
 
-    <main class="container" style="padding-top: 24px;">
+    <main id="main-content" class="container" style="padding-top: 24px;">
 
         <!-- BEFORE / AFTER TRANSFORMATION COMPARISON (UI/UX PRO MAX PATTERN) -->
-        <section aria-labelledby="transformation-heading">
+        <section id="comparison" aria-labelledby="transformation-heading">
             <h3 id="transformation-heading" class="sr-only" style="display:none;">System Comparison</h3>
             <div class="transformation-grid">
                 <div class="transform-box before">
                     <div class="transform-title">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                        <svg aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                         Without Syndication Engine (Ad-Hoc Reposting)
                     </div>
                     <ul class="transform-list">
@@ -1023,7 +1091,7 @@
                 </div>
                 <div class="transform-box after">
                     <div class="transform-title">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        <svg aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                         With Jezreel's Syndication Engine (Automated Machine)
                     </div>
                     <ul class="transform-list">
@@ -1041,7 +1109,7 @@
             <div class="card-header" style="border-bottom: none; padding-bottom: 0; margin-bottom: 6px;">
                 <div class="card-title">The Philosophy: Process Over Personality</div>
                 <div class="card-tag">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <svg aria-hidden="true" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     Distribution Machine
                 </div>
             </div>
@@ -1053,7 +1121,7 @@
         <!-- SECTION 1: THE 3-TIER SYNDICATION ECOSYSTEM -->
         <section id="ecosystem" class="section-header">
             <h2>
-                <svg width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
                 1. The 3-Tier Content Syndication Ecosystem (HubSpot Framework)
             </h2>
             <p>How core content is scaled across high-authority web publications, embeddable visual assets, and social channels.</p>
@@ -1090,7 +1158,7 @@
         <!-- SECTION 2: TECHNICAL SEO & CANONICAL PROTECTION PROTOCOL -->
         <section id="seo-protocol" class="section-header">
             <h2>
-                <svg width="22" height="22" fill="none" stroke="var(--emerald-600)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--emerald-600)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                 2. Technical SEO & Canonical Protection Protocol
             </h2>
             <p>The 4-stage engineering safeguard to ensure syndication drives high domain authority without duplicate content penalties.</p>
@@ -1100,7 +1168,7 @@
             <div class="card-header">
                 <div class="card-title">Google-Compliant Syndication Workflow</div>
                 <div class="card-tag" style="background: var(--emerald-50); color: var(--emerald-600);">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    <svg aria-hidden="true" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                     SEO Protected
                 </div>
             </div>
@@ -1114,7 +1182,7 @@
                 <div class="protocol-box">
                     <span class="protocol-step-badge" style="background: #fef3c7; color: #92400e;">PHASE 02: QUARANTINE</span>
                     <strong style="display: block; color: var(--slate-900); margin-bottom: 4px;">14-Day Indexation Hold</strong>
-                    Syndication is strictly held for 14-21 days until Google Search Console confirms Googlebot has indexed and attributed original authority to the client URL.
+                    Syndication is strictly held for 14–21&nbsp;days until Google Search Console confirms Googlebot has indexed and attributed original authority to the client URL.
                 </div>
                 <div class="protocol-box">
                     <span class="protocol-step-badge" style="background: #ecfdf5; color: #059669;">PHASE 03: CANONICAL TAG</span>
@@ -1124,13 +1192,13 @@
                 <div class="protocol-box">
                     <span class="protocol-step-badge" style="background: #f3e8ff; color: #7e22ce;">PHASE 04: ATTRIBUTION</span>
                     <strong style="display: block; color: var(--slate-900); margin-bottom: 4px;">Editorial Attribution</strong>
-                    Clear editorial statement at top/bottom: <em>"This article was originally published on [Brand]. Republished with permission."</em> with a direct do-follow backlink.
+                    Clear editorial statement at top/bottom: <em>“This article was originally published on [Brand]. Republished with permission.”</em> with a direct do-follow backlink.
                 </div>
             </div>
 
             <!-- CODE CONTAINER WITH COPY BUTTON -->
             <div class="code-container">
-                <button class="copy-btn" onclick="copyCanonicalCode(this)">Copy Tag</button>
+                <button class="copy-btn" aria-label="Copy canonical link tag to clipboard" onclick="copyCanonicalCode(this)">Copy Tag</button>
                 <span style="color: #94a3b8;">// Canonical tag injected on Medium, LinkedIn Articles, and syndication partners:</span><br>
                 &lt;<span style="color: #38bdf8;">link</span> <span style="color: #fbbf24;">rel</span>=<span style="color: #34d399;">"canonical"</span> <span style="color: #fbbf24;">href</span>=<span style="color: #34d399;">"https://content-syndication-portfolio.vercel.app/"</span> /&gt;<br>
                 <span style="color: #94a3b8;">// Fallback for partner CMS lacking cross-domain canonical support:</span><br>
@@ -1160,7 +1228,7 @@
         <!-- SECTION 3: INTERACTIVE SYNDICATION ROI & REACH CALCULATOR -->
         <section id="simulator" class="section-header">
             <h2>
-                <svg width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                 3. Interactive Syndication Reach & ROI Simulator
             </h2>
             <p>Adjust the parameters below to project monthly asset velocity, audience impressions, backlink equity, and inbound MQL pipeline.</p>
@@ -1177,10 +1245,10 @@
                 <div>
                     <div class="sim-slider-group">
                         <div class="sim-slider-header">
-                            <span class="sim-slider-label">Monthly Core Anchor Assets</span>
+                            <label for="pCore" class="sim-slider-label">Monthly Core Anchor Assets</label>
                             <span id="pCoreVal" class="sim-slider-val">4 Assets</span>
                         </div>
-                        <input type="range" id="pCore" min="1" max="10" step="1" value="4" oninput="runSim()">
+                        <input type="range" id="pCore" min="1" max="10" step="1" value="4" aria-label="Monthly Core Anchor Assets" aria-valuemin="1" aria-valuemax="10" aria-valuenow="4" oninput="runSim()">
                         <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 4px;">
                             <span>1 Pillar</span><span>4 (Recommended)</span><span>10 Pillars</span>
                         </div>
@@ -1188,10 +1256,10 @@
 
                     <div class="sim-slider-group">
                         <div class="sim-slider-header">
-                            <span class="sim-slider-label">Derivative Velocity per Anchor</span>
+                            <label for="pRepur" class="sim-slider-label">Derivative Velocity per Anchor</label>
                             <span id="pRepurVal" class="sim-slider-val">12 Derivatives</span>
                         </div>
-                        <input type="range" id="pRepur" min="5" max="25" step="1" value="12" oninput="runSim()">
+                        <input type="range" id="pRepur" min="5" max="25" step="1" value="12" aria-label="Derivative Velocity per Anchor" aria-valuemin="5" aria-valuemax="25" aria-valuenow="12" oninput="runSim()">
                         <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 4px;">
                             <span>5x (Basic)</span><span>12x (High Velocity)</span><span>25x (Omnichannel)</span>
                         </div>
@@ -1199,10 +1267,10 @@
 
                     <div class="sim-slider-group">
                         <div class="sim-slider-header">
-                            <span class="sim-slider-label">Lead Magnet Conversion Rate</span>
+                            <label for="pConv" class="sim-slider-label">Lead Magnet Conversion Rate</label>
                             <span id="pConvVal" class="sim-slider-val">1.8%</span>
                         </div>
-                        <input type="range" id="pConv" min="0.5" max="4.0" step="0.1" value="1.8" oninput="runSim()">
+                        <input type="range" id="pConv" min="0.5" max="4.0" step="0.1" value="1.8" aria-label="Lead Magnet Conversion Rate" aria-valuemin="0.5" aria-valuemax="4.0" aria-valuenow="1.8" oninput="runSim()">
                         <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 4px;">
                             <span>0.5% (Conservative)</span><span>1.8% (Benchmark)</span><span>4.0% (High-Intent)</span>
                         </div>
@@ -1210,18 +1278,18 @@
 
                     <div class="sim-slider-group" style="margin-bottom: 0;">
                         <div class="sim-slider-header">
-                            <span class="sim-slider-label">Target Value per Inbound Lead</span>
+                            <label for="pMql" class="sim-slider-label">Target Value per Inbound Lead</label>
                             <span id="pMqlVal" class="sim-slider-val">$150</span>
                         </div>
-                        <input type="range" id="pMql" min="25" max="800" step="25" value="150" oninput="runSim()">
+                        <input type="range" id="pMql" min="25" max="800" step="25" value="150" aria-label="Target Value per Inbound Lead" aria-valuemin="25" aria-valuemax="800" aria-valuenow="150" oninput="runSim()">
                     </div>
                 </div>
 
                 <!-- KPI OUTPUTS -->
-                <div class="kpi-grid">
+                <div class="kpi-grid" aria-live="polite">
                     <div class="kpi-card">
                         <div class="kpi-label">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                            <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
                             Monthly Published Assets
                         </div>
                         <div class="kpi-num" id="kpiAssets" style="color: var(--primary);">204</div>
@@ -1230,7 +1298,7 @@
 
                     <div class="kpi-card">
                         <div class="kpi-label">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                             Est. Monthly Reach
                         </div>
                         <div class="kpi-num" id="kpiReach">156,000</div>
@@ -1239,7 +1307,7 @@
 
                     <div class="kpi-card">
                         <div class="kpi-label">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                            <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                             SEO Backlinks Gained
                         </div>
                         <div class="kpi-num" id="kpiBacklinks" style="color: var(--purple-600);">26 / mo</div>
@@ -1248,7 +1316,7 @@
 
                     <div class="kpi-card">
                         <div class="kpi-label">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                            <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                             Projected Inbound MQLs
                         </div>
                         <div class="kpi-num" id="kpiMqls" style="color: var(--emerald-600);">78 Leads</div>
@@ -1257,7 +1325,7 @@
 
                     <div class="kpi-card" style="grid-column: span 2;">
                         <div class="kpi-label">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                             Projected Pipeline / Content Value
                         </div>
                         <div class="kpi-num" id="kpiPipeline" style="color: var(--emerald-600); font-size: 26px;">$11,700 / mo</div>
@@ -1270,10 +1338,10 @@
         <!-- SECTION 4: LIVE CASE SPECIMEN (TABBED INTERACTIVE EXPERIENCE) -->
         <section id="live-specimen" class="section-header">
             <h2>
-                <svg width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                 4. Live Case Specimen: Personal Growth & High-Performance
             </h2>
-            <p>Subject: <em>"The Frictionless Operator: How High Performers Eliminate Decision Fatigue"</em></p>
+            <p>Subject: <em>“The Frictionless Operator: How High Performers Eliminate Decision Fatigue”</em></p>
         </section>
 
         <div class="card">
@@ -1284,11 +1352,11 @@
                 </div>
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                     <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7510571956329459712/" target="_blank" class="nav-cta" style="background: #0284c7; font-size: 12px;">
-                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <svg aria-hidden="true" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         View Live on LinkedIn ↗
                     </a>
                     <a href="https://medium.com/@jezreelleybag.graphics/the-frictionless-operator-how-high-performers-eliminate-decision-fatigue-2feada7f7678" target="_blank" class="nav-cta" style="background: var(--emerald-600); font-size: 12px;">
-                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                        <svg aria-hidden="true" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
                         View Live on Medium ↗
                     </a>
                 </div>
@@ -1297,24 +1365,24 @@
             <!-- CORE ANCHOR EXCERPT -->
             <div style="background: var(--slate-50); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; font-style: italic; font-size: 13.5px; color: var(--slate-700); margin-bottom: 24px;">
                 <strong style="color: var(--slate-900); font-style: normal; display: block; margin-bottom: 4px;">Original Pillar Anchor Excerpt:</strong>
-                "Most people think burnout comes from working too hard. It doesn't. Burnout comes from cognitive drag—holding 40 micro-decisions in your head before 10 AM. If you want to scale your output without collapsing, you don't need more time. You need standard operating procedures for your life: pre-deciding your morning, batching communication, and eliminating open mental loops..."
+                “Most people think burnout comes from working too hard. It doesn’t. Burnout comes from cognitive drag—holding 40 micro-decisions in your head before 10&nbsp;AM. If you want to scale your output without collapsing, you don’t need more time. You need standard operating procedures for your life: pre-deciding your morning, batching communication, and eliminating open mental loops…””
             </div>
 
-            <!-- INTERACTIVE DERIVATIVE TAB SWITCHER (UI/UX PRO MAX SPEC) -->
-            <div class="tab-btn-group" role="tablist">
-                <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="pane-linkedin" onclick="switchSpecimenTab('linkedin', this)">
+            <!-- INTERACTIVE DERIVATIVE TAB SWITCHER (UI/UX PRO MAX + A11Y SPEC) -->
+            <div class="tab-btn-group" role="tablist" aria-label="Derivative Specimen Formats">
+                <button id="tab-linkedin" class="tab-btn active" role="tab" aria-selected="true" aria-controls="pane-linkedin" tabindex="0" onclick="switchSpecimenTab('linkedin', this)">
                     Derivative #1: LinkedIn Long-Form
                 </button>
-                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="pane-carousel" onclick="switchSpecimenTab('carousel', this)">
+                <button id="tab-carousel" class="tab-btn" role="tab" aria-selected="false" aria-controls="pane-carousel" tabindex="-1" onclick="switchSpecimenTab('carousel', this)">
                     Derivative #2: 7-Slide Document Carousel
                 </button>
-                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="pane-video" onclick="switchSpecimenTab('video', this)">
+                <button id="tab-video" class="tab-btn" role="tab" aria-selected="false" aria-controls="pane-video" tabindex="-1" onclick="switchSpecimenTab('video', this)">
                     Derivative #3: 45s Vertical Video Script
                 </button>
             </div>
 
             <!-- TAB PANE 1: LINKEDIN LONG FORM -->
-            <div id="pane-linkedin" class="tab-pane active" role="tabpanel">
+            <div id="pane-linkedin" class="tab-pane active" role="tabpanel" aria-labelledby="tab-linkedin" tabindex="0">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <span style="font-size: 12px; font-weight: 700; color: var(--slate-600);">Engineered for Dwell-Time & Above-The-Fold Hook Truncation</span>
                     <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7510571956329459712/" target="_blank" style="font-size: 12px; font-weight: 700; color: var(--primary); text-decoration: none;">
@@ -1330,10 +1398,10 @@ Most founders and operators obsess over time management. But time is flat—you 
 
 What high performers actually manage is cognitive load.
 
-Here is the 3-step "Frictionless Operator" framework to kill decision fatigue (swipe through the slides below for the full breakdown):
+Here is the 3-step “Frictionless Operator” framework to kill decision fatigue (swipe through the slides below for the full breakdown):
 
 1. Pre-Decide the First 90 Minutes
-Never sit at your desk in the morning asking, "What should I work on today?" That single question burns 30% of your executive focus before noon. That decision belongs at 5 PM yesterday.
+Never sit at your desk in the morning asking, “What should I work on today?” That single question burns 30% of your executive focus before noon. That decision belongs at 5 PM yesterday.
 
 2. Eliminate Open Mental Loops
 An uncompleted task or unanswered message doesn't just sit in your inbox—it rents space in your working memory. If it takes under 2 minutes, kill it immediately. If it takes longer, lock it into a calendar block.
@@ -1348,7 +1416,7 @@ Which of these 3 bottlenecks is currently eating your productive energy?
             </div>
 
             <!-- TAB PANE 2: CAROUSEL SLIDES -->
-            <div id="pane-carousel" class="tab-pane" role="tabpanel">
+            <div id="pane-carousel" class="tab-pane" role="tabpanel" aria-labelledby="tab-carousel" tabindex="0">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                     <span style="font-size: 12px; font-weight: 700; color: var(--slate-600);">1080x1350 4:5 Aspect Ratio — Native Document Carousel (Swipe below)</span>
                     <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7510571956329459712/" target="_blank" style="font-size: 12px; font-weight: 700; color: var(--primary); text-decoration: none;">
@@ -1364,7 +1432,7 @@ Which of these 3 bottlenecks is currently eating your productive energy?
                     <div class="carousel-slide">
                         <div class="slide-num">SLIDE 02 / PROBLEM</div>
                         <div class="slide-headline">Trap 1: Morning Decision Spiral</div>
-                        <div class="slide-body">Asking "What next?" drains 30% of executive focus before noon.</div>
+                        <div class="slide-body">Asking “What next?” drains 30% of executive focus before noon.</div>
                     </div>
                     <div class="carousel-slide">
                         <div class="slide-num">SLIDE 03 / SOLUTION</div>
@@ -1395,7 +1463,7 @@ Which of these 3 bottlenecks is currently eating your productive energy?
             </div>
 
             <!-- TAB PANE 3: VIDEO SCRIPT -->
-            <div id="pane-video" class="tab-pane" role="tabpanel">
+            <div id="pane-video" class="tab-pane" role="tabpanel" aria-labelledby="tab-video" tabindex="0">
                 <div style="font-size: 12px; font-weight: 700; color: var(--slate-600); margin-bottom: 10px;">
                     Aspect Ratio: 9:16 Vertical Video (TikTok / YouTube Shorts / Reels)
                 </div>
@@ -1419,9 +1487,9 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
         </div>
 
         <!-- SECTION 5: PARTNER PROSPECTING & CLOSED-LOOP ATTRIBUTION -->
-        <section class="section-header">
+        <section id="attribution" class="section-header">
             <h2>
-                <svg width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/></svg>
+                <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/></svg>
                 5. Partner Prospecting, UTM Attribution & CRM Routing
             </h2>
             <p>How syndication partners are sourced and every click is attributed to pipeline revenue in HubSpot.</p>
@@ -1436,7 +1504,7 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                 <div>
                     <h4 style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                         Advanced Partner Prospecting Operators:
                     </h4>
                     <p style="font-size: 12.5px; color: var(--slate-600); margin-bottom: 10px;">
@@ -1457,14 +1525,14 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
 
                 <div>
                     <h4 style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                        <svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
                         Standardized UTM Tracking Matrix:
                     </h4>
                     <p style="font-size: 12.5px; color: var(--slate-600); margin-bottom: 10px;">
                         Applied to all CTAs for closed-loop attribution into Google Analytics 4 & HubSpot CRM:
                     </p>
                     <div class="code-container" style="margin-top: 0;">
-                        <button class="copy-btn" onclick="copyUtm(this)">Copy UTM</button>
+                        <button class="copy-btn" aria-label="Copy UTM tracking parameters to clipboard" onclick="copyUtm(this)">Copy UTM</button>
                         https://client.com/friction-audit?<br>
                         <span style="color: #38bdf8;">utm_source</span>=medium_syndication&<br>
                         <span style="color: #fbbf24;">utm_medium</span>=editorial_canonical&<br>
@@ -1478,10 +1546,10 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
         <!-- SECTION 6: DISTRIBUTION OPERATIONS & MASTER CALENDAR -->
         <section id="calendar" class="section-header">
             <h2>
-                <svg width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                 6. Distribution Operations & Master Content Calendar
             </h2>
-            <p>How 200+ monthly assets across web publications and social channels are tracked, scheduled, and verified.</p>
+            <p>How 200+&nbsp;monthly assets across web publications and social channels are tracked, scheduled, and verified.</p>
         </section>
 
         <div class="card">
@@ -1558,7 +1626,7 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
         <!-- SECTION 7: THE 16-POINT TECHNICAL & SYNDICATION QC PROTOCOL -->
         <section id="qc-protocol" class="section-header">
             <h2>
-                <svg width="22" height="22" fill="none" stroke="var(--emerald-600)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--emerald-600)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
                 7. The 16-Point Technical & Syndication Quality Control (QC) Protocol
             </h2>
             <p>The operational and SEO checklist applied to every single piece of content before it goes public.</p>
@@ -1567,87 +1635,90 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
         <div class="card">
             <ul class="qc-list">
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Aspect Ratio Rigor:</strong> 9:16 for Reels/Shorts/TikTok; 4:5 or 1:1 for LinkedIn/IG feeds; 16:9 for YouTube.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>UI Safe Margins:</strong> 9:16 text kept away from bottom captions and right-side interactive icons (likes/shares).</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                    <div><strong>Above-The-Fold Hook Check:</strong> First 2-3 lines formatted to hook reader before the "...see more" truncation click.</div>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <div><strong>Above-The-Fold Hook Check:</strong> First 2-3 lines formatted to hook reader before the “…see more” truncation click.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>External Link Hygiene:</strong> LinkedIn external links placed in first comment or featured section to protect algorithm reach.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Brand Typography & Colors:</strong> Strict adherence to brand kit hex codes, font weights, and spacing in Canva.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Audio Sync & Caption Timing:</strong> 100% accurate subtitle timing without text clipping or overlapping words.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Tagging & Mention Accuracy:</strong> Verified spelling of all featured collaborator handles across respective platforms.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Hashtag Taxonomy:</strong> 3-5 curated, high-relevance hashtags rather than generic or algorithmic spam blocks.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Carousel Pagination:</strong> Numbered slides (e.g. 01/07) with directional arrows guiding continuous swipes.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>CTA Alignment:</strong> Clear single call-to-action per post (Comment, Save, Share, or Click) avoiding message confusion.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Asset Tagging & Archival:</strong> All final exported files renamed using standard syntax and archived in Notion/Drive.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Time-Zone Sync:</strong> Scheduled to target audience peak activity windows (US Eastern & Central business hours).</div>
                 </li>
                 <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
-                    <span class="qc-icon" style="color: #0284c7;"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon" style="color: #0284c7;"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Canonical URL Verification:</strong> External syndication URLs verify active <code style="font-size: 11px;">rel="canonical"</code> pointing to root origin.</div>
                 </li>
                 <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
-                    <span class="qc-icon" style="color: #0284c7;"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon" style="color: #0284c7;"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>14-Day Indexation Clearance:</strong> Confirmed original post is indexed in Google Cache before external syndication release.</div>
                 </li>
                 <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
-                    <span class="qc-icon" style="color: #0284c7;"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon" style="color: #0284c7;"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Editorial Attribution Signature:</strong> Standardized disclaimer and do-follow link placed in republished article body.</div>
                 </li>
                 <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
-                    <span class="qc-icon" style="color: #0284c7;"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                    <span class="qc-icon" style="color: #0284c7;"><svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>UTM Parameter Audit:</strong> Verified source, medium, and campaign tokens test successfully in Google Analytics 4.</div>
                 </li>
             </ul>
         </div>
 
         <!-- FOOTER CTA -->
-        <footer class="footer-cta">
+        <footer id="contact" class="footer-cta">
             <h3>Ready to Power Your Content Distribution Engine</h3>
             <p>100% dedicated to operational excellence, zero creative friction, and the relentless discipline required to syndicate high-volume personal growth and B2B thought leadership content.</p>
             <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
                 <a href="mailto:jezreelleybag.graphics@gmail.com" class="btn-primary" style="background: var(--primary); color: white; padding: 12px 28px;">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     Email: jezreelleybag.graphics@gmail.com
                 </a>
                 <a href="https://www.linkedin.com/in/jezreel-dave-leybag-a01528152/" target="_blank" class="btn-secondary" style="background: #1e293b; color: white; border-color: #334155; padding: 12px 28px;">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <svg aria-hidden="true" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn Profile ↗
                 </a>
             </div>
         </footer>
+
+        <!-- ACCESSIBLE SCREEN-READER ANNOUNCER -->
+        <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
     </main>
 
@@ -1658,6 +1729,11 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
             var repur = parseInt(document.getElementById('pRepur').value);
             var conv = parseFloat(document.getElementById('pConv').value) / 100;
             var mqlVal = parseFloat(document.getElementById('pMql').value);
+
+            document.getElementById('pCore').setAttribute('aria-valuenow', core);
+            document.getElementById('pRepur').setAttribute('aria-valuenow', repur);
+            document.getElementById('pConv').setAttribute('aria-valuenow', (conv * 100).toFixed(1));
+            document.getElementById('pMql').setAttribute('aria-valuenow', mqlVal);
 
             document.getElementById('pCoreVal').innerText = core + (core === 1 ? ' Asset' : ' Assets');
             document.getElementById('pRepurVal').innerText = repur + ' Derivatives';
@@ -1685,6 +1761,7 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
             document.querySelectorAll('.tab-btn').forEach(function(b) {
                 b.classList.remove('active');
                 b.setAttribute('aria-selected', 'false');
+                b.setAttribute('tabindex', '-1');
             });
             document.querySelectorAll('.tab-pane').forEach(function(p) {
                 p.classList.remove('active');
@@ -1692,13 +1769,40 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
 
             btn.classList.add('active');
             btn.setAttribute('aria-selected', 'true');
+            btn.setAttribute('tabindex', '0');
+            btn.focus();
             document.getElementById('pane-' + tabId).classList.add('active');
         }
+
+        // KEYBOARD ACCESSIBILITY FOR TABS (W3C WAI-ARIA SPEC)
+        document.addEventListener('DOMContentLoaded', function() {
+            var tabs = Array.from(document.querySelectorAll('.tab-btn'));
+            tabs.forEach(function(tab, index) {
+                tab.addEventListener('keydown', function(e) {
+                    var targetIndex = null;
+                    if (e.key === 'ArrowRight') {
+                        targetIndex = (index + 1) % tabs.length;
+                    } else if (e.key === 'ArrowLeft') {
+                        targetIndex = (index - 1 + tabs.length) % tabs.length;
+                    } else if (e.key === 'Home') {
+                        targetIndex = 0;
+                    } else if (e.key === 'End') {
+                        targetIndex = tabs.length - 1;
+                    }
+                    if (targetIndex !== null) {
+                        e.preventDefault();
+                        tabs[targetIndex].click();
+                    }
+                });
+            });
+        });
 
         function copyCanonicalCode(btn) {
             var code = '<link rel="canonical" href="https://content-syndication-portfolio.vercel.app/" />';
             navigator.clipboard.writeText(code).then(function() {
                 btn.innerText = 'Copied!';
+                var announcer = document.getElementById('a11y-announcer');
+                if (announcer) announcer.innerText = 'Canonical link tag copied to clipboard';
                 setTimeout(function() { btn.innerText = 'Copy Tag'; }, 2000);
             });
         }
@@ -1707,6 +1811,8 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
             var utm = 'https://client.com/friction-audit?utm_source=medium_syndication&utm_medium=editorial_canonical&utm_campaign=burnout_q4&utm_content=notion_audit_cta';
             navigator.clipboard.writeText(utm).then(function() {
                 btn.innerText = 'Copied!';
+                var announcer = document.getElementById('a11y-announcer');
+                if (announcer) announcer.innerText = 'UTM tracking link copied to clipboard';
                 setTimeout(function() { btn.innerText = 'Copy UTM'; }, 2000);
             });
         }
