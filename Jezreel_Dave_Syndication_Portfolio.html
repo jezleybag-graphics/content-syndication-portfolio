@@ -182,16 +182,33 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px 14px;
+            }
+            .card {
+                padding: 18px 14px;
+            }
+            .status-pill {
+                font-size: 10.5px;
+                padding: 4px 10px;
+                max-width: 100%;
+                white-space: normal;
+                line-height: 1.35;
+                box-sizing: border-box;
+            }
+            h1 {
+                font-size: 24px !important;
+                line-height: 1.25 !important;
+            }
+            .hero::before, .footer-cta::before {
+                display: none !important;
+            }
             .nav-inner {
                 padding: 10px 14px;
             }
             .nav-brand span {
-                font-size: 13.5px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-width: 135px;
+                display: none;
             }
             .nav-cta {
                 padding: 6px 12px;
@@ -203,6 +220,48 @@
                 width: 100%;
                 justify-content: center;
             }
+            .meta-strip {
+                gap: 10px 14px;
+                font-size: 12.5px;
+                word-break: break-word;
+            }
+            .qc-list {
+                grid-template-columns: 1fr !important;
+            }
+            .protocol-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .workflow-diagram {
+                grid-template-columns: 1fr !important;
+            }
+            .kpi-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .prospecting-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .code-container {
+                font-size: 10.5px;
+                padding: 12px 14px;
+                word-break: break-all;
+            }
+            .footer-cta {
+                padding: 36px 16px !important;
+            }
+            .footer-cta a {
+                width: 100%;
+                max-width: 100%;
+                font-size: 12px;
+                padding: 10px 14px !important;
+                justify-content: center;
+                word-break: break-all;
+            }
+        }
+
+        .prospecting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .nav-links a {
@@ -416,6 +475,8 @@
             padding: 28px;
             margin-bottom: 24px;
             box-shadow: var(--shadow-subtle);
+            max-width: 100%;
+            overflow: hidden;
             transition: box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
@@ -733,7 +794,10 @@
             border-bottom: 2px solid var(--border);
             margin-bottom: 20px;
             overflow-x: auto;
+            max-width: 100%;
+            width: 100%;
             padding-bottom: 2px;
+            -webkit-overflow-scrolling: touch;
         }
 
         .tab-btn {
@@ -780,7 +844,10 @@
             display: flex;
             gap: 12px;
             overflow-x: auto;
+            max-width: 100%;
+            width: 100%;
             padding-bottom: 14px;
+            -webkit-overflow-scrolling: touch;
         }
 
         .carousel-slide {
@@ -890,7 +957,10 @@
 
         /* TABLE */
         .table-responsive {
+            width: 100%;
+            max-width: 100%;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         table {
@@ -1534,7 +1604,7 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
                 <div class="card-tag">Lead Engine</div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <div class="prospecting-grid">
                 <div>
                     <h4 style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
                         <svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
