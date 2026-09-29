@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full-Funnel Content Syndication & Distribution Engine — Jezreel Dave Leybag</title>
+    <title>Jezreel Dave Leybag — Content Syndication & High-Velocity Distribution Engine</title>
+    <meta name="description" content="Operations-first Content Syndication Portfolio. Transforming core authority pillars into 200+ monthly multi-channel assets with 100% technical canonical integrity (rel='canonical') and closed-loop MQL attribution.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0284c7;
             --primary-dark: #0369a1;
             --primary-light: #e0f2fe;
+            --primary-glow: rgba(2, 132, 199, 0.15);
+            --slate-950: #020617;
             --slate-900: #0f172a;
             --slate-800: #1e293b;
             --slate-700: #334155;
             --slate-600: #475569;
+            --slate-400: #94a3b8;
             --slate-200: #e2e8f0;
             --slate-100: #f1f5f9;
             --slate-50: #f8fafc;
             --emerald-600: #059669;
+            --emerald-500: #10b981;
             --emerald-50: #ecfdf5;
             --amber-600: #d97706;
             --amber-50: #fffbeb;
             --purple-600: #7c3aed;
             --purple-50: #f5f3ff;
             --border: #e2e8f0;
+            --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+            --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
         }
 
         * {
@@ -39,61 +50,253 @@
             background: var(--slate-50);
             color: var(--slate-800);
             line-height: 1.6;
-            padding: 0;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
+        /* ACCESSIBILITY & FOCUS STYLES (UI/UX PRO MAX SPEC) */
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        button, a, input[type=range], input[type=checkbox] {
+            cursor: pointer;
+        }
+
+        /* NAVIGATION / STICKY HEADER */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--slate-900);
+            font-weight: 800;
+            font-size: 15px;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 800;
+            box-shadow: 0 2px 4px var(--primary-glow);
+        }
+
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+        }
+
+        @media (min-width: 860px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate-600);
+            font-size: 13px;
+            font-weight: 600;
+            transition: color 0.15s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary);
+            color: white !important;
+            padding: 7px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 12.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.15s ease;
+            box-shadow: 0 2px 4px var(--primary-glow);
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* CONTAINER */
         .container {
-            max-width: 1060px;
+            max-width: 1080px;
             margin: 0 auto;
             padding: 40px 24px;
         }
 
-        /* HEADER & HERO */
-        header {
+        /* HERO SECTION */
+        .hero {
             background: white;
             border-bottom: 1px solid var(--border);
-            padding: 40px 0;
-            margin-bottom: 36px;
+            padding: 56px 0 44px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-badge {
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 480px;
+            height: 480px;
+            background: radial-gradient(circle, rgba(2, 132, 199, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
+            pointer-events: none;
+        }
+
+        .status-pill {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             background: var(--primary-light);
             color: var(--primary-dark);
-            font-size: 11.5px;
-            font-weight: 800;
+            font-size: 12px;
+            font-weight: 700;
             padding: 5px 14px;
             border-radius: 999px;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
-            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(2, 132, 199, 0.2);
+        }
+
+        .pulsing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--emerald-500);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .pulsing-dot::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--emerald-500);
+            opacity: 0.5;
+            animation: pulse-ring 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2.4); opacity: 0; }
         }
 
         h1 {
-            font-size: 34px;
+            font-size: clamp(28px, 4vw, 42px);
             font-weight: 800;
             color: var(--slate-900);
-            line-height: 1.22;
-            margin-bottom: 14px;
-            letter-spacing: -0.6px;
+            line-height: 1.18;
+            margin-bottom: 16px;
+            letter-spacing: -0.8px;
         }
 
         .subtitle {
-            font-size: 17px;
+            font-size: clamp(16px, 1.8vw, 18px);
             color: var(--slate-600);
-            max-width: 860px;
-            margin-bottom: 24px;
+            max-width: 880px;
+            margin-bottom: 28px;
             line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.25);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--slate-100);
+            color: var(--slate-800);
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--slate-200);
+            color: var(--slate-900);
+            transform: translateY(-2px);
         }
 
         .meta-strip {
             display: flex;
             flex-wrap: wrap;
             gap: 18px 24px;
-            padding-top: 18px;
+            padding-top: 20px;
             border-top: 1px solid var(--border);
             font-size: 13.5px;
             color: var(--slate-600);
@@ -103,35 +306,41 @@
             color: var(--slate-900);
         }
 
-        /* SECTION HEADINGS */
+        /* SECTION HEADERS */
         .section-header {
-            margin: 44px 0 20px;
+            margin: 52px 0 22px;
         }
 
         .section-header h2 {
-            font-size: 22px;
+            font-size: clamp(20px, 2.5vw, 25px);
             font-weight: 800;
             color: var(--slate-900);
             display: flex;
             align-items: center;
             gap: 10px;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.4px;
         }
 
         .section-header p {
-            font-size: 14.5px;
+            font-size: 15px;
             color: var(--slate-600);
-            margin-top: 4px;
+            margin-top: 6px;
         }
 
         /* CARDS */
         .card {
             background: white;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 22px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            border-radius: var(--radius-md);
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-subtle);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-card);
+            border-color: #cbd5e1;
         }
 
         .card-header {
@@ -139,16 +348,17 @@
             justify-content: space-between;
             align-items: baseline;
             border-bottom: 1px solid var(--border);
-            padding-bottom: 12px;
-            margin-bottom: 16px;
+            padding-bottom: 16px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 12px;
         }
 
         .card-title {
-            font-size: 16.5px;
+            font-size: 17px;
             font-weight: 700;
             color: var(--slate-900);
+            letter-spacing: -0.2px;
         }
 
         .card-tag {
@@ -156,10 +366,85 @@
             font-weight: 700;
             color: var(--primary-dark);
             background: var(--primary-light);
-            padding: 3px 10px;
+            padding: 4px 11px;
             border-radius: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* BEFORE / AFTER TRANSFORMATION GRID (UI/UX PRO MAX PATTERN) */
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .transformation-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .transform-box {
+            border-radius: var(--radius-md);
+            padding: 22px;
+            border: 1px solid var(--border);
+        }
+
+        .transform-box.before {
+            background: #fff5f5;
+            border-color: #fed7d7;
+        }
+
+        .transform-box.after {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+        }
+
+        .transform-title {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .transform-box.before .transform-title {
+            color: #dc2626;
+        }
+
+        .transform-box.after .transform-title {
+            color: var(--emerald-600);
+        }
+
+        .transform-list {
+            list-style: none;
+            font-size: 13px;
+            space-y: 8px;
+        }
+
+        .transform-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+            line-height: 1.45;
+        }
+
+        .transform-box.before .transform-list li {
+            color: #7f1d1d;
+        }
+
+        .transform-box.after .transform-list li {
+            color: #14532d;
         }
 
         /* WORKFLOW DIAGRAM */
@@ -173,10 +458,16 @@
         .workflow-step {
             background: var(--slate-50);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: var(--radius-sm);
             padding: 16px;
             text-align: center;
             position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .workflow-step:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-subtle);
         }
 
         .workflow-step.core {
@@ -195,7 +486,7 @@
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .step-name {
@@ -214,151 +505,80 @@
         /* PROTOCOL BOXES */
         .protocol-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 14px;
-            margin-top: 14px;
+            margin-top: 16px;
         }
 
         .protocol-box {
             background: var(--slate-50);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px;
+            border-radius: var(--radius-sm);
+            padding: 18px;
             font-size: 12.5px;
+            transition: all 0.2s ease;
+        }
+
+        .protocol-box:hover {
+            background: white;
+            box-shadow: var(--shadow-subtle);
         }
 
         .protocol-step-badge {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
+            font-size: 10.5px;
             font-weight: 700;
-            padding: 2px 7px;
+            padding: 3px 8px;
             border-radius: 4px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: inline-block;
         }
 
-        /* LIVE SPECIMEN TABS */
-        .asset-box {
-            background: var(--slate-50);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 12px;
-        }
-
-        .asset-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 8px;
-            display: inline-block;
-        }
-
-        .post-preview {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px;
-            font-size: 13px;
-            line-height: 1.55;
-            color: var(--slate-800);
-            white-space: pre-line;
-        }
-
-        .post-preview .hook {
-            font-weight: 700;
-            color: var(--slate-900);
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        /* CAROUSEL SLIDES PREVIEW */
-        .carousel-track {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding-bottom: 12px;
-        }
-
-        .carousel-slide {
-            flex: 0 0 160px;
-            height: 200px;
-            background: var(--slate-900);
-            color: white;
-            border-radius: 8px;
-            padding: 14px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            font-size: 11px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .slide-num {
-            font-size: 10px;
-            font-weight: 700;
-            color: #38bdf8;
-        }
-
-        .slide-headline {
-            font-size: 12px;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .slide-body {
-            font-size: 10px;
-            color: #cbd5e1;
-            line-height: 1.35;
-        }
-
-        /* INTERACTIVE SIMULATOR CARD */
+        /* INTERACTIVE SIMULATOR (ENHANCED UI) */
         .sim-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 28px;
         }
 
-        @media (min-width: 880px) {
+        @media (min-width: 920px) {
             .sim-grid {
                 grid-template-columns: 5fr 6fr;
             }
         }
 
         .sim-slider-group {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .sim-slider-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .sim-slider-label {
-            font-size: 12px;
+            font-size: 12.5px;
             font-weight: 700;
             color: var(--slate-700);
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.5px;
         }
 
         .sim-slider-val {
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 800;
             color: var(--primary);
             background: var(--primary-light);
-            padding: 2px 8px;
+            padding: 3px 10px;
             border-radius: 6px;
             font-family: 'JetBrains Mono', monospace;
         }
 
         input[type=range] {
             width: 100%;
-            height: 6px;
+            height: 7px;
             background: var(--slate-200);
             border-radius: 4px;
             outline: none;
@@ -369,37 +589,179 @@
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 14px;
         }
 
         .kpi-card {
             background: var(--slate-50);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 14px;
+            border-radius: var(--radius-sm);
+            padding: 18px;
             text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            background: white;
+            box-shadow: var(--shadow-subtle);
         }
 
         .kpi-num {
-            font-size: 24px;
+            font-size: clamp(22px, 3vw, 28px);
             font-weight: 800;
             color: var(--slate-900);
             line-height: 1.1;
-            margin-top: 4px;
+            margin-top: 6px;
+            letter-spacing: -0.5px;
         }
 
         .kpi-label {
-            font-size: 11px;
+            font-size: 11.5px;
             font-weight: 700;
             color: var(--slate-600);
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .kpi-sub {
-            font-size: 10.5px;
+            font-size: 11px;
             color: var(--slate-500);
-            margin-top: 4px;
+            margin-top: 6px;
+        }
+
+        /* INTERACTIVE SPECIMEN TABS (UI/UX PRO MAX POLISH) */
+        .tab-btn-group {
+            display: flex;
+            gap: 8px;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 10px 18px;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--slate-600);
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+            position: relative;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--slate-900);
+            background: var(--slate-100);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            background: white;
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: -2px;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.2s ease forwards;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CAROUSEL TRACK */
+        .carousel-track {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 14px;
+        }
+
+        .carousel-slide {
+            flex: 0 0 170px;
+            height: 215px;
+            background: var(--slate-900);
+            color: white;
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 11px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--slate-800);
+            transition: transform 0.2s ease;
+        }
+
+        .carousel-slide:hover {
+            transform: translateY(-3px);
+        }
+
+        .slide-num {
+            font-size: 10px;
+            font-weight: 700;
+            color: #38bdf8;
+            letter-spacing: 0.5px;
+        }
+
+        .slide-headline {
+            font-size: 12.5px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .slide-body {
+            font-size: 10.5px;
+            color: #cbd5e1;
+            line-height: 1.4;
+        }
+
+        /* CODE BLOCK WITH 1-CLICK COPY BUTTON */
+        .code-container {
+            position: relative;
+            background: var(--slate-900);
+            color: #e2e8f0;
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11.5px;
+            line-height: 1.55;
+            margin-top: 14px;
+            overflow-x: auto;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.15s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         /* CHECKLIST */
@@ -407,30 +769,35 @@
             list-style: none;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 10px;
+            gap: 12px;
         }
 
         .qc-item {
             background: var(--slate-50);
             border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 11px 14px;
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
             font-size: 12.5px;
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 12px;
             line-height: 1.45;
+            transition: all 0.15s ease;
         }
 
-        .qc-check {
+        .qc-item:hover {
+            background: white;
+            box-shadow: var(--shadow-subtle);
+            border-color: #cbd5e1;
+        }
+
+        .qc-icon {
             color: var(--emerald-600);
-            font-weight: 800;
-            font-size: 14px;
-            line-height: 1.2;
             flex-shrink: 0;
+            margin-top: 1px;
         }
 
-        /* MASTER CALENDAR TABLE */
+        /* TABLE */
         .table-responsive {
             overflow-x: auto;
         }
@@ -438,7 +805,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 12px;
+            font-size: 12.5px;
             text-align: left;
         }
 
@@ -446,252 +813,251 @@
             background: var(--slate-100);
             color: var(--slate-700);
             font-weight: 700;
-            padding: 10px 12px;
+            padding: 12px 14px;
             border-bottom: 2px solid var(--border);
             font-size: 11.5px;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.5px;
         }
 
         td {
-            padding: 10px 12px;
+            padding: 12px 14px;
             border-bottom: 1px solid var(--border);
             color: var(--slate-700);
         }
 
+        tr:hover td {
+            background: rgba(248, 250, 252, 0.8);
+        }
+
         .badge-status {
-            display: inline-block;
-            padding: 2px 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 9px;
             border-radius: 4px;
-            font-size: 10.5px;
+            font-size: 11px;
             font-weight: 700;
-        }
-
-        .status-scheduled {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-
-        .status-qc {
-            background: #fef3c7;
-            color: #92400e;
         }
 
         .status-published {
             background: var(--emerald-50);
             color: var(--emerald-600);
+            border: 1px solid #a7f3d0;
+        }
+
+        .status-scheduled {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+
+        .status-qc {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
         }
 
         /* FOOTER CTA */
         .footer-cta {
-            background: var(--slate-900);
+            background: var(--slate-950);
             color: white;
-            border-radius: 12px;
-            padding: 36px 24px;
+            border-radius: var(--radius-lg);
+            padding: 48px 32px;
             text-align: center;
-            margin-top: 48px;
+            margin-top: 56px;
+            box-shadow: var(--shadow-elevated);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(2, 132, 199, 0.12) 0%, transparent 60%);
+            pointer-events: none;
         }
 
         .footer-cta h3 {
-            font-size: 24px;
+            font-size: clamp(22px, 3vw, 28px);
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             letter-spacing: -0.4px;
         }
 
         .footer-cta p {
-            color: #94a3b8;
-            font-size: 14.5px;
+            color: var(--slate-400);
+            font-size: 15px;
             max-width: 680px;
-            margin: 0 auto 22px;
+            margin: 0 auto 28px;
             line-height: 1.6;
         }
 
-        .cta-btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            padding: 11px 26px;
-            border-radius: 6px;
-            font-size: 13.5px;
-            transition: background 0.2s;
-        }
-
-        .cta-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        /* PRINT OPTIMIZATIONS FOR IMMACULATE PDF */
+        /* PRINT STYLES FOR PDF PERFECTION */
         @media print {
-            @page {
-                margin: 12mm 14mm;
-                size: letter portrait;
+            .top-nav, .tab-btn-group, .hero-actions, .copy-btn {
+                display: none !important;
+            }
+            .tab-pane {
+                display: block !important;
+                margin-bottom: 20px !important;
             }
             body {
                 background: white !important;
                 color: #0f172a !important;
                 font-size: 11px !important;
-                line-height: 1.5 !important;
             }
             .container {
                 max-width: 100% !important;
                 padding: 0 !important;
-                margin: 0 !important;
-            }
-            header {
-                padding: 10px 0 16px !important;
-                margin-bottom: 16px !important;
-                border-bottom: 2px solid var(--primary-light) !important;
-                page-break-after: avoid;
-                break-after: avoid;
-            }
-            h1 {
-                font-size: 26px !important;
-                margin-bottom: 8px !important;
-            }
-            .subtitle {
-                font-size: 13.5px !important;
-                margin-bottom: 14px !important;
-                max-width: 100% !important;
-            }
-            .meta-strip {
-                padding-top: 12px !important;
-                font-size: 11.5px !important;
-                gap: 12px 18px !important;
-            }
-            .section-header {
-                margin: 24px 0 10px !important;
-                page-break-after: avoid !important;
-                break-after: avoid !important;
-            }
-            .section-header h2 {
-                font-size: 18px !important;
-            }
-            .section-header p {
-                font-size: 12px !important;
             }
             .card {
                 box-shadow: none !important;
                 border: 1px solid #cbd5e1 !important;
-                margin-bottom: 14px !important;
                 padding: 16px !important;
                 page-break-inside: avoid !important;
-                break-inside: avoid !important;
             }
-            .workflow-diagram {
-                grid-template-columns: repeat(5, 1fr) !important;
-                gap: 8px !important;
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-            }
-            .workflow-step {
-                padding: 10px 8px !important;
-            }
-            .step-name {
-                font-size: 11.5px !important;
-            }
-            .step-desc {
-                font-size: 10px !important;
-            }
-            .protocol-grid {
-                grid-template-columns: repeat(4, 1fr) !important;
-                gap: 8px !important;
-            }
-            .protocol-box {
-                padding: 12px 10px !important;
-                font-size: 11px !important;
-            }
-            /* Wrap carousel slides into a neat 7-slide grid instead of cut scrollbar */
             .carousel-track {
                 display: grid !important;
                 grid-template-columns: repeat(4, 1fr) !important;
                 gap: 8px !important;
-                overflow: visible !important;
-                padding-bottom: 0 !important;
             }
             .carousel-slide {
                 flex: none !important;
                 height: 140px !important;
-                padding: 10px !important;
-            }
-            .slide-headline {
-                font-size: 11px !important;
-            }
-            .slide-body {
-                font-size: 9.5px !important;
-            }
-            .kpi-num {
-                font-size: 20px !important;
-            }
-            .qc-list {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 8px !important;
-            }
-            .qc-item {
-                padding: 8px 10px !important;
-                font-size: 11px !important;
-            }
-            table {
-                font-size: 10.5px !important;
-            }
-            th, td {
-                padding: 7px 9px !important;
             }
             .footer-cta {
-                padding: 20px !important;
-                margin-top: 18px !important;
+                padding: 24px !important;
                 page-break-inside: avoid !important;
-                break-inside: avoid !important;
             }
-            .footer-cta h3 {
-                font-size: 18px !important;
-            }
-            .footer-cta p {
-                font-size: 12px !important;
-                margin-bottom: 14px !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <!-- STICKY NAVIGATION BAR (UI/UX PRO MAX SPEC) -->
+    <nav class="top-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <div class="nav-avatar">JD</div>
+                <span>Jezreel Dave Leybag</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#ecosystem">Ecosystem</a></li>
+                <li><a href="#seo-protocol">SEO Protocol</a></li>
+                <li><a href="#simulator">ROI Simulator</a></li>
+                <li><a href="#live-specimen">Live Specimen</a></li>
+                <li><a href="#calendar">Pipeline</a></li>
+                <li><a href="#qc-protocol">QC Checklist</a></li>
+            </ul>
+            <a href="mailto:jezreelleybag.graphics@gmail.com" class="nav-cta">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Hire Operator
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
         <div class="container" style="padding-top: 0; padding-bottom: 0;">
-            <div class="hero-badge">HubSpot-Grounded • Full-Funnel Content Syndication</div>
+            <div class="status-pill">
+                <span class="pulsing-dot" aria-hidden="true"></span>
+                <span>HubSpot-Grounded • Full-Funnel Content Syndication</span>
+            </div>
             <h1>Full-Funnel Content Syndication & High-Velocity Distribution Engine</h1>
             <p class="subtitle">
-                A live demonstration of turning core authority pillars (founder keynotes, pillar research & YouTube videos) into 200+ monthly multi-channel publishing assets. Grounded in HubSpot Content Syndication principles: 100% technical canonical integrity (<code style="font-family: 'JetBrains Mono'; font-size: 14px; color: var(--primary-dark);">rel="canonical"</code>), embeddable visual syndication, zero creative friction, and closed-loop MQL attribution.
+                Turning core authority pillars (founder keynotes, pillar research & YouTube videos) into 200+ monthly multi-channel publishing assets. Grounded in HubSpot Content Syndication principles: 100% technical canonical integrity (<code style="font-family: 'JetBrains Mono'; font-size: 14px; color: var(--primary-dark);">rel="canonical"</code>), embeddable visual syndication, zero creative friction, and closed-loop MQL attribution.
             </p>
+
+            <div class="hero-actions">
+                <a href="#live-specimen" class="btn-primary">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    Explore Live Specimen ➔
+                </a>
+                <a href="#simulator" class="btn-secondary">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                    Interactive ROI Simulator
+                </a>
+            </div>
+
             <div class="meta-strip">
                 <div><strong>Operator:</strong> Jezreel Dave Leybag</div>
                 <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jezreel-dave-leybag-a01528152/" target="_blank" style="color: var(--primary); font-weight: 700; text-decoration: none;">linkedin.com/in/jezreel-dave-leybag</a></div>
                 <div><strong>Focus:</strong> B2B & Personal Growth Thought Leadership Syndication</div>
-                <div><strong>Core Stack:</strong> Notion • Asana • Metricool • Buffer • Canva • Premiere • CapCut • HubSpot CRM / UTM</div>
+                <div><strong>Core Stack:</strong> Notion • Asana • Metricool • Buffer • Canva • Premiere • CapCut • HubSpot CRM</div>
                 <div><strong>Availability:</strong> Full-Time (US EST / CST / SAST Ready)</div>
             </div>
         </div>
     </header>
 
-    <div class="container" style="padding-top: 0;">
+    <main class="container" style="padding-top: 24px;">
+
+        <!-- BEFORE / AFTER TRANSFORMATION COMPARISON (UI/UX PRO MAX PATTERN) -->
+        <section aria-labelledby="transformation-heading">
+            <h3 id="transformation-heading" class="sr-only" style="display:none;">System Comparison</h3>
+            <div class="transformation-grid">
+                <div class="transform-box before">
+                    <div class="transform-title">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Without Syndication Engine (Ad-Hoc Reposting)
+                    </div>
+                    <ul class="transform-list">
+                        <li><span>❌</span> <strong>SEO Cannibalization:</strong> Duplicate content indexed by Google, outranking root domain.</li>
+                        <li><span>❌</span> <strong>Founder Burnout:</strong> 15+ hours spent manually formatting social posts and video snippets.</li>
+                        <li><span>❌</span> <strong>Paid Ad Drain:</strong> ~$4,200/mo spent on native PPC (Taboola/Outbrain) with zero organic backlink equity.</li>
+                        <li><span>❌</span> <strong>Vanity Metrics:</strong> Zero UTM tracking or CRM attribution; unknown pipeline impact.</li>
+                    </ul>
+                </div>
+                <div class="transform-box after">
+                    <div class="transform-title">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        With Jezreel's Syndication Engine (Automated Machine)
+                    </div>
+                    <ul class="transform-list">
+                        <li><span>✓</span> <strong>100% SEO Safety:</strong> Strict 14-day indexing quarantine and verified <code style="font-family:'JetBrains Mono'; font-size:11px;">rel="canonical"</code> tags.</li>
+                        <li><span>✓</span> <strong>Zero Founder Friction:</strong> 1 single 8-min anchor generates 200+ multi-platform publishing assets.</li>
+                        <li><span>✓</span> <strong>Compounded Backlink Equity:</strong> 26+ monthly high-authority backlinks gained via embeddable visual kits.</li>
+                        <li><span>✓</span> <strong>Closed-Loop MQLs:</strong> Direct lead magnet handoffs tracked into HubSpot CRM via UTM tokens.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
         <!-- PHILOSOPHY: PROCESS OVER PERSONALITY -->
         <div class="card" style="border-left: 4px solid var(--primary);">
             <div class="card-header" style="border-bottom: none; padding-bottom: 0; margin-bottom: 6px;">
                 <div class="card-title">The Philosophy: Process Over Personality</div>
-                <div class="card-tag">Distribution Machine</div>
+                <div class="card-tag">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    Distribution Machine
+                </div>
             </div>
-            <p style="font-size: 13.5px; color: var(--slate-700); line-height: 1.6;">
+            <p style="font-size: 14px; color: var(--slate-700); line-height: 1.65;">
                 "Great creative content is useless if the distribution engine breaks. I am not an aspiring influencer or creator looking for personal fame. My role is to operate as the quiet, disciplined execution engine behind the founder and Marketing Leadership—ensuring every script, podcast, and article is safely syndicated across web publications, repurposed into high-dwell social derivatives, and tracked to closed-won revenue without missing a single beat."
             </p>
         </div>
 
         <!-- SECTION 1: THE 3-TIER SYNDICATION ECOSYSTEM -->
-        <div class="section-header">
-            <h2>1. The 3-Tier Content Syndication Ecosystem (HubSpot Framework)</h2>
+        <section id="ecosystem" class="section-header">
+            <h2>
+                <svg width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                1. The 3-Tier Content Syndication Ecosystem (HubSpot Framework)
+            </h2>
             <p>How core content is scaled across high-authority web publications, embeddable visual assets, and social channels.</p>
-        </div>
+        </section>
 
         <div class="workflow-diagram">
             <div class="workflow-step core">
@@ -722,15 +1088,21 @@
         </div>
 
         <!-- SECTION 2: TECHNICAL SEO & CANONICAL PROTECTION PROTOCOL -->
-        <div class="section-header">
-            <h2>2. Technical SEO & Canonical Protection Protocol</h2>
+        <section id="seo-protocol" class="section-header">
+            <h2>
+                <svg width="22" height="22" fill="none" stroke="var(--emerald-600)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                2. Technical SEO & Canonical Protection Protocol
+            </h2>
             <p>The 4-stage engineering safeguard to ensure syndication drives high domain authority without duplicate content penalties.</p>
-        </div>
+        </section>
 
         <div class="card">
             <div class="card-header">
                 <div class="card-title">Google-Compliant Syndication Workflow</div>
-                <div class="card-tag" style="background: var(--emerald-50); color: var(--emerald-600);">SEO Protected</div>
+                <div class="card-tag" style="background: var(--emerald-50); color: var(--emerald-600);">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    SEO Protected
+                </div>
             </div>
 
             <div class="protocol-grid">
@@ -756,37 +1128,43 @@
                 </div>
             </div>
 
-            <div style="background: var(--slate-900); color: #e2e8f0; border-radius: 8px; padding: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; line-height: 1.5;">
+            <!-- CODE CONTAINER WITH COPY BUTTON -->
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCanonicalCode(this)">Copy Tag</button>
                 <span style="color: #94a3b8;">// Canonical tag injected on Medium, LinkedIn Articles, and syndication partners:</span><br>
-                &lt;<span style="color: #38bdf8;">link</span> <span style="color: #fbbf24;">rel</span>=<span style="color: #34d399;">"canonical"</span> <span style="color: #fbbf24;">href</span>=<span style="color: #34d399;">"https://clientdomain.com/insights/the-frictionless-operator"</span> /&gt;<br>
+                &lt;<span style="color: #38bdf8;">link</span> <span style="color: #fbbf24;">rel</span>=<span style="color: #34d399;">"canonical"</span> <span style="color: #fbbf24;">href</span>=<span style="color: #34d399;">"https://content-syndication-portfolio.vercel.app/"</span> /&gt;<br>
                 <span style="color: #94a3b8;">// Fallback for partner CMS lacking cross-domain canonical support:</span><br>
                 &lt;<span style="color: #38bdf8;">meta</span> <span style="color: #fbbf24;">name</span>=<span style="color: #34d399;">"robots"</span> <span style="color: #fbbf24;">content</span>=<span style="color: #34d399;">"noindex, follow"</span> /&gt;
             </div>
 
-            <div style="margin-top: 14px; background: var(--emerald-50); border: 1px solid #a7f3d0; border-radius: 8px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+            <!-- LIVE VERIFICATION BANNER -->
+            <div style="margin-top: 16px; background: var(--emerald-50); border: 1px solid #a7f3d0; border-radius: var(--radius-sm); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
                 <div>
-                    <div style="font-size: 11px; font-weight: 800; color: var(--emerald-600); text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;">
-                        <span style="display: inline-block; width: 8px; height: 8px; background: #10b981; border-radius: 999px;"></span>
+                    <div style="font-size: 11.5px; font-weight: 800; color: var(--emerald-600); text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;">
+                        <span style="display: inline-block; width: 8px; height: 8px; background: var(--emerald-500); border-radius: 50%;"></span>
                         Live SEO Verification Specimen
                     </div>
-                    <div style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-top: 2px;">
+                    <div style="font-size: 14px; font-weight: 700; color: var(--slate-900); margin-top: 2px;">
                         Published Canonical Syndication on Medium
                     </div>
                     <div style="font-size: 12px; color: var(--slate-600); margin-top: 2px;">
-                        Inspect Page Source (<code style="font-family: 'JetBrains Mono'; font-size: 11px; color: var(--slate-800);">Ctrl + U</code>) to verify the active <code style="font-family: 'JetBrains Mono'; font-size: 11px; color: var(--primary-dark);">rel="canonical"</code> tag pointing to root.
+                        Inspect Page Source (<code style="font-family: 'JetBrains Mono'; font-size: 11px; color: var(--slate-800);">Ctrl + U</code>) on this live story to verify the active <code style="font-family: 'JetBrains Mono'; font-size: 11px; color: var(--primary-dark);">rel="canonical"</code> tag pointing back to root.
                     </div>
                 </div>
-                <a href="https://medium.com/@jezreelleybag.graphics/the-frictionless-operator-how-high-performers-eliminate-decision-fatigue-2feada7f7678" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #059669; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+                <a href="https://medium.com/@jezreelleybag.graphics/the-frictionless-operator-how-high-performers-eliminate-decision-fatigue-2feada7f7678" target="_blank" class="nav-cta" style="background: var(--emerald-600); font-size: 12px;">
                     Inspect Live Medium Story ↗
                 </a>
             </div>
         </div>
 
         <!-- SECTION 3: INTERACTIVE SYNDICATION ROI & REACH CALCULATOR -->
-        <div class="section-header">
-            <h2>3. Interactive Syndication Reach & ROI Simulator</h2>
+        <section id="simulator" class="section-header">
+            <h2>
+                <svg width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                3. Interactive Syndication Reach & ROI Simulator
+            </h2>
             <p>Adjust the parameters below to project monthly asset velocity, audience impressions, backlink equity, and inbound MQL pipeline.</p>
-        </div>
+        </section>
 
         <div class="card">
             <div class="card-header">
@@ -803,7 +1181,7 @@
                             <span id="pCoreVal" class="sim-slider-val">4 Assets</span>
                         </div>
                         <input type="range" id="pCore" min="1" max="10" step="1" value="4" oninput="runSim()">
-                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 2px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 4px;">
                             <span>1 Pillar</span><span>4 (Recommended)</span><span>10 Pillars</span>
                         </div>
                     </div>
@@ -814,7 +1192,7 @@
                             <span id="pRepurVal" class="sim-slider-val">12 Derivatives</span>
                         </div>
                         <input type="range" id="pRepur" min="5" max="25" step="1" value="12" oninput="runSim()">
-                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 2px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 4px;">
                             <span>5x (Basic)</span><span>12x (High Velocity)</span><span>25x (Omnichannel)</span>
                         </div>
                     </div>
@@ -825,7 +1203,7 @@
                             <span id="pConvVal" class="sim-slider-val">1.8%</span>
                         </div>
                         <input type="range" id="pConv" min="0.5" max="4.0" step="0.1" value="1.8" oninput="runSim()">
-                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 2px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 4px;">
                             <span>0.5% (Conservative)</span><span>1.8% (Benchmark)</span><span>4.0% (High-Intent)</span>
                         </div>
                     </div>
@@ -842,31 +1220,46 @@
                 <!-- KPI OUTPUTS -->
                 <div class="kpi-grid">
                     <div class="kpi-card">
-                        <div class="kpi-label">Monthly Published Assets</div>
+                        <div class="kpi-label">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                            Monthly Published Assets
+                        </div>
                         <div class="kpi-num" id="kpiAssets" style="color: var(--primary);">204</div>
                         <div class="kpi-sub">Across 5+ platforms & tiers</div>
                     </div>
 
                     <div class="kpi-card">
-                        <div class="kpi-label">Est. Monthly Reach</div>
+                        <div class="kpi-label">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            Est. Monthly Reach
+                        </div>
                         <div class="kpi-num" id="kpiReach">156,000</div>
                         <div class="kpi-sub">Cross-channel dwell impressions</div>
                     </div>
 
                     <div class="kpi-card">
-                        <div class="kpi-label">SEO Backlinks Gained</div>
+                        <div class="kpi-label">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                            SEO Backlinks Gained
+                        </div>
                         <div class="kpi-num" id="kpiBacklinks" style="color: var(--purple-600);">26 / mo</div>
                         <div class="kpi-sub">Canonical safe & dofollow embeds</div>
                     </div>
 
                     <div class="kpi-card">
-                        <div class="kpi-label">Projected Inbound MQLs</div>
+                        <div class="kpi-label">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                            Projected Inbound MQLs
+                        </div>
                         <div class="kpi-num" id="kpiMqls" style="color: var(--emerald-600);">78 Leads</div>
                         <div class="kpi-sub">Captured via Notion SOP hooks</div>
                     </div>
 
                     <div class="kpi-card" style="grid-column: span 2;">
-                        <div class="kpi-label">Projected Pipeline / Content Value</div>
+                        <div class="kpi-label">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Projected Pipeline / Content Value
+                        </div>
                         <div class="kpi-num" id="kpiPipeline" style="color: var(--emerald-600); font-size: 26px;">$11,700 / mo</div>
                         <div class="kpi-sub">Replaces ~$4,200/mo in paid native ad syndication (Taboola/Outbrain CPC equiv.)</div>
                     </div>
@@ -874,69 +1267,91 @@
             </div>
         </div>
 
-        <!-- SECTION 4: LIVE CASE SPECIMEN -->
-        <div class="section-header">
-            <h2>4. Live Case Specimen: Personal Growth & High-Performance</h2>
+        <!-- SECTION 4: LIVE CASE SPECIMEN (TABBED INTERACTIVE EXPERIENCE) -->
+        <section id="live-specimen" class="section-header">
+            <h2>
+                <svg width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                4. Live Case Specimen: Personal Growth & High-Performance
+            </h2>
             <p>Subject: <em>"The Frictionless Operator: How High Performers Eliminate Decision Fatigue"</em></p>
-        </div>
+        </section>
 
         <div class="card">
             <div class="card-header">
                 <div>
-                    <div class="card-title">Live Case Specimen: Personal Growth & High-Performance</div>
-                    <div style="font-size: 12px; color: var(--slate-600); margin-top: 2px;">Subject: <em>"The Frictionless Operator: How High Performers Eliminate Decision Fatigue"</em></div>
+                    <div class="card-title">Live Published Case Specimen</div>
+                    <div style="font-size: 13px; color: var(--slate-600); margin-top: 2px;">Verified live in production across LinkedIn and Medium.</div>
                 </div>
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7510571956329459712/" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #0284c7; color: white; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 11.5px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-                        🟢 View Live on LinkedIn ↗
+                    <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7510571956329459712/" target="_blank" class="nav-cta" style="background: #0284c7; font-size: 12px;">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        View Live on LinkedIn ↗
                     </a>
-                    <a href="https://medium.com/@jezreelleybag.graphics/the-frictionless-operator-how-high-performers-eliminate-decision-fatigue-2feada7f7678" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #059669; color: white; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 11.5px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-                        🟢 View Live on Medium ↗
+                    <a href="https://medium.com/@jezreelleybag.graphics/the-frictionless-operator-how-high-performers-eliminate-decision-fatigue-2feada7f7678" target="_blank" class="nav-cta" style="background: var(--emerald-600); font-size: 12px;">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                        View Live on Medium ↗
                     </a>
                 </div>
             </div>
-            <div class="asset-box" style="margin-top: 0; font-style: italic; font-size: 13px;">
+
+            <!-- CORE ANCHOR EXCERPT -->
+            <div style="background: var(--slate-50); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; font-style: italic; font-size: 13.5px; color: var(--slate-700); margin-bottom: 24px;">
+                <strong style="color: var(--slate-900); font-style: normal; display: block; margin-bottom: 4px;">Original Pillar Anchor Excerpt:</strong>
                 "Most people think burnout comes from working too hard. It doesn't. Burnout comes from cognitive drag—holding 40 micro-decisions in your head before 10 AM. If you want to scale your output without collapsing, you don't need more time. You need standard operating procedures for your life: pre-deciding your morning, batching communication, and eliminating open mental loops..."
             </div>
 
-            <!-- DERIVATIVE 1: LINKEDIN ARTICLE -->
-            <div style="margin-top: 24px;">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
-                    <div class="asset-label" style="margin-bottom: 0;">Derivative #1: LinkedIn Long-Form Post (Engineered for Dwell-Time & Above-The-Fold Hook)</div>
-                    <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7510571956329459712/" target="_blank" style="font-size: 11.5px; font-weight: 700; color: var(--primary); text-decoration: none;">
+            <!-- INTERACTIVE DERIVATIVE TAB SWITCHER (UI/UX PRO MAX SPEC) -->
+            <div class="tab-btn-group" role="tablist">
+                <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="pane-linkedin" onclick="switchSpecimenTab('linkedin', this)">
+                    Derivative #1: LinkedIn Long-Form
+                </button>
+                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="pane-carousel" onclick="switchSpecimenTab('carousel', this)">
+                    Derivative #2: 7-Slide Document Carousel
+                </button>
+                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="pane-video" onclick="switchSpecimenTab('video', this)">
+                    Derivative #3: 45s Vertical Video Script
+                </button>
+            </div>
+
+            <!-- TAB PANE 1: LINKEDIN LONG FORM -->
+            <div id="pane-linkedin" class="tab-pane active" role="tabpanel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span style="font-size: 12px; font-weight: 700; color: var(--slate-600);">Engineered for Dwell-Time & Above-The-Fold Hook Truncation</span>
+                    <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7510571956329459712/" target="_blank" style="font-size: 12px; font-weight: 700; color: var(--primary); text-decoration: none;">
                         Open Live Post on LinkedIn ↗
                     </a>
                 </div>
-                <div class="post-preview">
-<span class="hook">Burnout isn't caused by working 12 hours a day.
+                <div style="background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px; font-size: 13.5px; line-height: 1.6; white-space: pre-line;">
+<strong style="color: var(--slate-900); font-size: 14.5px;">Burnout isn't caused by working 12 hours a day.
 
-It's caused by making 40 micro-decisions before 10 AM.</span>
-Here is what elite performers do differently to eliminate cognitive drag:
+It's caused by making 40 micro-decisions before 10 AM.</strong>
 
-Most founders obsess over time management. But time is flat—you get 24 hours whether you are exhausted or energized. What you actually need to manage is cognitive load.
+Most founders and operators obsess over time management. But time is flat—you get 24 hours whether you are energized or completely drained.
 
-Here is the 3-step Frictionless Operator Framework:
+What high performers actually manage is cognitive load.
+
+Here is the 3-step "Frictionless Operator" framework to kill decision fatigue (swipe through the slides below for the full breakdown):
 
 1. Pre-Decide the First 90 Minutes
-Never start your workday asking "What should I work on today?" That decision should have been made at 5 PM yesterday. The first 90 minutes are for deep execution only.
+Never sit at your desk in the morning asking, "What should I work on today?" That single question burns 30% of your executive focus before noon. That decision belongs at 5 PM yesterday.
 
 2. Eliminate Open Mental Loops
-An uncompleted task or an unread email doesn't just sit in your inbox; it rents space in your working memory. If a task takes under 2 minutes, kill it. If it takes longer, schedule it into a calendar block.
+An uncompleted task or unanswered message doesn't just sit in your inbox—it rents space in your working memory. If it takes under 2 minutes, kill it immediately. If it takes longer, lock it into a calendar block.
 
-3. Standard Operating Procedures (SOPs) for Everyday Tasks
-Don't reinvent the wheel every Monday. When a repeatable task is documented, your brain operates on autopilot, preserving creative energy for high-leverage strategic decisions.
+3. SOP Every Repeatable Task
+When routine work is documented into simple 3-step checklists, your brain operates on autopilot, preserving creative energy for strategic breakthroughs.
 
-Which of these 3 bottlenecks is currently eating your productive energy? Let me know in the comments below.
+Which of these 3 bottlenecks is currently eating your productive energy?
 
-(P.S. I put together a 1-page Notion checklist to audit your daily friction points. Grab the template link in the first comment.)
+(P.S. I put together our 1-page Daily Friction Audit & Shutdown SOP template in Notion. Dropped the free link in the first comment below 👇)
                 </div>
             </div>
 
-            <!-- DERIVATIVE 2: CANVA CAROUSEL DECK PREVIEW -->
-            <div style="margin-top: 24px;">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
-                    <div class="asset-label" style="margin-bottom: 0;">Derivative #2: 7-Slide Canva Carousel Deck (1080x1350 4:5 Aspect Ratio — Embeddable Visual Kit)</div>
-                    <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7510571956329459712/" target="_blank" style="font-size: 11.5px; font-weight: 700; color: var(--primary); text-decoration: none;">
+            <!-- TAB PANE 2: CAROUSEL SLIDES -->
+            <div id="pane-carousel" class="tab-pane" role="tabpanel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <span style="font-size: 12px; font-weight: 700; color: var(--slate-600);">1080x1350 4:5 Aspect Ratio — Native Document Carousel (Swipe below)</span>
+                    <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7510571956329459712/" target="_blank" style="font-size: 12px; font-weight: 700; color: var(--primary); text-decoration: none;">
                         Swipe Live Carousel on LinkedIn ↗
                     </a>
                 </div>
@@ -979,10 +1394,12 @@ Which of these 3 bottlenecks is currently eating your productive energy? Let me 
                 </div>
             </div>
 
-            <!-- DERIVATIVE 3: SHORT-FORM VIDEO SCRIPT & STORYBOARD -->
-            <div style="margin-top: 24px;">
-                <div class="asset-label">Derivative #3: 45-Second Reel / YouTube Short Script (Aspect Ratio: 9:16 Vertical)</div>
-                <div class="post-preview" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; background: var(--slate-900); color: #e2e8f0;">
+            <!-- TAB PANE 3: VIDEO SCRIPT -->
+            <div id="pane-video" class="tab-pane" role="tabpanel">
+                <div style="font-size: 12px; font-weight: 700; color: var(--slate-600); margin-bottom: 10px;">
+                    Aspect Ratio: 9:16 Vertical Video (TikTok / YouTube Shorts / Reels)
+                </div>
+                <div style="background: var(--slate-900); color: #e2e8f0; border-radius: var(--radius-sm); padding: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 1.6;">
 [0:00 - 0:03] HOOK (Visual: Fast cut to founder facing camera. Text on screen: "STOP MANAGING TIME.")
 AUDIO: "If you're exhausted by 2 PM, you don't have a time management problem. You have a cognitive leak."
 
@@ -1001,11 +1418,14 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
             </div>
         </div>
 
-        <!-- SECTION 5: PARTNER DISCOVERY & CLOSED-LOOP ATTRIBUTION -->
-        <div class="section-header">
-            <h2>5. Partner Prospecting, UTM Attribution & CRM Routing</h2>
+        <!-- SECTION 5: PARTNER PROSPECTING & CLOSED-LOOP ATTRIBUTION -->
+        <section class="section-header">
+            <h2>
+                <svg width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/></svg>
+                5. Partner Prospecting, UTM Attribution & CRM Routing
+            </h2>
             <p>How syndication partners are sourced and every click is attributed to pipeline revenue in HubSpot.</p>
-        </div>
+        </section>
 
         <div class="card">
             <div class="card-header">
@@ -1013,35 +1433,38 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
                 <div class="card-tag">Lead Engine</div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                 <div>
-                    <h4 style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 8px;">
-                        🔍 Advanced Partner Prospecting Operators:
+                    <h4 style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        Advanced Partner Prospecting Operators:
                     </h4>
-                    <p style="font-size: 12.5px; color: var(--slate-600); margin-bottom: 8px;">
+                    <p style="font-size: 12.5px; color: var(--slate-600); margin-bottom: 10px;">
                         Used to locate authoritative publications that naturally accept syndicated articles:
                     </p>
                     <ul style="list-style: none; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--primary-dark); space-y: 6px;">
-                        <li style="background: var(--slate-50); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--border); margin-bottom: 4px;">
+                        <li style="background: var(--slate-50); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); margin-bottom: 6px;">
                             "personal growth" + inurl:blog + "originally published on"
                         </li>
-                        <li style="background: var(--slate-50); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--border); margin-bottom: 4px;">
+                        <li style="background: var(--slate-50); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); margin-bottom: 6px;">
                             "high performance" + "republished with permission"
                         </li>
-                        <li style="background: var(--slate-50); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--border);">
+                        <li style="background: var(--slate-50); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border);">
                             inurl:category/guest-post + "founder"
                         </li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 8px;">
-                        🏷️ Standardized UTM Tracking Matrix:
+                    <h4 style="font-size: 13.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                        Standardized UTM Tracking Matrix:
                     </h4>
-                    <p style="font-size: 12.5px; color: var(--slate-600); margin-bottom: 8px;">
+                    <p style="font-size: 12.5px; color: var(--slate-600); margin-bottom: 10px;">
                         Applied to all CTAs for closed-loop attribution into Google Analytics 4 & HubSpot CRM:
                     </p>
-                    <div style="background: var(--slate-900); color: #e2e8f0; padding: 10px 12px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; line-height: 1.5; word-break: break-all;">
+                    <div class="code-container" style="margin-top: 0;">
+                        <button class="copy-btn" onclick="copyUtm(this)">Copy UTM</button>
                         https://client.com/friction-audit?<br>
                         <span style="color: #38bdf8;">utm_source</span>=medium_syndication&<br>
                         <span style="color: #fbbf24;">utm_medium</span>=editorial_canonical&<br>
@@ -1053,10 +1476,13 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
         </div>
 
         <!-- SECTION 6: DISTRIBUTION OPERATIONS & MASTER CALENDAR -->
-        <div class="section-header">
-            <h2>6. Distribution Operations & Master Content Calendar</h2>
+        <section id="calendar" class="section-header">
+            <h2>
+                <svg width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                6. Distribution Operations & Master Content Calendar
+            </h2>
             <p>How 200+ monthly assets across web publications and social channels are tracked, scheduled, and verified.</p>
-        </div>
+        </section>
 
         <div class="card">
             <div class="card-header">
@@ -1072,7 +1498,7 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
                             <th>Destination</th>
                             <th>Format & Specs</th>
                             <th>Status</th>
-                            <th>QC & Canonical</th>
+                            <th>QC & Verification</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1130,93 +1556,102 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
         </div>
 
         <!-- SECTION 7: THE 16-POINT TECHNICAL & SYNDICATION QC PROTOCOL -->
-        <div class="section-header">
-            <h2>7. The 16-Point Technical & Syndication Quality Control (QC) Protocol</h2>
+        <section id="qc-protocol" class="section-header">
+            <h2>
+                <svg width="22" height="22" fill="none" stroke="var(--emerald-600)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                7. The 16-Point Technical & Syndication Quality Control (QC) Protocol
+            </h2>
             <p>The operational and SEO checklist applied to every single piece of content before it goes public.</p>
-        </div>
+        </section>
 
         <div class="card">
             <ul class="qc-list">
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Aspect Ratio Rigor:</strong> 9:16 for Reels/Shorts/TikTok; 4:5 or 1:1 for LinkedIn/IG feeds; 16:9 for YouTube.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>UI Safe Margins:</strong> 9:16 text kept away from bottom captions and right-side interactive icons (likes/shares).</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Above-The-Fold Hook Check:</strong> First 2-3 lines formatted to hook reader before the "...see more" truncation click.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>External Link Hygiene:</strong> LinkedIn external links placed in first comment or featured section to protect algorithm reach.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Brand Typography & Colors:</strong> Strict adherence to brand kit hex codes, font weights, and spacing in Canva.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Audio Sync & Caption Timing:</strong> 100% accurate subtitle timing without text clipping or overlapping words.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Tagging & Mention Accuracy:</strong> Verified spelling of all featured collaborator handles across respective platforms.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Hashtag Taxonomy:</strong> 3-5 curated, high-relevance hashtags rather than generic or algorithmic spam blocks.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Carousel Pagination:</strong> Numbered slides (e.g. 01/07) with directional arrows guiding continuous swipes.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>CTA Alignment:</strong> Clear single call-to-action per post (Comment, Save, Share, or Click) avoiding message confusion.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Asset Tagging & Archival:</strong> All final exported files renamed using standard syntax and archived in Notion/Drive.</div>
                 </li>
                 <li class="qc-item">
-                    <span class="qc-check">✓</span>
+                    <span class="qc-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Time-Zone Sync:</strong> Scheduled to target audience peak activity windows (US Eastern & Central business hours).</div>
                 </li>
                 <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
-                    <span class="qc-check" style="color: #0284c7;">✓</span>
+                    <span class="qc-icon" style="color: #0284c7;"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Canonical URL Verification:</strong> External syndication URLs verify active <code style="font-size: 11px;">rel="canonical"</code> pointing to root origin.</div>
                 </li>
                 <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
-                    <span class="qc-check" style="color: #0284c7;">✓</span>
+                    <span class="qc-icon" style="color: #0284c7;"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>14-Day Indexation Clearance:</strong> Confirmed original post is indexed in Google Cache before external syndication release.</div>
                 </li>
                 <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
-                    <span class="qc-check" style="color: #0284c7;">✓</span>
+                    <span class="qc-icon" style="color: #0284c7;"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>Editorial Attribution Signature:</strong> Standardized disclaimer and do-follow link placed in republished article body.</div>
                 </li>
                 <li class="qc-item" style="background: #f0f9ff; border-color: #bae6fd;">
-                    <span class="qc-check" style="color: #0284c7;">✓</span>
+                    <span class="qc-icon" style="color: #0284c7;"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                     <div><strong>UTM Parameter Audit:</strong> Verified source, medium, and campaign tokens test successfully in Google Analytics 4.</div>
                 </li>
             </ul>
         </div>
 
         <!-- FOOTER CTA -->
-        <div class="footer-cta">
+        <footer class="footer-cta">
             <h3>Ready to Power Your Content Distribution Engine</h3>
             <p>100% dedicated to operational excellence, zero creative friction, and the relentless discipline required to syndicate high-volume personal growth and B2B thought leadership content.</p>
-            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-                <a href="mailto:jezreelleybag.graphics@gmail.com" class="cta-btn">Email: jezreelleybag.graphics@gmail.com</a>
-                <a href="https://www.linkedin.com/in/jezreel-dave-leybag-a01528152/" target="_blank" class="cta-btn" style="background: #0369a1;">LinkedIn Profile ↗</a>
+            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+                <a href="mailto:jezreelleybag.graphics@gmail.com" class="btn-primary" style="background: var(--primary); color: white; padding: 12px 28px;">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Email: jezreelleybag.graphics@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/jezreel-dave-leybag-a01528152/" target="_blank" class="btn-secondary" style="background: #1e293b; color: white; border-color: #334155; padding: 12px 28px;">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn Profile ↗
+                </a>
             </div>
-        </div>
+        </footer>
 
-    </div>
+    </main>
 
-    <!-- JAVASCRIPT FOR INTERACTIVE CALCULATOR -->
+    <!-- SCRIPT LOGIC (CALCULATOR, TABS, COPY CLIPS) -->
     <script>
         function runSim() {
             var core = parseInt(document.getElementById('pCore').value);
@@ -1244,6 +1679,36 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
 
             var pipeline = Math.round(mqls * mqlVal);
             document.getElementById('kpiPipeline').innerText = '$' + pipeline.toLocaleString() + ' / mo';
+        }
+
+        function switchSpecimenTab(tabId, btn) {
+            document.querySelectorAll('.tab-btn').forEach(function(b) {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            document.querySelectorAll('.tab-pane').forEach(function(p) {
+                p.classList.remove('active');
+            });
+
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            document.getElementById('pane-' + tabId).classList.add('active');
+        }
+
+        function copyCanonicalCode(btn) {
+            var code = '<link rel="canonical" href="https://content-syndication-portfolio.vercel.app/" />';
+            navigator.clipboard.writeText(code).then(function() {
+                btn.innerText = 'Copied!';
+                setTimeout(function() { btn.innerText = 'Copy Tag'; }, 2000);
+            });
+        }
+
+        function copyUtm(btn) {
+            var utm = 'https://client.com/friction-audit?utm_source=medium_syndication&utm_medium=editorial_canonical&utm_campaign=burnout_q4&utm_content=notion_audit_cta';
+            navigator.clipboard.writeText(utm).then(function() {
+                btn.innerText = 'Copied!';
+                setTimeout(function() { btn.innerText = 'Copy UTM'; }, 2000);
+            });
         }
 
         window.onload = function() {
