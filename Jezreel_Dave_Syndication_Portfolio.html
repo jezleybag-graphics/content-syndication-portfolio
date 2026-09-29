@@ -1317,6 +1317,110 @@
                 animation: none !important;
             }
         }
+
+        /* EMBEDDED VIDEO VAULT (7 SPECIMENS) */
+        .video-vault-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 860px) {
+            .video-vault-grid {
+                grid-template-columns: 330px 1fr;
+            }
+        }
+        .player-wrapper {
+            background: #000;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            aspect-ratio: 9/16;
+            max-height: 560px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+            position: relative;
+        }
+        .player-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        .playlist-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 560px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .video-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 14px;
+            background: var(--slate-50);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-align: left;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .video-item:hover {
+            background: #f0f9ff;
+            border-color: #bae6fd;
+            transform: translateX(2px);
+        }
+        .video-item.active {
+            background: #f0f9ff;
+            border-color: var(--primary);
+            border-left: 4px solid var(--primary);
+        }
+        .video-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--primary);
+            background: #e0f2fe;
+            padding: 4px 8px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+        .video-info {
+            flex-grow: 1;
+            min-width: 0;
+        }
+        .video-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--slate-900);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .video-meta {
+            font-size: 11px;
+            color: var(--slate-600);
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .video-tag {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--slate-700);
+        }
     </style>
 </head>
 <body>
@@ -1515,6 +1619,10 @@
                         <svg aria-hidden="true" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
                         View Live on Medium ↗
                     </a>
+                    <a href="https://drive.google.com/drive/folders/1_cBN8MPPfaPkyvYzinhUuSuz0kexx1tx" target="_blank" class="nav-cta" style="background: #334155; font-size: 12px;">
+                        <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        Drive Video Vault (7 Cuts) ↗
+                    </a>
                 </div>
             </div>
 
@@ -1533,7 +1641,7 @@
                     Derivative #2: 7-Slide Document Carousel
                 </button>
                 <button id="tab-video" class="tab-btn" role="tab" aria-selected="false" aria-controls="pane-video" tabindex="-1" onclick="switchSpecimenTab('video', this)">
-                    Derivative #3: 45s Vertical Video Script
+                    Derivative #3: Short-Form Video Vault (7 Embedded Cuts)
                 </button>
             </div>
 
@@ -1620,11 +1728,137 @@ Which of these 3 bottlenecks is currently eating your productive energy?
 
             <!-- TAB PANE 3: VIDEO SCRIPT -->
             <div id="pane-video" class="tab-pane" role="tabpanel" aria-labelledby="tab-video" tabindex="0">
-                <div style="font-size: 12px; font-weight: 700; color: var(--slate-600); margin-bottom: 10px;">
-                    Aspect Ratio: 9:16 Vertical Video (TikTok / YouTube Shorts / Reels)
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                    <div>
+                        <span style="font-size: 13.5px; font-weight: 700; color: var(--slate-900);">Short-Form Personal Growth & Mindset Video Vault</span>
+                        <div style="font-size: 12px; color: var(--slate-600); margin-top: 2px;">Direct 9:16 vertical cuts demonstrating hook pacing, dialogue cleanup, subtitle polish, and mobile safe zones.</div>
+                    </div>
+                    <a href="https://drive.google.com/drive/folders/1_cBN8MPPfaPkyvYzinhUuSuz0kexx1tx" target="_blank" style="font-size: 12px; font-weight: 700; color: var(--primary); text-decoration: none;">
+                        Open Full Google Drive Vault ↗
+                    </a>
+                </div>
+
+                <!-- INTERACTIVE EMBEDDED PLAYER & PLAYLIST SELECTOR -->
+                <div class="video-vault-grid">
+                    <div>
+                        <div class="player-wrapper">
+                            <iframe id="main-video-player" src="https://drive.google.com/file/d/1iPGHr0-PNFj7SGpUf-YWU5t5va4OyVB7/preview" allow="autoplay" title="Personal Growth Video Player"></iframe>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
+                            <div>
+                                <span style="color: var(--slate-500);">Playing:</span>
+                                <strong id="player-title" style="color: var(--slate-900); margin-left: 4px;">01. The Price of Success</strong>
+                            </div>
+                            <span id="player-tag" class="video-tag" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">Hook & Dynamic Pacing</span>
+                        </div>
+                    </div>
+
+                    <div class="playlist-container" role="list" aria-label="Curated Personal Growth Video Cuts">
+                        <div style="font-size: 11px; font-weight: 800; color: var(--slate-700); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center;">
+                            <span>Select Cut to Play (7 Curated Specimens)</span>
+                            <span style="font-size: 10.5px; color: var(--slate-500); font-weight: 600;">Click to load</span>
+                        </div>
+
+                        <!-- 01 -->
+                        <button class="video-item active" onclick="loadVideo('1iPGHr0-PNFj7SGpUf-YWU5t5va4OyVB7', '01. The Price of Success', 'Hook & Dynamic Pacing', this)">
+                            <span class="video-num">01</span>
+                            <div class="video-info">
+                                <div class="video-title">The Price of Success</div>
+                                <div class="video-meta">
+                                    <span class="video-tag">9:16 Vertical</span>
+                                    <span>Hook & Dynamic Pacing</span>
+                                </div>
+                            </div>
+                            <span style="font-size: 13px; color: var(--primary); font-weight: 700;">▶</span>
+                        </button>
+
+                        <!-- 02 -->
+                        <button class="video-item" onclick="loadVideo('1P0yYBYkIsXr1rDqXnJJJ0Y-CRhSolGRs', '02. The Cinderella Story', 'Micro-Storytelling Arc', this)">
+                            <span class="video-num">02</span>
+                            <div class="video-info">
+                                <div class="video-title">The Cinderella Story</div>
+                                <div class="video-meta">
+                                    <span class="video-tag">9:16 Vertical</span>
+                                    <span>Micro-Storytelling Arc</span>
+                                </div>
+                            </div>
+                            <span style="font-size: 13px; color: #94a3b8; font-weight: 700;">▶</span>
+                        </button>
+
+                        <!-- 03 -->
+                        <button class="video-item" onclick="loadVideo('1P6RGcuuAnpdutqZ_Be-3_rkZFZpYpyb1', '03. The Four Pillars: Austerity', 'Atmospheric & Minimalist', this)">
+                            <span class="video-num">03</span>
+                            <div class="video-info">
+                                <div class="video-title">The Four Pillars: Austerity</div>
+                                <div class="video-meta">
+                                    <span class="video-tag">9:16 Vertical</span>
+                                    <span>Atmospheric & Minimalist</span>
+                                </div>
+                            </div>
+                            <span style="font-size: 13px; color: #94a3b8; font-weight: 700;">▶</span>
+                        </button>
+
+                        <!-- 04 -->
+                        <button class="video-item" onclick="loadVideo('1GWBnDgRmZ3x2rSMLtjVYRM1CxZMUENJi', '04. Movement & Discipline', 'Rhythm & Motion Sync', this)">
+                            <span class="video-num">04</span>
+                            <div class="video-info">
+                                <div class="video-title">Movement & Discipline</div>
+                                <div class="video-meta">
+                                    <span class="video-tag">9:16 Vertical</span>
+                                    <span>Rhythm & Motion Sync</span>
+                                </div>
+                            </div>
+                            <span style="font-size: 13px; color: #94a3b8; font-weight: 700;">▶</span>
+                        </button>
+
+                        <!-- 05 -->
+                        <button class="video-item" onclick="loadVideo('1xU2AVjjHeKoe_5XF-iPjIoj5ByIyOeyf', '05. World Health Day', 'Brand Message & Flow', this)">
+                            <span class="video-num">05</span>
+                            <div class="video-info">
+                                <div class="video-title">World Health Day Campaign</div>
+                                <div class="video-meta">
+                                    <span class="video-tag">Campaign</span>
+                                    <span>Brand Message & Visual Flow</span>
+                                </div>
+                            </div>
+                            <span style="font-size: 13px; color: #94a3b8; font-weight: 700;">▶</span>
+                        </button>
+
+                        <!-- 06 -->
+                        <button class="video-item" onclick="loadVideo('1EvaLBskE4s0IoHw0Fv9JewjPtd1YcZhp', '06. World Book Day', 'Typography & Subtitles', this)">
+                            <span class="video-num">06</span>
+                            <div class="video-info">
+                                <div class="video-title">World Book Day Campaign</div>
+                                <div class="video-meta">
+                                    <span class="video-tag">Editorial</span>
+                                    <span>Typography & Subtitle Polish</span>
+                                </div>
+                            </div>
+                            <span style="font-size: 13px; color: #94a3b8; font-weight: 700;">▶</span>
+                        </button>
+
+                        <!-- 07 -->
+                        <button class="video-item" onclick="loadVideo('1LvAtd5jCjjvMTb9zYnyMZ8iLKsHHztMD', '07. Morning Mindset & Routine', 'Pacing & Audio Cleanup', this)">
+                            <span class="video-num">07</span>
+                            <div class="video-info">
+                                <div class="video-title">Morning Mindset & Routine</div>
+                                <div class="video-meta">
+                                    <span class="video-tag">9:16 Vertical</span>
+                                    <span>Pacing & Audio Cleanup</span>
+                                </div>
+                            </div>
+                            <span style="font-size: 13px; color: #94a3b8; font-weight: 700;">▶</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PACING SCRIPT DOCUMENTATION (SAMPLE EDITORIAL SCRIPT) -->
+                <div style="font-size: 12px; font-weight: 700; color: var(--slate-700); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>Underlying Short-Form Script Breakdown (Pacing, Cuts & Retention Strategy):</span>
+                    <span style="color: var(--slate-500); font-weight: 600;">9:16 Mobile Safe Margin Verified</span>
                 </div>
                 <div style="background: var(--slate-900); color: #e2e8f0; border-radius: var(--radius-sm); padding: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 1.6;">
-[0:00 - 0:03] HOOK (Visual: Fast cut to founder facing camera. Text on screen: "STOP MANAGING TIME.")
+[0:00 - 0:03] HOOK (Visual: Fast cut to speaker facing camera. Text on screen: "STOP MANAGING TIME.")
 AUDIO: "If you're exhausted by 2 PM, you don't have a time management problem. You have a cognitive leak."
 
 [0:03 - 0:12] PACING CUT (Visual: B-roll of open browser with 50 tabs + pop-up notification graphic)
@@ -1641,8 +1875,7 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
                 </div>
             </div>
         </div>
-
-        <!-- SECTION 3: HIGH-VOLUME CONTENT OPERATIONS & DIGITAL ASSET MANAGEMENT -->
+<!-- SECTION 3: HIGH-VOLUME CONTENT OPERATIONS & DIGITAL ASSET MANAGEMENT -->
         <section id="operations-os" class="section-header">
             <h2>
                 <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -2020,6 +2253,26 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
                 if (announcer) announcer.innerText = 'UTM tracking link copied to clipboard';
                 setTimeout(function() { btn.innerText = 'Copy UTM'; }, 2000);
             });
+        }
+
+        function loadVideo(id, title, tag, btn) {
+            var player = document.getElementById('main-video-player');
+            if (player) {
+                player.src = 'https://drive.google.com/file/d/' + id + '/preview';
+            }
+            var titleEl = document.getElementById('player-title');
+            if (titleEl) titleEl.innerText = title;
+            var tagEl = document.getElementById('player-tag');
+            if (tagEl) tagEl.innerText = tag;
+
+            document.querySelectorAll('.video-item').forEach(function(el) {
+                el.classList.remove('active');
+                var arrow = el.querySelector('span:last-child');
+                if (arrow) arrow.style.color = '#94a3b8';
+            });
+            btn.classList.add('active');
+            var activeArrow = btn.querySelector('span:last-child');
+            if (activeArrow) activeArrow.style.color = '#0284c7';
         }
     </script>
 
