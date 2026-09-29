@@ -1334,7 +1334,6 @@
             <ul class="nav-links">
                 <li><a href="#flywheel">Flywheel</a></li>
                 <li><a href="#live-specimen">Live Specimen</a></li>
-                <li><a href="#simulator">ROI Simulator</a></li>
                 <li><a href="#operations-os">Operations OS</a></li>
                 <li><a href="#qc-standards">QC Standards</a></li>
             </ul>
@@ -1362,9 +1361,9 @@
                     <svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                     Explore Live Specimen ➔
                 </a>
-                <a href="#simulator" class="btn-secondary">
-                    <svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
-                    Interactive ROI Simulator
+                <a href="#operations-os" class="btn-secondary">
+                    <svg aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    Content Operations OS (200+ Posts/Mo) ➔
                 </a>
             </div>
 
@@ -1643,123 +1642,11 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
             </div>
         </div>
 
-        
-<!-- SECTION 3: INTERACTIVE SYNDICATION ROI & REACH CALCULATOR -->
-        <section id="simulator" class="section-header">
-            <h2>
-                <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                3. Interactive Syndication Reach & ROI Simulator
-            </h2>
-            <p>Adjust the parameters below to project monthly asset velocity, audience impressions, backlink equity, and inbound MQL pipeline.</p>
-        </section>
-
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">Live Pipeline Projection Model (HubSpot Metrics Grounding)</div>
-                <div class="card-tag">Interactive Simulation</div>
-            </div>
-
-            <div class="sim-grid">
-                <!-- CONTROLS -->
-                <div>
-                    <div class="sim-slider-group">
-                        <div class="sim-slider-header">
-                            <label for="pCore" class="sim-slider-label">Monthly Core Anchor Assets</label>
-                            <span id="pCoreVal" class="sim-slider-val">4 Assets</span>
-                        </div>
-                        <input type="range" id="pCore" min="1" max="10" step="1" value="4" aria-label="Monthly Core Anchor Assets" aria-valuemin="1" aria-valuemax="10" aria-valuenow="4" oninput="runSim()">
-                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 4px;">
-                            <span>1 Pillar</span><span>4 (Recommended)</span><span>10 Pillars</span>
-                        </div>
-                    </div>
-
-                    <div class="sim-slider-group">
-                        <div class="sim-slider-header">
-                            <label for="pRepur" class="sim-slider-label">Derivative Velocity per Anchor</label>
-                            <span id="pRepurVal" class="sim-slider-val">12 Derivatives</span>
-                        </div>
-                        <input type="range" id="pRepur" min="5" max="25" step="1" value="12" aria-label="Derivative Velocity per Anchor" aria-valuemin="5" aria-valuemax="25" aria-valuenow="12" oninput="runSim()">
-                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 4px;">
-                            <span>5x (Basic)</span><span>12x (High Velocity)</span><span>25x (Omnichannel)</span>
-                        </div>
-                    </div>
-
-                    <div class="sim-slider-group">
-                        <div class="sim-slider-header">
-                            <label for="pConv" class="sim-slider-label">Lead Magnet Conversion Rate</label>
-                            <span id="pConvVal" class="sim-slider-val">1.8%</span>
-                        </div>
-                        <input type="range" id="pConv" min="0.5" max="4.0" step="0.1" value="1.8" aria-label="Lead Magnet Conversion Rate" aria-valuemin="0.5" aria-valuemax="4.0" aria-valuenow="1.8" oninput="runSim()">
-                        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-600); margin-top: 4px;">
-                            <span>0.5% (Conservative)</span><span>1.8% (Benchmark)</span><span>4.0% (High-Intent)</span>
-                        </div>
-                    </div>
-
-                    <div class="sim-slider-group" style="margin-bottom: 0;">
-                        <div class="sim-slider-header">
-                            <label for="pMql" class="sim-slider-label">Target Value per Inbound Lead</label>
-                            <span id="pMqlVal" class="sim-slider-val">$150</span>
-                        </div>
-                        <input type="range" id="pMql" min="25" max="800" step="25" value="150" aria-label="Target Value per Inbound Lead" aria-valuemin="25" aria-valuemax="800" aria-valuenow="150" oninput="runSim()">
-                    </div>
-                </div>
-
-                <!-- KPI OUTPUTS -->
-                <div class="kpi-grid" aria-live="polite">
-                    <div class="kpi-card">
-                        <div class="kpi-label">
-                            <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                            Monthly Published Assets
-                        </div>
-                        <div class="kpi-num" id="kpiAssets" style="color: var(--primary);">204</div>
-                        <div class="kpi-sub">Across 5+ platforms & tiers</div>
-                    </div>
-
-                    <div class="kpi-card">
-                        <div class="kpi-label">
-                            <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                            Est. Monthly Reach
-                        </div>
-                        <div class="kpi-num" id="kpiReach">156,000</div>
-                        <div class="kpi-sub">Cross-channel dwell impressions</div>
-                    </div>
-
-                    <div class="kpi-card">
-                        <div class="kpi-label">
-                            <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-                            SEO Backlinks Gained
-                        </div>
-                        <div class="kpi-num" id="kpiBacklinks" style="color: var(--purple-600);">26 / mo</div>
-                        <div class="kpi-sub">Canonical safe & dofollow embeds</div>
-                    </div>
-
-                    <div class="kpi-card">
-                        <div class="kpi-label">
-                            <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                            Projected Inbound MQLs
-                        </div>
-                        <div class="kpi-num" id="kpiMqls" style="color: var(--emerald-600);">78 Leads</div>
-                        <div class="kpi-sub">Captured via Notion SOP hooks</div>
-                    </div>
-
-                    <div class="kpi-card" style="grid-column: span 2;">
-                        <div class="kpi-label">
-                            <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            Projected Pipeline / Content Value
-                        </div>
-                        <div class="kpi-num" id="kpiPipeline" style="color: var(--emerald-600); font-size: 26px;">$11,700 / mo</div>
-                        <div class="kpi-sub">Replaces ~$4,200/mo in paid native ad syndication (Taboola/Outbrain CPC equiv.)</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        
-<!-- SECTION 4: HIGH-VOLUME CONTENT OPERATIONS & DIGITAL ASSET MANAGEMENT -->
+        <!-- SECTION 3: HIGH-VOLUME CONTENT OPERATIONS & DIGITAL ASSET MANAGEMENT -->
         <section id="operations-os" class="section-header">
             <h2>
                 <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                4. High-Volume Content Operations & Digital Asset Management
+                3. High-Volume Content Operations & Digital Asset Management
             </h2>
             <p>How 200+ monthly assets across YouTube, LinkedIn, Instagram, and X are tracked, scheduled, and verified with zero operational drift.</p>
         </section>
@@ -1949,11 +1836,11 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
         </div>
 
         
-<!-- SECTION 5: PLATFORM-SPECIFIC FORMATTING & TECHNICAL QC STANDARDS -->
+<!-- SECTION 4: PLATFORM-SPECIFIC FORMATTING & TECHNICAL QC STANDARDS -->
         <section id="qc-standards" class="section-header">
             <h2>
                 <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--emerald-600)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-                5. Platform-Specific Formatting & Technical QC Standards
+                4. Platform-Specific Formatting & Technical QC Standards
             </h2>
             <p>The operational guidelines, platform aspect ratio nuances, and zero-defect quality control checklist applied to every asset before scheduling.</p>
         </section>
@@ -2074,38 +1961,6 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
 
     <!-- SCRIPT LOGIC (CALCULATOR, TABS, COPY CLIPS) -->
     <script>
-        function runSim() {
-            var core = parseInt(document.getElementById('pCore').value);
-            var repur = parseInt(document.getElementById('pRepur').value);
-            var conv = parseFloat(document.getElementById('pConv').value) / 100;
-            var mqlVal = parseFloat(document.getElementById('pMql').value);
-
-            document.getElementById('pCore').setAttribute('aria-valuenow', core);
-            document.getElementById('pRepur').setAttribute('aria-valuenow', repur);
-            document.getElementById('pConv').setAttribute('aria-valuenow', (conv * 100).toFixed(1));
-            document.getElementById('pMql').setAttribute('aria-valuenow', mqlVal);
-
-            document.getElementById('pCoreVal').innerText = core + (core === 1 ? ' Asset' : ' Assets');
-            document.getElementById('pRepurVal').innerText = repur + ' Derivatives';
-            document.getElementById('pConvVal').innerText = (conv * 100).toFixed(1) + '%';
-            document.getElementById('pMqlVal').innerText = '$' + mqlVal;
-
-            var totalAssets = Math.round(core * (repur + 4.25));
-            document.getElementById('kpiAssets').innerText = totalAssets;
-
-            var reach = Math.round((core * repur * 820) + (core * 4 * 2600));
-            document.getElementById('kpiReach').innerText = reach.toLocaleString();
-
-            var backlinks = Math.round(core * 6.5);
-            document.getElementById('kpiBacklinks').innerText = backlinks + ' / mo';
-
-            var qualifiedClicks = reach * 0.028;
-            var mqls = Math.max(1, Math.round(qualifiedClicks * conv));
-            document.getElementById('kpiMqls').innerText = mqls + ' Leads';
-
-            var pipeline = Math.round(mqls * mqlVal);
-            document.getElementById('kpiPipeline').innerText = '$' + pipeline.toLocaleString() + ' / mo';
-        }
 
         function switchSpecimenTab(tabId, btn) {
             document.querySelectorAll('.tab-btn').forEach(function(b) {
@@ -2166,10 +2021,6 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
                 setTimeout(function() { btn.innerText = 'Copy UTM'; }, 2000);
             });
         }
-
-        window.onload = function() {
-            runSim();
-        };
     </script>
 
 </body>
