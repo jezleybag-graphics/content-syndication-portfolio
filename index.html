@@ -1058,6 +1058,211 @@
             line-height: 1.6;
         }
 
+        /* PHOTO AVATAR & HERO AVATAR */
+        .nav-avatar-img {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-light);
+            box-shadow: 0 2px 6px var(--primary-glow);
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .meta-avatar-img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
+            margin-right: 6px;
+            border: 1.5px solid var(--primary);
+            flex-shrink: 0;
+            display: inline-block;
+        }
+
+        /* FLYWHEEL GRID (FORMAT CONVERSION) */
+        .flywheel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 14px;
+        }
+
+        .flywheel-step {
+            background: var(--slate-50);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .flywheel-step:hover {
+            background: white;
+            box-shadow: var(--shadow-subtle);
+            transform: translateY(-2px);
+        }
+
+        .flywheel-step-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: #e0f2fe;
+            color: #0369a1;
+            display: inline-block;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        .flywheel-step-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 6px;
+        }
+
+        .flywheel-step-desc {
+            font-size: 12.5px;
+            color: var(--slate-600);
+            line-height: 1.5;
+            margin-bottom: 14px;
+            flex-grow: 1;
+        }
+
+        .flywheel-output-badge {
+            font-size: 11px;
+            font-weight: 700;
+            background: white;
+            border: 1px solid var(--border);
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: var(--slate-700);
+        }
+
+        /* CADENCE ARCHITECTURE (200+ POSTS/MO) */
+        .cadence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .cadence-card {
+            background: var(--slate-50);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            font-size: 12.5px;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cadence-card:hover {
+            background: white;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .cadence-platform {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 8px;
+            font-size: 13.5px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 6px;
+        }
+
+        .cadence-pill {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 10.5px;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .cadence-detail {
+            color: var(--slate-700);
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+
+        .cadence-spec {
+            font-size: 11px;
+            color: var(--slate-400);
+            margin-top: 8px;
+            padding-top: 6px;
+            border-top: 1px dashed var(--border);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .cadence-summary-bar {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: var(--radius-sm);
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 13px;
+            color: #166534;
+        }
+
+        /* DAM & ASSET LIBRARY */
+        .dam-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .dam-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .dam-box {
+            background: var(--slate-900);
+            color: #e2e8f0;
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11.5px;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .dam-label {
+            font-size: 11px;
+            font-weight: 800;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--slate-700);
+            padding-bottom: 4px;
+        }
+
+        .dam-tag {
+            background: var(--slate-100);
+            border: 1px solid var(--border);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: var(--slate-700);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
         /* PRINT STYLES FOR PDF PERFECTION */
         @media print {
             .top-nav, .tab-btn-group, .hero-actions, .copy-btn {
@@ -1123,14 +1328,16 @@
     <nav class="top-nav" aria-label="Main Navigation">
         <div class="nav-inner">
             <a href="#" class="nav-brand">
-                <div class="nav-avatar">JD</div>
+                <img src="jezreel-photo.jpg" alt="Jezreel Dave Leybag" class="nav-avatar-img" width="34" height="34">
                 <span>Jezreel Dave Leybag</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#ecosystem">Ecosystem</a></li>
+                <li><a href="#flywheel">Flywheel</a></li>
                 <li><a href="#seo-protocol">SEO Protocol</a></li>
                 <li><a href="#simulator">ROI Simulator</a></li>
                 <li><a href="#live-specimen">Live Specimen</a></li>
+                <li><a href="#cadence">200+ Cadence</a></li>
                 <li><a href="#calendar">Pipeline</a></li>
                 <li><a href="#qc-protocol">QC Checklist</a></li>
             </ul>
@@ -1165,10 +1372,13 @@
             </div>
 
             <div class="meta-strip">
-                <div><strong>Operator:</strong> Jezreel Dave Leybag</div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <img src="jezreel-photo.jpg" alt="Jezreel Dave Leybag" class="meta-avatar-img" width="24" height="24">
+                    <span><strong>Operator:</strong> Jezreel Dave Leybag</span>
+                </div>
                 <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jezreel-dave-leybag-a01528152/" target="_blank" style="color: var(--primary); font-weight: 700; text-decoration: none;">linkedin.com/in/jezreel-dave-leybag</a></div>
-                <div><strong>Focus:</strong> B2B & Personal Growth Thought Leadership Syndication</div>
-                <div><strong>Core Stack:</strong> Notion • Asana • Metricool • Buffer • Canva • Premiere • CapCut • HubSpot CRM</div>
+                <div><strong>Focus:</strong> Personal Growth & Thought Leadership Syndication</div>
+                <div><strong>Core Stack:</strong> Notion • Asana • Metricool • Buffer • Canva Pro • Premiere • CapCut • HubSpot CRM</div>
                 <div><strong>Availability:</strong> Full-Time (US EST / CST / SAST Ready)</div>
             </div>
         </div>
@@ -1255,6 +1465,51 @@
                 <div class="step-num">Tier 4: Automated Feeds</div>
                 <div class="step-name">RSS & Feed Aggregation</div>
                 <div class="step-desc">Automated sitemap syndication to Flipboard, Google News & aggregators</div>
+            </div>
+        </div>
+
+        <!-- SECTION 1B: FORMAT CONVERSION FLYWHEEL (OPERATIONS & REPURPOSING) -->
+        <section id="flywheel" class="section-header">
+            <h2>
+                <svg aria-hidden="true" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                Multi-Platform Format Conversion Flywheel
+            </h2>
+            <p>How core creative assets are transformed into high-impact multi-channel derivatives with zero friction and 100% technical accuracy.</p>
+        </section>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">End-to-End Asset Slicing & Transformation Lifecycle</div>
+                <div class="card-tag">Format Conversion</div>
+            </div>
+            <p style="font-size: 13.5px; color: var(--slate-600); margin-bottom: 8px;">
+                Demonstrating the exact operational lifecycle requested: converting a spoken YouTube script into a structured canonical article, codifying it into an actionable Notion resource toolkit, and distilling it into high-dwell 9:16 vertical shorts:
+            </p>
+            <div class="flywheel-grid">
+                <div class="flywheel-step">
+                    <span class="flywheel-step-badge">STAGE 01: CORE ANCHOR</span>
+                    <div class="flywheel-step-title">YouTube Script / Founder Keynote</div>
+                    <div class="flywheel-step-desc">Spoken 10–12 min narrative transcript (1,600+ words). Full of verbal examples, analogies, and raw high-performance advice.</div>
+                    <div class="flywheel-output-badge">📥 Input: 16:9 4K Video + Raw Script</div>
+                </div>
+                <div class="flywheel-step">
+                    <span class="flywheel-step-badge" style="background: #ecfdf5; color: #059669;">STAGE 02: EDITORIAL CONVERSION</span>
+                    <div class="flywheel-step-title">Structured Long-Form Article</div>
+                    <div class="flywheel-step-desc">Refactored into clear H2/H3 headers, punchy takeaways, and canonical integrity (<code style="font-family:'JetBrains Mono'; font-size:11px;">rel="canonical"</code>) for Medium and company publications.</div>
+                    <div class="flywheel-output-badge">📤 Output: Verified Canonical Article</div>
+                </div>
+                <div class="flywheel-step">
+                    <span class="flywheel-step-badge" style="background: #fdf2f8; color: #db2777;">STAGE 03: RESOURCE ASSET</span>
+                    <div class="flywheel-step-title">Interactive Notion SOP Toolkit</div>
+                    <div class="flywheel-step-desc">The actionable framework codified into a 1-page Notion checklist / audit template with closed-loop UTM lead capture tracking.</div>
+                    <div class="flywheel-output-badge">📤 Output: Downloadable Notion Resource</div>
+                </div>
+                <div class="flywheel-step">
+                    <span class="flywheel-step-badge" style="background: #f3e8ff; color: #7c3aed;">STAGE 04: SOCIAL VELOCITY CUTS</span>
+                    <div class="flywheel-step-title">9:16 Shorts & 4:5 Carousels</div>
+                    <div class="flywheel-step-desc">Hook-first 45s vertical video script with burned-in captions + 7-slide Canva document carousel driving comments for the Notion link.</div>
+                    <div class="flywheel-output-badge">📤 Output: Reels, Shorts & Carousels</div>
+                </div>
             </div>
         </div>
 
@@ -1655,6 +1910,79 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
             <p>How 200+&nbsp;monthly assets across web publications and social channels are tracked, scheduled, and verified.</p>
         </section>
 
+        <!-- 200+ POSTS/MONTH CADENCE ARCHITECTURE (OPERATIONS FIRST) -->
+        <div id="cadence" class="card" style="margin-bottom: 24px;">
+            <div class="card-header">
+                <div class="card-title">The 200+ Monthly Publishing Cadence (Operational Math)</div>
+                <div class="card-tag">High-Volume Operations</div>
+            </div>
+            <p style="font-size: 13.5px; color: var(--slate-600); margin-bottom: 18px;">
+                Engineered to maintain a rigorous, high-volume master calendar handling 200+ pieces of content every month without missing a beat. Synchronized across YouTube, LinkedIn, Instagram, and X:
+            </p>
+            <div class="cadence-grid">
+                <div class="cadence-card">
+                    <div class="cadence-platform">
+                        <span>YouTube Channel</span>
+                        <span class="cadence-pill">20 Assets / Mo</span>
+                    </div>
+                    <div class="cadence-detail"><strong>4x</strong> 16:9 Long-Form Keynotes/Episodes</div>
+                    <div class="cadence-detail"><strong>16x</strong> 9:16 Shorts (4/week, hook-first)</div>
+                    <div class="cadence-spec">16:9 (1080p/4K) • 9:16 vertical • Chapters & Pinned UTMs</div>
+                </div>
+                <div class="cadence-card">
+                    <div class="cadence-platform">
+                        <span>LinkedIn Engine</span>
+                        <span class="cadence-pill">25 Assets / Mo</span>
+                    </div>
+                    <div class="cadence-detail"><strong>20x</strong> Structured Long-Form Dwell Posts</div>
+                    <div class="cadence-detail"><strong>4x</strong> 7-Slide PDF Document Carousels</div>
+                    <div class="cadence-detail"><strong>1x</strong> Monthly Executive Pulse Newsletter</div>
+                    <div class="cadence-spec">4:5 PDF • 1:1 graphics • 3-line hook truncation</div>
+                </div>
+                <div class="cadence-card">
+                    <div class="cadence-platform">
+                        <span>Instagram Growth</span>
+                        <span class="cadence-pill">44 Assets / Mo</span>
+                    </div>
+                    <div class="cadence-detail"><strong>16x</strong> 9:16 High-Dwell Video Reels</div>
+                    <div class="cadence-detail"><strong>12x</strong> 4:5 Swipeable Carousel Infographics</div>
+                    <div class="cadence-detail"><strong>16x</strong> Daily Interactive Story Touchpoints</div>
+                    <div class="cadence-spec">9:16 (1080×1920) • 4:5 (1080×1350) • Safe zones</div>
+                </div>
+                <div class="cadence-card">
+                    <div class="cadence-platform">
+                        <span>X / Twitter Takes</span>
+                        <span class="cadence-pill">60 Assets / Mo</span>
+                    </div>
+                    <div class="cadence-detail"><strong>12x</strong> 6-Post Deep-Dive Educational Threads</div>
+                    <div class="cadence-detail"><strong>48x</strong> Standalone Micro-Hooks & Quotes</div>
+                    <div class="cadence-spec">280-char hooks • 16:9 cards • 12-hr retweets</div>
+                </div>
+                <div class="cadence-card">
+                    <div class="cadence-platform">
+                        <span>Canonical Web</span>
+                        <span class="cadence-pill">8 Assets / Mo</span>
+                    </div>
+                    <div class="cadence-detail"><strong>4x</strong> Medium Canonical Republished Articles</div>
+                    <div class="cadence-detail"><strong>4x</strong> Substack / Syndication Partner Reposts</div>
+                    <div class="cadence-spec">rel="canonical" • 14-day quarantine hold</div>
+                </div>
+                <div class="cadence-card">
+                    <div class="cadence-platform">
+                        <span>Lead Hubs & Cuts</span>
+                        <span class="cadence-pill">50 Assets / Mo</span>
+                    </div>
+                    <div class="cadence-detail"><strong>4x</strong> Interactive Notion Resource SOPs</div>
+                    <div class="cadence-detail"><strong>46x</strong> Cross-Platform Short Derivatives</div>
+                    <div class="cadence-spec">Closed-loop GA4 & HubSpot UTM tracking</div>
+                </div>
+            </div>
+            <div class="cadence-summary-bar">
+                <div><strong>Total Monthly Cadence:</strong> <span style="color: var(--primary-dark); font-weight: 800;">207 Verified Assets / Month</span></div>
+                <div><strong>Pacing & Reliability:</strong> 7 Days/Week Scheduled • 0 Missed Deadlines • 100% QC Passed</div>
+            </div>
+        </div>
+
         <div class="card">
             <div class="card-header">
                 <div class="card-title">Live Pipeline Matrix (Notion / Asana Architecture)</div>
@@ -1723,6 +2051,46 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <!-- DIGITAL ASSET MANAGEMENT (DAM) & CONTENT LIBRARY ARCHITECTURE -->
+        <div class="card" style="margin-top: 24px;">
+            <div class="card-header">
+                <div class="card-title">Digital Asset Management (DAM) & Searchable Content Library</div>
+                <div class="card-tag">Asset Syndication</div>
+            </div>
+            <p style="font-size: 13.5px; color: var(--slate-600); margin-bottom: 16px;">
+                To ensure content is easily searchable, tagged, and ready for repurposing at a moment's notice, every asset adheres to a standardized cloud folder hierarchy and Notion Content Database schema:
+            </p>
+            <div class="dam-grid">
+                <div class="dam-box">
+                    <div class="dam-label">Master Cloud Folder Structure</div>
+📁 01_RAW_PILLARS/        (4K footage, master transcripts, audio stems)<br>
+📁 02_CANVA_TEMPLATES/    (Locked brand kits, carousel masters, fonts)<br>
+📁 03_DERIVATIVES/        (9:16 vertical cuts, burned-in subtitles)<br>
+📁 04_SCHEDULED_VAULT/    (Ready in Metricool/Buffer with UTMs)<br>
+📁 05_EVERGREEN_ARCHIVE/  (Searchable by topic/hook for re-runs)
+                </div>
+                <div class="dam-box">
+                    <div class="dam-label">Standardized File Naming Syntax</div>
+<span style="color: #38bdf8;">YYYY-MM-DD_[CHANNEL]_[CORE-ID]_[FORMAT]_[VERSION].[ext]</span><br><br>
+<span style="color: #94a3b8;">// Production Examples:</span><br>
+<span style="color: #34d399;">2026-10-05_LI_EP42_CAROUSEL-4x5_v2.pdf</span><br>
+<span style="color: #fbbf24;">2026-10-05_YT_EP42_SHORT-9x16_v1.mp4</span><br>
+<span style="color: #f472b6;">2026-10-06_IG_EP42_REEL-9x16_v1.mp4</span>
+                </div>
+            </div>
+            <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+                <span style="font-size: 11.5px; font-weight: 700; color: var(--slate-700);">Notion Content OS Properties:</span>
+                <span class="dam-tag">Pillar ID</span>
+                <span class="dam-tag">Destination Channel</span>
+                <span class="dam-tag">Aspect Ratio</span>
+                <span class="dam-tag">Hook Copy</span>
+                <span class="dam-tag">Canva Master Link</span>
+                <span class="dam-tag">Scheduled Slot</span>
+                <span class="dam-tag">QC Verification (16-pt)</span>
+                <span class="dam-tag">GA4 UTM Token</span>
             </div>
         </div>
 
@@ -1802,6 +2170,60 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
                     <div><strong>UTM Parameter Audit:</strong> Verified source, medium, and campaign tokens test successfully in Google Analytics 4.</div>
                 </li>
             </ul>
+        </div>
+
+        <!-- PLATFORM-SPECIFIC FORMATTING & TECHNICAL NUANCES -->
+        <div class="card" style="margin-top: 24px;">
+            <div class="card-header">
+                <div class="card-title">Platform-Specific Formatting & Technical Nuances (LI, IG, YT, X)</div>
+                <div class="card-tag">Technical Nuance</div>
+            </div>
+            <p style="font-size: 13.5px; color: var(--slate-600); margin-bottom: 16px;">
+                Deep familiarity with what makes content “look right” and perform technically across every major destination:
+            </p>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Aspect Ratio & Specs</th>
+                            <th>Hook Truncation & Limits</th>
+                            <th>Safe Zones & Layout Hygiene</th>
+                            <th>Link & Distribution Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>LinkedIn</strong></td>
+                            <td>4:5 PDF Carousels (1080×1350); 1200×1200 image; 1:1 video</td>
+                            <td>Truncates at ~210 characters (3 lines). Hook must force the “…see more” click.</td>
+                            <td>Clean white/dark margins. High-contrast typography readable on mobile screens.</td>
+                            <td>External links placed in first comment or pinned profile section to protect algorithmic reach.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Instagram</strong></td>
+                            <td>9:16 Reels (1080×1920); 4:5 Feed Carousels (1080×1350)</td>
+                            <td>Truncates at 125 characters. Bold headline embedded on slide 1 / video cover.</td>
+                            <td><strong>UI Safe Margins:</strong> Top 15% (header) and bottom 20% (captions/audio) kept clear.</td>
+                            <td>3–5 curated niche hashtags; CTA directs audience to comment keyword for ManyChat DM routing.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>YouTube</strong></td>
+                            <td>16:9 Long-Form (4K/1080p); 9:16 Shorts (&lt;60s, 1080×1920)</td>
+                            <td>Titles &lt;60 characters for mobile display. Timestamps and chapters in description.</td>
+                            <td><strong>Shorts Safe Zone:</strong> Right edge (like/share buttons) and bottom-right (timestamp) kept clear.</td>
+                            <td>Pinned comment contains canonical UTM link; custom high-contrast thumbnail uploaded.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>X (Twitter)</strong></td>
+                            <td>16:9 Media Cards (1200×675); Single 1:1 graphics</td>
+                            <td>280 characters maximum. Concise punchy micro-hooks; 5–7 tweet threads.</td>
+                            <td>No border clutter. High-contrast single-point infographics.</td>
+                            <td>Thread links placed on tweet #1 or final CTA tweet. Scheduled auto-retweet at +12 hours for global reach.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- FOOTER CTA -->
