@@ -798,6 +798,7 @@
             width: 100%;
             padding-bottom: 2px;
             -webkit-overflow-scrolling: touch;
+            flex-wrap: wrap;
         }
 
         .tab-btn {
@@ -1421,6 +1422,128 @@
             font-weight: 600;
             color: var(--slate-700);
         }
+        /* NOTION SIMULATION STYLES */
+        .notion-frame {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+        }
+        .notion-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        .notion-icon {
+            font-size: 28px;
+            background: var(--slate-100);
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .notion-callout {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 14px 18px;
+            font-size: 13.5px;
+            color: var(--slate-700);
+            margin: 16px 0;
+        }
+        .notion-checklist {
+            list-style: none;
+            margin: 14px 0;
+            padding: 0;
+        }
+        .notion-checklist li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--slate-800);
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .notion-check-box {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 2px solid var(--emerald-500);
+            background: var(--emerald-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--emerald-600);
+            font-size: 12px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* SCHEDULER BATCH STYLES */
+        .scheduler-hero {
+            background: linear-gradient(135deg, var(--slate-900) 0%, #0369a1 100%);
+            color: white;
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin-bottom: 20px;
+        }
+        .scheduler-stats-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .scheduler-stat-pill {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            text-align: center;
+        }
+        .scheduler-stat-val {
+            font-size: 20px;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+            color: #ffffff;
+        }
+        .scheduler-stat-lbl {
+            font-size: 11px;
+            font-weight: 600;
+            color: #e0f2fe;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .filter-btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 16px 0 12px;
+        }
+        .filter-btn {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--slate-700);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
     </style>
 </head>
 <body>
@@ -1436,6 +1559,7 @@
                 <span>Jezreel Dave Leybag</span>
             </a>
             <ul class="nav-links">
+                <li><a href="signops-ai.html" style="color: #0284c7; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;"><span>⚡</span> SignOps AI (Sign Estimator)</a></li>
                 <li><a href="#flywheel">Flywheel</a></li>
                 <li><a href="#live-specimen">Live Specimen</a></li>
                 <li><a href="#operations-os">Operations OS</a></li>
@@ -1451,6 +1575,18 @@
     <!-- HERO SECTION -->
     <header class="hero">
         <div class="container" style="padding-top: 0; padding-bottom: 0;">
+            <!-- FEATURED BANNER: SIGNOPS GEMINI OS -->
+            <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border: 1px solid #38bdf8; border-radius: 12px; padding: 14px 20px; margin-bottom: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.15);">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 26px;">⚡</span>
+                    <div>
+                        <div style="font-size: 13.5px; font-weight: 800; color: #ffffff; letter-spacing: -0.2px;">FEATURED SYSTEM: SignOps Gemini OS (Fastsigns Estimating & Wholesale Sourcing Engine)</div>
+                        <div style="font-size: 12px; color: #94a3b8; margin-top: 1px;">Live interactive AI prototype for inbound lead spec extraction, North American trade sourcing, and CoreBridge margin protection.</div>
+                    </div>
+                </div>
+                <a href="signops-ai.html" style="background: #0284c7; color: white; padding: 8px 16px; border-radius: 6px; font-size: 12.5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#0369a1'" onmouseout="this.style.background='#0284c7'">Launch Live System Demo ➔</a>
+            </div>
+
             <div class="status-pill">
                 <span class="pulsing-dot" aria-hidden="true"></span>
                 <span>Operations-First • Content Activation & High-Volume Syndication Engine</span>
@@ -1643,6 +1779,12 @@
                 </button>
                 <button id="tab-video" class="tab-btn" role="tab" aria-selected="false" aria-controls="pane-video" tabindex="-1" onclick="switchSpecimenTab('video', this)">
                     Derivative #3: Short-Form Video Vault (7 Embedded Cuts)
+                </button>
+                <button id="tab-notion" class="tab-btn" role="tab" aria-selected="false" aria-controls="pane-notion" tabindex="-1" onclick="switchSpecimenTab('notion', this)">
+                    Derivative #4: Notion SOP Resource
+                </button>
+                <button id="tab-scheduler" class="tab-btn" role="tab" aria-selected="false" aria-controls="pane-scheduler" tabindex="-1" onclick="switchSpecimenTab('scheduler', this)">
+                    Derivative #5: Metricool & Buffer Batch Engine (240 Posts)
                 </button>
             </div>
 
@@ -1873,6 +2015,237 @@ AUDIO: "Preserve your decision-making battery for what actually grows the busine
 
 [0:38 - 0:45] CTA (Visual: Pointing to comment box graphic + follow button animation)
 AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily Friction Audit."
+                </div>
+            </div>
+
+            <!-- TAB PANE 4: NOTION SOP RESOURCE (JOB DESCRIPTION MATCH) -->
+            <div id="pane-notion" class="tab-pane" role="tabpanel" aria-labelledby="tab-notion" tabindex="0">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                    <div>
+                        <span style="font-size: 13.5px; font-weight: 700; color: var(--slate-900);">Cloneable Notion SOP Resource: Daily Friction Audit Protocol</span>
+                        <div style="font-size: 12px; color: var(--slate-600); margin-top: 2px;">
+                            Direct implementation of the job requirement: <em>"turning a top-performing LinkedIn post into a Notion resource, then into a Reel/Shorts script."</em>
+                        </div>
+                    </div>
+                    <button class="nav-cta" style="background: var(--slate-900); font-size: 12px; border: none; display: flex; align-items: center; gap: 6px;" onclick="copyNotionMarkdown(this)">
+                        <svg aria-hidden="true" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        <span>Copy Notion SOP Markdown</span>
+                    </button>
+                </div>
+
+                <!-- NOTION PAGE SIMULATOR -->
+                <div class="notion-frame">
+                    <div class="notion-header">
+                        <div class="notion-icon">📋</div>
+                        <div>
+                            <div style="font-size: 11px; font-weight: 700; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.5px;">Personal Growth OS / High-Performance Protocols</div>
+                            <h3 style="font-size: 18px; font-weight: 800; color: var(--slate-900); margin-top: 2px;">SOP: The Daily Friction Audit & 5 PM Shutdown Ritual</h3>
+                            <div style="display: flex; gap: 10px; margin-top: 6px; flex-wrap: wrap; font-size: 11.5px; color: var(--slate-600);">
+                                <span><strong>Owner:</strong> High-Performance Operator</span>
+                                <span>•</span>
+                                <span><strong>Cadence:</strong> Daily at 4:45 PM</span>
+                                <span>•</span>
+                                <span class="badge-status status-published" style="padding: 2px 8px; font-size: 10.5px;">✓ Live Template Active</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notion-callout">
+                        <strong>🎯 Target Metric:</strong> Eliminate cognitive drag before evening shutdown. Wake up with 0 deliberation and 100% pre-committed priority focus.
+                    </div>
+
+                    <h4 style="font-size: 14px; font-weight: 800; color: var(--slate-900); margin: 18px 0 8px;">
+                        1. The 5 PM Daily Shutdown Checklist
+                    </h4>
+                    <ul class="notion-checklist">
+                        <li>
+                            <div class="notion-check-box">✓</div>
+                            <span><strong>Inbox Zero Scrub:</strong> Apply 2-min rule. Any message requiring &gt;2 minutes gets scheduled or delegated.</span>
+                        </li>
+                        <li>
+                            <div class="notion-check-box">✓</div>
+                            <span><strong>Top-3 Priority Anchor:</strong> Pre-commit tomorrow's non-negotiable needle-movers (P1, P2, P3).</span>
+                        </li>
+                        <li>
+                            <div class="notion-check-box">✓</div>
+                            <span><strong>Calendar Deep Block:</strong> Reserve 08:30–10:00 AM as closed-door, notification-free deep execution.</span>
+                        </li>
+                        <li>
+                            <div class="notion-check-box">✓</div>
+                            <span><strong>Tab Purge:</strong> Close all browser windows except tomorrow's initial working document.</span>
+                        </li>
+                    </ul>
+
+                    <h4 style="font-size: 14px; font-weight: 800; color: var(--slate-900); margin: 20px 0 8px;">
+                        2. The Morning "No-Decision" Matrix
+                    </h4>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Time Block</th>
+                                    <th>Mode</th>
+                                    <th>Execution Directive</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>08:00 - 08:30 AM</strong></td>
+                                    <td>Activation</td>
+                                    <td>Hydration, daylight exposure, zero notifications / Slack check.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>08:30 - 10:00 AM</strong></td>
+                                    <td>Deep Sprint #1</td>
+                                    <td>Execute Priority #1 immediately. No context switching.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>10:00 - 10:30 AM</strong></td>
+                                    <td>Batch Sync</td>
+                                    <td>Process incoming team messages and operational handoffs.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB PANE 5: METRICOOL & BUFFER BATCH DISTRIBUTION ENGINE -->
+            <div id="pane-scheduler" class="tab-pane" role="tabpanel" aria-labelledby="tab-scheduler" tabindex="0">
+                <div class="scheduler-hero">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+                        <div>
+                            <span style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: #7dd3fc;">Operations-First Syndication Engine</span>
+                            <h3 style="font-size: 20px; font-weight: 800; margin: 4px 0 6px; color: #ffffff;">Metricool & Buffer High-Volume Bulk Scheduler</h3>
+                            <p style="font-size: 13px; color: #e0f2fe; max-width: 650px; line-height: 1.5;">
+                                High-volume publishing (200+ posts/mo) is impossible to execute manually without human error. This system uses our automated Python engine (<code>syndicate_engine.py</code>) to format, QC-verify, and stage 240+ multi-channel posts into a single 1-click import CSV.
+                            </p>
+                        </div>
+                        <a href="./metricool_buffer_batch_200_posts.csv" download="metricool_buffer_batch_200_posts.csv" class="nav-cta" style="background: #ffffff; color: var(--slate-950); font-weight: 800; font-size: 12.5px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: inline-flex; align-items: center; gap: 6px;">
+                            <svg aria-hidden="true" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                            <span>Download Metricool CSV (240 Posts)</span>
+                        </a>
+                    </div>
+
+                    <div class="scheduler-stats-strip">
+                        <div class="scheduler-stat-pill">
+                            <div class="scheduler-stat-val">240</div>
+                            <div class="scheduler-stat-lbl">Monthly Posts</div>
+                        </div>
+                        <div class="scheduler-stat-pill">
+                            <div class="scheduler-stat-val">60</div>
+                            <div class="scheduler-stat-lbl">LinkedIn (Carousels/Posts)</div>
+                        </div>
+                        <div class="scheduler-stat-pill">
+                            <div class="scheduler-stat-val">60</div>
+                            <div class="scheduler-stat-lbl">Instagram (Reels/4:5)</div>
+                        </div>
+                        <div class="scheduler-stat-pill">
+                            <div class="scheduler-stat-val">30</div>
+                            <div class="scheduler-stat-lbl">YouTube (Shorts/Pillars)</div>
+                        </div>
+                        <div class="scheduler-stat-pill">
+                            <div class="scheduler-stat-val">90</div>
+                            <div class="scheduler-stat-lbl">X / Twitter (Threads)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FILTER CONTROLS & TABLE PREVIEW -->
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                    <div class="filter-btn-group" role="group" aria-label="Filter Scheduled Posts">
+                        <button class="filter-btn active" onclick="filterSchedulerTable('all', this)">All Networks (240)</button>
+                        <button class="filter-btn" onclick="filterSchedulerTable('LinkedIn', this)">LinkedIn (60)</button>
+                        <button class="filter-btn" onclick="filterSchedulerTable('Instagram', this)">Instagram (60)</button>
+                        <button class="filter-btn" onclick="filterSchedulerTable('YouTube', this)">YouTube (30)</button>
+                        <button class="filter-btn" onclick="filterSchedulerTable('X / Twitter', this)">X / Twitter (90)</button>
+                    </div>
+                    <div style="font-size: 11.5px; color: var(--slate-500); font-weight: 600;">
+                        Timezone: US EST (UTC-5) / SAST (UTC+2) Aligned
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="scheduler-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Date & Slot</th>
+                                <th>Network</th>
+                                <th>Type</th>
+                                <th>Caption / Hook Preview</th>
+                                <th>First Comment (Routing)</th>
+                                <th>QC Verification</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-network="LinkedIn">
+                                <td><code>POST-0001</code></td>
+                                <td>Oct 1 • 08:15 AM</td>
+                                <td><span style="font-weight: 700; color: #0284c7;">LinkedIn</span></td>
+                                <td><span class="cadence-pill" style="font-size: 10px;">LONGFORM</span></td>
+                                <td>Burnout isn't caused by working 12 hours a day. It's caused by making 40 micro-decisions...</td>
+                                <td style="font-size: 11px; color: var(--slate-600);">Grab Notion SOP link: https://...</td>
+                                <td><span style="color: var(--emerald-600); font-weight: 700; font-size: 11px;">✓ Hook &lt;140c</span></td>
+                                <td><span class="badge-status status-scheduled">Scheduled</span></td>
+                            </tr>
+                            <tr data-network="LinkedIn">
+                                <td><code>POST-0002</code></td>
+                                <td>Oct 1 • 12:30 PM</td>
+                                <td><span style="font-weight: 700; color: #0284c7;">LinkedIn</span></td>
+                                <td><span class="cadence-pill" style="font-size: 10px; background: #e0f2fe; color: #0369a1;">CAROUSEL_4x5</span></td>
+                                <td>The 3 Friction Traps Killing Your Output (7-Slide Document Carousel)...</td>
+                                <td style="font-size: 11px; color: var(--slate-600);">Swipe slides 1-7 for protocol.</td>
+                                <td><span style="color: var(--emerald-600); font-weight: 700; font-size: 11px;">✓ Canva 4:5</span></td>
+                                <td><span class="badge-status status-scheduled">Scheduled</span></td>
+                            </tr>
+                            <tr data-network="Instagram">
+                                <td><code>POST-0003</code></td>
+                                <td>Oct 1 • 11:00 AM</td>
+                                <td><span style="font-weight: 700; color: #e1306c;">Instagram</span></td>
+                                <td><span class="cadence-pill" style="font-size: 10px; background: #fdf2f8; color: #db2777;">REEL_9x16</span></td>
+                                <td>The high-performer's secret to eliminating decision fatigue. Save this for your morning routine. ⚡</td>
+                                <td style="font-size: 11px; color: var(--slate-600);">Comment 'SOP' for direct link.</td>
+                                <td><span style="color: var(--emerald-600); font-weight: 700; font-size: 11px;">✓ Safe-Zone OK</span></td>
+                                <td><span class="badge-status status-scheduled">Scheduled</span></td>
+                            </tr>
+                            <tr data-network="YouTube">
+                                <td><code>POST-0004</code></td>
+                                <td>Oct 1 • 02:00 PM</td>
+                                <td><span style="font-weight: 700; color: #dc2626;">YouTube</span></td>
+                                <td><span class="cadence-pill" style="font-size: 10px; background: #fef2f2; color: #b91c1c;">SHORTS_9x16</span></td>
+                                <td>Stop Burning 30% of Your Focus Before Noon: The 5 PM Protocol.</td>
+                                <td style="font-size: 11px; color: var(--slate-600);">Pinned: Free Notion checklist.</td>
+                                <td><span style="color: var(--emerald-600); font-weight: 700; font-size: 11px;">✓ 0-3s Beat OK</span></td>
+                                <td><span class="badge-status status-scheduled">Scheduled</span></td>
+                            </tr>
+                            <tr data-network="X / Twitter">
+                                <td><code>POST-0005</code></td>
+                                <td>Oct 1 • 09:00 AM</td>
+                                <td><span style="font-weight: 700; color: var(--slate-900);">X / Twitter</span></td>
+                                <td><span class="cadence-pill" style="font-size: 10px; background: #f1f5f9; color: var(--slate-700);">THREAD</span></td>
+                                <td>If you sit at your desk at 9 AM and ask 'what should I work on today?' you've already lost. (1/6) 🧵</td>
+                                <td style="font-size: 11px; color: var(--slate-600);">Canonical Medium article link.</td>
+                                <td><span style="color: var(--emerald-600); font-weight: 700; font-size: 11px;">✓ &lt;280 chars</span></td>
+                                <td><span class="badge-status status-scheduled">Scheduled</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- AUTOMATION & WEBHOOK SPECIFICATION -->
+                <div style="margin-top: 18px; background: var(--slate-900); border-radius: var(--radius-sm); padding: 16px; color: #e2e8f0; font-size: 12px; font-family: 'JetBrains Mono', monospace; line-height: 1.5;">
+                    <div style="color: #38bdf8; font-weight: 700; margin-bottom: 6px;">// Notion-to-Metricool/Buffer Webhook Payload Architecture (Automated Push):</div>
+                    <span style="color: #94a3b8;">POST /api/v2/schedule/bulk_import</span><br>
+                    {<br>
+                    &nbsp;&nbsp;"trigger": "notion_status_changed_to_approved",<br>
+                    &nbsp;&nbsp;"campaign": "personal_growth_syndication_q4",<br>
+                    &nbsp;&nbsp;"batch_size": 240,<br>
+                    &nbsp;&nbsp;"target_schedulers": ["metricool", "buffer"],<br>
+                    &nbsp;&nbsp;"pre_flight_qc_verification": "100_percent_passed",<br>
+                    &nbsp;&nbsp;"csv_payload_source": "metricool_buffer_batch_200_posts.csv"<br>
+                    }
                 </div>
             </div>
         </div>
@@ -2278,6 +2651,34 @@ AUDIO: "Drop a comment below with 'OPERATOR' and I'll send you our 1-page Daily 
             btn.classList.add('active');
             var activeArrow = btn.querySelector('span:last-child');
             if (activeArrow) activeArrow.style.color = '#0284c7';
+        }
+
+        function copyNotionMarkdown(btn) {
+            var sopMarkdown = `# SOP: The Daily Friction Audit & Shutdown Protocol (High-Performance OS)\n**Owner:** High-Performance Operator\n**Review Cycle:** Weekly on Friday at 4:45 PM\n**Target Outcome:** 0 Open Cognitive Loops before 6:00 PM | 100% Pre-Decided Morning Priorities\n\n---\n\n## 🎯 1. The 5 PM Daily Shutdown Checklist\n- [ ] **Inbox Zero Scrub:** Process all unread emails. (2-min rule: Reply, Archive, or Delegate).\n- [ ] **Calendar Lock:** Block exactly two 90-minute Deep Work sprints for tomorrow.\n- [ ] **Top-3 Priority Anchor:**\n  1. Priority 1 (Non-Negotiable Needle-Mover)\n  2. Priority 2 (Key Strategic Deliverable)\n  3. Priority 3 (Operational Support)\n- [ ] **Close All Browser Tabs:** Keep maximum 3 active tabs upon computer sleep.\n- [ ] **Mental Handoff Verbal Cue:** "Work is complete. The morning is pre-decided."\n\n---\n\n## ⚡ 2. The Morning Execution Matrix (No Decision Zone)\n| Time Block | Protocol | Action Rules |\n| :--- | :--- | :--- |\n| **08:00 - 08:30 AM** | Activation | Hydrate, daylight exposure, zero notifications/Slack. |\n| **08:30 - 10:00 AM** | Deep Sprint #1 | Execute Priority #1. Email and messaging clients closed. |\n| **10:00 - 10:30 AM** | Asynchronous Sync | Batch respond to high-priority team messages. |\n| **10:30 - 12:00 PM** | Deep Sprint #2 | Execute Priority #2. |`;
+
+            navigator.clipboard.writeText(sopMarkdown).then(function() {
+                var oldHtml = btn.innerHTML;
+                btn.innerHTML = '<span>✓ Copied to Clipboard!</span>';
+                var announcer = document.getElementById('a11y-announcer');
+                if (announcer) announcer.innerText = 'Notion SOP markdown copied to clipboard';
+                setTimeout(function() { btn.innerHTML = oldHtml; }, 2500);
+            });
+        }
+
+        function filterSchedulerTable(network, btn) {
+            document.querySelectorAll('.filter-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+
+            var rows = document.querySelectorAll('#scheduler-table tbody tr');
+            rows.forEach(function(row) {
+                if (network === 'all' || row.getAttribute('data-network') === network) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
         }
     </script>
 
